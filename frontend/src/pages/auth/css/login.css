@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.l-form-box{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: purple;
+}
+
+.l-form {
+    margin: auto;
+    width: 400px;
+    height: 50vh;
+    padding: 10px;
+    background: linear-gradient(135deg,rgba(255,255,255,0.1),rgba(255,255,255,0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.18);
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+}
+.l-form ul{
+    /* display: flex;
+    flex-direction: column; */
+    list-style-type: none;
+    display: flex;
+    gap: 18px;
+    margin-top: 40px;
+    flex-direction: column;
+    
+
+}
+.l-form ul li{
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    background-color: #eaeaea;
+    border-radius: 30px;
+   width: 250px;
+    
+}
+
+.l-form ul li i{
+    margin: 15px;
+    font-weight: bolder;
+}
+ .l-form ul li input{
+   
+    border: none;
+    outline: none;
+    background-color: transparent;
+} 
+.l-form ul li .sub-btn{
+    border: none;
+    outline: none;
+    background: black;
+    width: 250;
+}
+
+/* .l-form input{
+    float: right;
+    transition: 0.1 ease;
+} */

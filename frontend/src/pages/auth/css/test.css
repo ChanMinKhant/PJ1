@@ -1,0 +1,35 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(45deg,green,blue);
+}
+.menu{
+    position: relative;
+    width: 280px;
+    height: 280px;
+    background: rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.menu .togge{
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    border-radius: 50%;
+    background: linear-gradient(45deg,red,blue);
+    transition: 1.25s;
+    cursor: pointer;
+}
+.menu.active .togge{
+    transform: rotate(360deg);
+    box-shadow: 0 6px 8px rgba(0,0,0,0.15),0 0 0 2px #333, 0 0 0 8px #fff;
+}

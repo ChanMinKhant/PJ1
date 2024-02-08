@@ -1,0 +1,126 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* .main{
+    height: 80%;
+    width: 100%;
+} */
+.blur-box {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: url('rgBg2.jpg');
+
+  background: linear-gradient(45deg, white);
+}
+.blur {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*  */
+}
+.rg-box {
+  width: 300px;
+  min-width: 400px;
+  padding: 10px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0)
+  );
+  margin-top: 50px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+.btn {
+  height: 35px;
+  color: rgb(255, 254, 255);
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  font-size: 20px;
+  background: rgb(25, 28, 235);
+}
+legend {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+}
+legend h2 {
+  font-weight: 700;
+  font-size: 48px;
+  color: rgb(68, 5, 93);
+}
+.underline {
+  width: 100px;
+  height: 6px;
+  border-radius: 9px;
+  background-color: rgb(115, 11, 157);
+}
+
+.blur ul {
+  list-style-type: none;
+  display: flex;
+  gap: 18px;
+  margin-top: 40px;
+  flex-direction: column;
+}
+.blur li {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+
+  border-radius: 60px;
+  height: 45px;
+  width: 280px;
+  background-color: #eaeaea;
+}
+.blur li input {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #797979;
+  font-size: 17px;
+  height: 35px;
+  min-width: 0px;
+}
+.blur li i {
+  margin: 15px;
+  font-weight: bolder;
+}
+
+.blur input {
+  float: right;
+}
+.blur-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .blur {
+    width: 100%;
+    height: 100%;
+  }
+  .rg-box {
+    border-radius: 0%;
+    width: 100%;
+    height: 100%;
+    margin-top: 0px;
+  }
+  .blur li {
+    width: 250px;
+  }
+}

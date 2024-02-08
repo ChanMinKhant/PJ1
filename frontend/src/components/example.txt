@@ -1,0 +1,46 @@
+/src
+|-- /components
+|   |-- /common
+|       |-- Header.js
+|       |-- Footer.js
+|   |-- /dashboard
+|       |-- Dashboard.js
+|       |-- DashboardChart.js
+|   |-- /auth
+|       |-- Login.js
+|       |-- Register.js
+|   |-- /profile
+|       |-- UserProfile.js
+|       |-- UserSettings.js
+
+
+////////////////////////////
+
+
+/src
+|-- /assets
+|   |-- /images
+|   |-- /styles
+|-- /components
+|-- /containers
+|-- /context
+|-- /hooks
+|-- /services
+|-- /utils
+|-- /pages
+|-- /redux
+|   |-- /actions
+|   |-- /reducers
+|   |-- /store
+|-- App.js
+|-- index.js
+|-- index.css
+|-- /public
+|-- /tests
+|-- /node_modules
+|-- package.json
+|-- README.md
+|-- .gitignore
+|-- .eslintrc
+|-- .prettierrc
+|-- webpack.config.js

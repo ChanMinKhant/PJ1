@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.redirectUrl-box{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+   
+}
+.redirectUrl{
+    margin: auto;
+    width: 30%;
+    padding: 10px;
+}
+.redirectUrl ul{
+    list-style-type: none;
+}
+.redirectUrl ul li{
+    margin: 30px 30px;
+}

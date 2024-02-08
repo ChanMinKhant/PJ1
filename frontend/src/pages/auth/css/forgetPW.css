@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.f-pw-box{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} 
+
+.f-pw{
+    margin: auto;
+    width: 50%;
+    padding: 10px; 
+}
+.f-pw ul{
+    
+    list-style-type: none;
+}
+.f-pw li{
+    margin: 30px 30px;
+}
+.f-pw li:last-child{
+    float: right;
+}
+.f-pw input{
+    float: right;
+}

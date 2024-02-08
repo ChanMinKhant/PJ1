@@ -1,0 +1,44 @@
+.TableWrapper {
+  overflow-x: auto;
+}
+
+.Table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 16px;
+  min-width: 300px;
+}
+
+.Th {
+  background-color: #f2f2f2;
+}
+
+.Td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+/* Mobile view styles */
+.MobileContainer {
+  border: 1px solid #dddddd;
+  margin-bottom: 16px;
+}
+
+.MobileHeader {
+  background-color: #f2f2f2;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.MobileContent {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .MobileContent {
+    display: block;
+  }
+}

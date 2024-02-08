@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.host-box{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+   
+}
+.host{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    display: block;
+}
+.host ul{
+    list-style-type: none;
+}
+.host ul li{
+    margin: 30px 30px;
+}
+.host ul li button{
+   float: right;
+}

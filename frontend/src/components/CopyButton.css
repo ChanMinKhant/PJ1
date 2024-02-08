@@ -1,0 +1,222 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+.addcpybtn {
+  /* display: flex;
+  flex-direction: row; */
+  width: 150px;
+  /* position: absolute; */
+  /* justify-content: space-evenly; */
+}
+
+/* .url {
+  width: 80px;
+  overflow: scroll;
+} */
+.surl {
+  float: left;
+  width: 110px;
+  overflow-x: scroll;
+}
+::-webkit-scrollbar {
+  width: 0; /* Hide scrollbar width */
+  height: 0; /* Hide scrollbar height */
+}
+.clip {
+  font-size: 12px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  /* height: 10px; */
+  left: 0px;
+  border-radius: 3px;
+}
+/* .clipdiv {
+  height: 17px;
+  border: 1px solid;
+  
+  overflow: hidden;
+  border-top-right-radius: 2px;
+  border-top-left-radius: 2px;
+} */
+.copied-message {
+  position: relative;
+  font-size: 10px;
+  /* height: 10px; */
+  left: 0px;
+  font-weight: bold;
+  border-radius: 3px;
+}
+.editbtn {
+  background-color: rgb(3, 185, 188);
+  margin-right: 8px;
+  width: 50px;
+}
+.editbtn:hover {
+  background-color: rgb(32, 224, 228);
+}
+.editbtn:active {
+  background-color: rgb(1, 149, 151);
+  border: 3px inset;
+  color: rgb(165, 165, 165);
+  width: 48px;
+  margin-right: 10px;
+  padding: 4px;
+  font-size: 13px;
+}
+.deletebtn {
+  background-color: rgb(213, 3, 3);
+  width: 60px;
+}
+.deletebtn:hover {
+  background-color: rgb(253, 16, 16);
+}
+.deletebtn:active {
+  background-color: rgb(149, 1, 1);
+  border: 3px inset;
+  color: rgb(165, 165, 165);
+  width: 58px;
+  padding: 4px;
+  font-size: 13px;
+}
+.btns {
+  display: flex;
+  flex-direction: row;
+}
+.btnsss {
+  background-color: aquamarine;
+  margin: 5px;
+  border: 1px solid;
+  padding: 5px;
+}
+/* .editdelon {
+  border: 1px solid;
+} */
+.btntd {
+  display: flex;
+  flex-direction: column;
+}
+.editdel {
+  font-size: 14px;
+  /* text-transform: uppercase; */
+  cursor: pointer;
+  font-weight: bold;
+  padding: 5px;
+  padding-top: 4px;
+  color: azure;
+  border: 3px outset;
+  text-align: center;
+  border-radius: 10px;
+}
+.tableRow {
+  width: 100%;
+}
+.clip:hover {
+  background-color: rgb(168, 199, 199);
+  color: black;
+}
+.clip:active {
+  background-color: black;
+  color: antiquewhite;
+}
+.msilalel {
+  display: none;
+}
+.notHide {
+  display: inline-block;
+}
+.hideinp {
+  display: none;
+}
+.url .form-control {
+  display: none;
+}
+@media (max-width: 700px) {
+  .tableRow {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    border: 1px solid;
+    /* width: 90%; */
+  }
+  tr {
+    display: flex;
+    /* align-items: center; */
+    /* text-align: left; */
+    flex: 1;
+    flex-direction: column;
+    width: 100%;
+    /* border: 1px solid black; */
+    margin: 30px;
+  }
+  .bbbbb {
+    width: 100%;
+    /* border: 1px solid; */
+    text-align: left;
+  }
+  td {
+    border: 100px solid black;
+    text-align: left;
+    padding: 8px;
+    width: 100%;
+  }
+  /* }
+  .tableRow td {
+    flex: 1;
+  }*/
+  .addcpybtn {
+    border-bottom: 1px solid black;
+    width: 100%;
+    justify-content: center;
+    color: azure;
+    background-color: rgb(4, 4, 4);
+  }
+  .surl {
+    width: 80%;
+    text-align: left;
+  }
+  .msilalel {
+    display: block;
+    width: 100px;
+    /* background-color: blueviolet; */
+    /* color: aliceblue; */
+    font-weight: bold;
+  }
+  .formobs {
+    /* width: 94%; */
+    display: flex;
+    /* grid-template-rows: auto auto; */
+
+    /* grid-template-columns: auto auto; */
+    gap: 10px;
+  }
+  .formobs p {
+    text-align: left;
+    /* background-color: brown; */
+  }
+  .fone {
+    background-color: #c7cfd1;
+    color: black;
+  }
+  .sone {
+    background-color: #5f7b82;
+  }
+  /* .clipdiv {
+    width: 30%;
+  } */
+}
+
+/* td {
+  height: 100%;
+ 
+  overflow: scroll; 
+} */
+/* tr {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  width: 100%;
+} */

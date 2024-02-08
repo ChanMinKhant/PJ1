@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.r-pw-box{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.r-pw {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+.r-pw ul{
+    
+    list-style-type: none;
+}
+.r-pw li{
+    margin: 30px 30px;
+}
+.r-pw li:last-child{
+    float: right;
+}
+.r-pw input{
+    float: right;
+}
