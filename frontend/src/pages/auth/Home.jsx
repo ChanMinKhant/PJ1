@@ -18,30 +18,23 @@ return (
       
            <div className="mainHome">
             <div className="m-left">
-            <div className="proton">
+            {/* <div className="proton">
 
-             {/* < img src={myImg} alt="" className='wheel1'/> */}
+              < img src={myImg} alt="" className='wheel1'/>
                   <div className="electron">
                   
                      <div className='electron-1'></div>
                      <div className='electron-2'></div>
                      <div className='electron-3'></div>
                   </div>
-               </div> 
-                {/* <div className='animate-text'>
+               </div>  */}
+                <div className='animate-text'>
                 <h1><span></span></h1>
                 </div>
-                {/* <button className='homebtn'><Link to='/register'>Regisert Now</Link></button> 
-                
-
-             <Link to='/register'><button className='homebtn'>Register Now</button></Link> */}
+             <Link to='/register'><button className='homebtn'>Register Now</button></Link>
             </div>
              <div className="m-right">
-             <div className='animate-text'>
-                <h1><span></span></h1>
-                </div>
-                {/* <button className='homebtn'><Link to='/register'>Regisert Now</Link></button> */}
-                
+             
 
              <Link to='/register'><button className='homebtn'>Register Now</button></Link>
              {/* <div className="proton">
