@@ -144,7 +144,9 @@
   left: 175px;
   transition: all 0.3s ease;
 }
-
+.h1{
+  color:#272626;
+}
 .sidlbar {
   height: 100%;
 }
