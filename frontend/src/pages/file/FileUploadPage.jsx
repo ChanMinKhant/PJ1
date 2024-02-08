@@ -241,7 +241,7 @@ const FileUploadPage = () => {
           </form>
         </div>
       </div>
-      {/* <div className='filediv'>
+      <div className='filediv'>
         {files.map((file) => (
           <FileCompo
             // className={`${isPremium ? 'donotshow' : 'show'}`}
@@ -250,15 +250,15 @@ const FileUploadPage = () => {
             // onDelete={handleDeleteUrl}
           />
         ))}
-      </div> */}
-      <h2>Uploaded Files</h2>
+      </div>
+      {/* <h2>Uploaded Files</h2>
 
       {files?.map((file) => (
         <ul key={file._id}>
           <li key={file._id}>{file.originalFilename}</li>
           <li>{file.shortId}</li>
         </ul>
-      ))}
+      ))} */}
     </div>
   );
 };
