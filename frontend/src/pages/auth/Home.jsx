@@ -30,7 +30,7 @@ return (
                </div>  */}
                 <div className='animate-text'>
                 <h1><span></span></h1>
-                </div>
+                </div><br /><br /><br />
              <Link to='/register'><button className='homebtn'>Register Now</button></Link>
             </div>
              <div className="m-right">
