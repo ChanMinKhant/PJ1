@@ -45,6 +45,7 @@ function App() {
           <Route path='/dashboard/*' element={<Dash />}>
             {/* <Route index element={<Home />} /> */}
             <Route path='url' element={<ShortenUrlApp />} />
+            <Route path='host' element={<Dhost />} />
             <Route path='files' element={<FileUploadPage />} />
             {/* <Route path='*' element={<Home />} /> */}
           </Route>
