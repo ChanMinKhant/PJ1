@@ -8,7 +8,7 @@
 }
 .home{
   
-  height: 110vh; 
+  height: 100vh; 
   display: flex;
   flex-direction: column;
   background: transparent;
@@ -85,21 +85,7 @@
       width: calc(100% + 8px);
   } 
 }
-.m-right {
-  display: flex;
- flex-direction: column;
-  width: 50%;
-  height: 100%;
-  position: relative;
-  
-   border: 1px solid red;
-/* background: url("settingHome.jpg"); */
-   /* align-items: center; 
-  justify-content: center; */
-  /* -webkit-mask-image: linear-gradient(to bottom left,black, transparent);
-  mask-image: linear-gradient(to bottom left,black, transparent); */
 
-}
 .proton{
   position: absolute;
   width: 300px;
@@ -133,15 +119,6 @@
  background: blue;
  float: right;
 }
-/* .electron::before{
-  content: '';
-  width: 20px;
-  height: 20px;
-  background-color: deeppink;
-  left: -20px;
-  top: -20px;
-  position: absolute;
-} */
 
 @keyframes rotation{
   0%{ transform: rotate(0deg) }
@@ -168,15 +145,13 @@
  
 }
 .homebtn{
+  margin: 30px;
   width: 200px;
   border-radius: 20px;
   font-weight: bold;
   background-color: green;
 
 }
-
-
-
 
 .wheel1{
   width: 150px;
@@ -198,10 +173,7 @@
 .wheel2{
   width: 150px;
   height: 150px;
- 
   position: relative;
-  /* margin: -300px -150px 0 0; */
-  /* border: 1px solid yellow; */
   margin:0 0 0 0;
   -webkit-transition: -webkit-transform 1s;
   -webkit-animation: spin2 1.5s linear infinite;
@@ -210,10 +182,7 @@
 .wheel3{
   width: 150px;
   height: 150px;
-  
   position: relative;
-  /* border: 1px solid black; */
-  /* margin: -80px 0 0 0;  */
   margin: -30px 0 0 -200px;
   -webkit-transition: -webkit-transform 1s;
   -webkit-animation: spin1 1.5s linear infinite;
@@ -224,22 +193,30 @@
    -webkit-transform:rotate(-360deg);
   }
 }
-.aboutUs{
+.m-right {
   display: flex;
- height: 90vh;
-  background: white;
-  
-}
-.aboutUsleft{
-  width: 49%;
-  /* background: rgb(129, 3, 3); */
-}
-.aboutUsright{
-
+  align-items: center;
+  justify-content: center;
   width: 50%;
-  display: flex;
+  height: 100%;
   
-  /* background-color: #2c4766; */
-  border: 1px solid black;
 
+}
+.circle{
+  position: relative;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  border-radius:  50%;
+  background: red;
+  width: 300px;
+  height: 300px;
+}
+.logo{
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: url(cogwheel.png);
+  background-size: cover;
 }

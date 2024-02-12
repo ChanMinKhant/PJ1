@@ -159,7 +159,7 @@ function Nav() {
           </Link>
         </li>
         <li>
-          <Link to='/about us' onClick={toggleMenu}>
+          <Link to='/aboutUs' onClick={toggleMenu}>
             about us
           </Link>
         </li>

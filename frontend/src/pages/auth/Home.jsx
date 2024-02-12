@@ -14,30 +14,21 @@ return (
     <div className='color'>
     <Nav/>
      <div className="home">
-         
-      
            <div className="mainHome">
             <div className="m-left">
-            {/* <div className="proton">
-
-              < img src={myImg} alt="" className='wheel1'/>
-                  <div className="electron">
-                  
-                     <div className='electron-1'></div>
-                     <div className='electron-2'></div>
-                     <div className='electron-3'></div>
-                  </div>
-               </div>  */}
                 <div className='animate-text'>
                 <h1><span></span></h1>
-                </div>
+                </div><br /><br /><br />
              <Link to='/register'><button className='homebtn'>Register Now</button></Link>
             </div>
              <div className="m-right">
-             
+               <div className='circle'> 
+                  <div className='logo'> </div>
+                     <div className='text'>
 
-            
-             
+                     </div>
+                 
+               </div>
              </div> 
          </div>
     
@@ -45,6 +36,7 @@ return (
      </div>
 
   </div>
+
     
 )
 }

@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+.AboutContainer{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+}
+.sub-container{
+    display: flex;
+    flex-direction: column;
+    border: 3px solid red;
+}
+.item-1{
+    display: flex;
+
+}
+.img-1{
+    width: 100px;
+    height: 100px;
+}
+.item-1-sub-1{
+    width: 100px;
+    height: 100px;
+}
+.item-2
+{
+    
+}
+.item-3{
+    
+}
+.item-4{
+    
+}
+.footer{
+    
+}
