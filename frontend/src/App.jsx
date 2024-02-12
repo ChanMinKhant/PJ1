@@ -15,6 +15,8 @@ import {
 import { FileUploadPage, FileDownloadPage } from './pages/file/index';
 import { Url, RedirectPage } from './pages/url/index';
 import { Host } from './pages/host/index';
+import { Dhost } from './pages/host/index';
+
 import DashboardLayout from './dashboard/DashboardLayout';
 
 function App() {
