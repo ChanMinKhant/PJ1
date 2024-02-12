@@ -16,6 +16,8 @@ import { FileUploadPage, FileDownloadPage } from './pages/file/index';
 import { Url, RedirectPage } from './pages/url/index';
 import { Host } from './pages/host/index';
 import { Dhost } from './pages/host/index';
+import { AboutUs } from './pages/aboutUs/index';
+
 
 import DashboardLayout from './dashboard/DashboardLayout';
 
@@ -30,6 +32,8 @@ function App() {
           <Route path='/verify-email/:token' element={<EmailVerification />} />
           <Route path='/change-password' element={<ChangePassword />} />
           <Route path='/logout' element={<Logout />} />
+          <Route path='/aboutus' element={<AboutUs />} />
+
           <Route path='/forgot-password' element={<ForgotPassword />} />
           <Route path='/reset-password/:token' element={<ResetPassword />} />
           {/* <Route path='/files' element={<FileUploadPage />} />
