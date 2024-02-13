@@ -28,19 +28,26 @@
 .img-1{
     position: absolute;
     width: 150px;
-    height: 200px;
+    height: 250px;
     left: 20%;
-    bottom: 18%;
+    bottom: 10%;
     opacity: 0.8;
     transform: rotateY(40deg);
-    transform: skewY(-20deg); 
+    transform: skewY(-10deg); 
+    box-shadow: 20px 20px 20px gray;
+    border: 1px solid black;
 
 }
 .img-2{
     position: absolute;
     width: 200px;
+    left: 40%;
     height: 400px;
-    z-index: -1;
+    transform: skewY(3deg); 
+    border: 1px solid black;
+    box-shadow: 20px 20px 20px gray;
+
+    /* z-index: -1; */
 }
 .item-1-sub-2{
     border: 1px solid black;
