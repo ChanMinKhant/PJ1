@@ -36,7 +36,7 @@ const AboutUs = () =>{
                         </p>
                     </div>
                     <div className='item-2-sub-2'>
-                    <img src={Coder1} className='img-1'/>
+                    <img src={Coder1} className='img-3'/>
                     </div>
                 </div>
                 <div className='item-3'>
@@ -44,15 +44,25 @@ const AboutUs = () =>{
                         <h1>Our Member</h1>
                     </div>
                     <div className='item-3-sub-2'>    
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
+                        <div className='member-1'>
+                            
+                        </div>
+                        <div className='member-2'>
+
+                        </div>
+                        <div className='member-3'>
+
+                        </div>
+                        <div className='member-4'>
+
+                        </div>
+                        <div className='member-5'>
+
+                        </div>
                     </div>
                 </div>
                 <div className='itme-4'>
-                    
+
                 </div>
                 <div className='footer'></div>
             </div>
