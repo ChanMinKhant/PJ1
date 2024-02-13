@@ -6,16 +6,11 @@ function SideBar() {
   return (
     <div className='sidebar p-2 '>
       <div className='m-2'>
-        <i className='bi bi-bootstrap-fill me-3 fs-4'></i>
+        <i className='bi bi-bootstrap me-3 fs-4'></i>
         <span className='sbil fs-5'>user</span>
       </div>
       <hr className='text-dark' />
-      <div
-        className='lgc list-group list-group-flush'
-        style={{
-          backgroundColor: '#f1f5f8',
-        }}
-      >
+      <div className='lgc list-group list-group-flush'>
         <Link to='/home' className='list-group-item py-2 in'>
           <i className='bi bi-house fs-5 me-3'></i>
           <span className='sbil fs-5'>Home</span>

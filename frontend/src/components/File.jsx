@@ -1,8 +1,12 @@
-import React, { useRef } from 'react';
-
+import React, { useRef, useState } from 'react';
+import './File.css';
 const FileCompo = (props) => {
   console.log(props);
   const textToCopyRef = useRef(null);
+  const [filedata, Showfiledata] = useState(false);
+  const handleFileData = () => {
+    Showfiledata(!filedata);
+  };
 
   const handleCopyClick = () => {
     const range = document.createRange();
@@ -17,41 +21,46 @@ const FileCompo = (props) => {
     // Deselect the text
     selection.removeAllRanges();
   };
+  const handleFileDeleteClick = () => {
+    const isConfirmed = window.confirm('Are you sure to delete?');
+
+    // Check if user confirmed the deletion
+    if (isConfirmed) {
+      // Invoke the onDelete function passed from the parent (FileUploadPage)
+      props.onFileDelete(props.shortId);
+    }
+  };
 
   return (
     <div>
-      <ul>
-        <li>{props.originalFilename}</li>
-        {/* <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li> */}
+      <ul className={`file-u ${filedata ? 'fileshow' : 'fileclose'}`}>
+        <li className='fli'>
+          <div className='nonda'>
+            <div className='fileno'>{props.no}. </div>
+
+            <div className='fileda'>{props.originalFilename}</div>
+          </div>
+          <div className='floatd'>
+            <span onClick={handleFileDeleteClick} className='filedeletebtn '>
+              Delete
+            </span>
+            <i
+              className={`bi bi-caret-down-fill me-3 fs-3.5 ${
+                filedata
+                  ? 'bi bi-caret-up-fill me-3 fs-3.5'
+                  : 'fbi bi-caret-down-fill me-3 fs-3.5'
+              }`}
+              onClick={handleFileData}
+            ></i>
+          </div>
+        </li>
+        <li className='fileli'>gkhjhk</li>
+        <li className='fileli'>jkhkjh</li>
+        <li className='fileli'>gkkhl</li>
+        <li className='fileli'>gukhlih</li>
+        <li className='fileli'>dytryt</li>
       </ul>
     </div>
-    // <tr>
-    //   <td>
-    //     <a
-    //       href={props.url}
-    //       target='_blank'
-    //       rel='noopener noreferrer'
-    //       ref={textToCopyRef}
-    //       style={{ marginRight: '10px' }}
-    //     >
-    //       {`${window.location.origin}/url/${props.shortUrl}`}
-    //     </a>
-    //   </td>
-    //   <td>{props.clickCount}</td>
-    //   <td>{props.isActive ? 'true' : 'false'}</td>
-    //   <td>{props.limit}</td>
-    //   <td>{props.shortUrl}</td>
-    //   <td></td>
-    //   <td>{props.url}</td>
-
-    //   <td>
-    //     <button onClick={handleCopyClick}>Copy</button>
-    //   </td>
-    // </tr>
   );
 };
 

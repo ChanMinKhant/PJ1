@@ -2,32 +2,24 @@
 /* Target the Link components within the sidebar */
 .sidebar .list-group-item.in {
   padding-left: 1.5rem;
-  background-color: #d9e2e7;
+  background-color: #000;
   position: relative;
   right: 8px;
   z-index: 0;
-  /* Your default background color */
-  /* Other styles */
+  color: white;
 }
 .sidebar link {
   background-color: #272626;
+  /* color: white; */
 }
 /* Apply hover styles specifically to the Link components with .link-hover class */
 .sidebar .list-group-item.in:hover {
   background-color: blue; /* Change this to your desired hover background color */
-  color: white; /* Change this to your desired hover text color */
-  /* Other hover styles */
+  color: white;
 }
-
-/*.sidl{
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    color: black;
-    z-index: 2;
-    font-size: 30px;
-  }*/
-
+.sbil {
+  color: beige;
+}
 .lgc {
   position: absolute;
   display: flex;
@@ -37,28 +29,12 @@
   padding-left: 10px;
   margin-left: auto;
   margin-right: auto;
-  background-color: #f1f5f8 !important;
+  /* color: aliceblue; */
 }
-/* .sidebar .iinn {
-  flex: 1;
-  height: 150px;
-  background-color: #f1f5f8;
-  width: 100%;
-} */
-/* .innn {
-  position: fixed;
-  height: 1px;
-  bottom: 0px;
-}
-.iinn {
-  position: relative;
-  border: 1px solid;
-  top: 0px;
-  bottom: 0px;
-} */
 
 .sidebar {
   width: 100%;
   height: 100%;
-  background: #d9e2e7 !important;
+  color: white;
+  background: #000 !important;
 }
