@@ -82,23 +82,16 @@ const FileUploadPage = () => {
   }, []);
   const handleDeleteFile = async (shortId) => {
     try {
-      await deleteFile(shortId);
-      // const updatedFiles = files.filter((file) => file.shortId !== shortId);
-      // setFiles(updatedFiles);
+      const res = await deleteFile(shortId);
+      console.log(res);
       // console.log(updatedFiles);
-      setFiles((prevFiles) => {
-        const updatedFiles = prevFiles.filter(
-          (file) => file.shortId !== shortId,
-        );
-        return updatedFiles;
-      });
     } catch (error) {
-      console.error('Error deleting File:', error.message);
+      console.error('Error deleting File:', error);
     }
   };
   // to
   return (
-    <div>
+    <div className='fileparent'>
       {/* <h1>File Upload</h1> */}
       <div className='container'>
         <div className='form-container'>
@@ -106,7 +99,7 @@ const FileUploadPage = () => {
 
           <form onSubmit={handleUpload} encType='multipart/form-data'>
             <div className='custom-file mb-3'>
-              <label for='fileInput' className='form-label'>
+              <label htmlFor='fileInput' className='form-label'>
                 Choose a file
               </label>
               <input
@@ -117,8 +110,8 @@ const FileUploadPage = () => {
               />
             </div>
             <div className='mb-3'>
-              <label for='customlink' className='form-label'>
-                Name
+              <label htmlFor='customlink' className='form-label'>
+                Custom Link
               </label>
               <input
                 type='text'
@@ -130,8 +123,8 @@ const FileUploadPage = () => {
               />
             </div>
             <div className='mb-3'>
-              <label for='password' className='form-label'>
-                Name
+              <label htmlFor='password' className='form-label'>
+                Password
               </label>
               <input
                 type='text'
@@ -143,8 +136,8 @@ const FileUploadPage = () => {
               />
             </div>
             <div className='mb-3'>
-              <label for='limit' className='form-label'>
-                Name
+              <label htmlFor='limit' className='form-label'>
+                Limit
               </label>
               <input
                 type='text'
@@ -156,7 +149,7 @@ const FileUploadPage = () => {
               />
             </div>
             <div className='mb-3'>
-              <label for='customfilename' className='form-label'>
+              <label htmlFor='customfilename' className='form-label'>
                 Name
               </label>
               <input
@@ -178,6 +171,7 @@ const FileUploadPage = () => {
         </div>
       </div>
       <div className='filediv'>
+        <h1>My Files</h1>
         {files.map((file, index) => (
           <FileCompo
             key={file._id}

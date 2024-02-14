@@ -1,8 +1,11 @@
+const { request } = require('http');
 const File = require('../models/FileModel.js');
 const CustomError = require('../utils/CustomError.js');
 const asyncErrorHandler = require('../utils/asyncErrorHandler.js');
-const generateRandomString = require('./../helper/generateRandomString.js');
+const generateRandomString = require('../helper/generateRandomString.js');
 const path = require('path');
+const fs = require('fs').promises;
+const { log } = require('console');
 
 // Upload File @ POST /file/upload
 exports.uploadFile = asyncErrorHandler(async (req, res, next) => {
@@ -222,8 +225,11 @@ exports.updateFile = asyncErrorHandler(async (req, res, next) => {
 exports.deleteFile = asyncErrorHandler(async (req, res, next) => {
   const { shortId } = req.params;
   // req.user = user; //for testing
-  const file = await File.findOne({ shortUrl });
-  if (req.user._id !== file.user_id.toString()) {
+  console.log(shortId);
+  const file = await File.findOne({ shortId });
+  console.log(req.user);
+  console.log(file);
+  if (req.user._id.toString() !== file.user_id.toString()) {
     const err = new CustomError('You can delete only your own file', 400);
     return next(err);
   }
@@ -232,18 +238,15 @@ exports.deleteFile = asyncErrorHandler(async (req, res, next) => {
     const err = new CustomError('File not found', 404);
     return next(err);
   }
-
+  console.log(
+    path.join(__dirname, '..', 'uploads', 'file', 'allFiles', file.filename),
+  );
   try {
     await fs.unlink(
-      path.join(
-        __dirname,
-        'uploads',
-        'files',
-        req.user.filePath,
-        file.originalFilename,
-      ),
+      path.join(__dirname, '..', 'uploads', 'file', 'allFiles', file.filename),
     );
   } catch (error) {
+    await File.deleteOne({ shortId });
     const err = new CustomError(
       'An error occurred while deleting the file',
       500,
@@ -259,4 +262,15 @@ exports.deleteFile = asyncErrorHandler(async (req, res, next) => {
 });
 
 //download file @ GET /file/:id
-exports.sendDownloadFile = asyncErrorHandler(async (req, res, next) => {});
+exports.sendDownloadFile = asyncErrorHandler(async (req, res, next) => {
+  const { shortId } = request.params;
+  const { password } = req.body;
+  const file = await File.findOne({ shortId: shortId });
+  if (file.password) {
+    next(new CustomError('password is require', 401));
+  }
+  if (file.password !== password) {
+    next(new CustomError("password doesn't match", 401));
+  }
+  res.sendFile;
+});
