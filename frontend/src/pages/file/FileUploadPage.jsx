@@ -79,7 +79,7 @@ const FileUploadPage = () => {
     };
 
     fetchFiles();
-  }, []);
+  }, [files]);
   const handleDeleteFile = async (shortId) => {
     try {
       const res = await deleteFile(shortId);

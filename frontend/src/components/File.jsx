@@ -15,6 +15,7 @@ import txtIcon from '../../assets/txt-file.png';
 import defaultIcon from '../../assets/word.png';
 import downloadcountIcon from '../../assets/download.png';
 const FileCompo = (props) => {
+  console.log(props)
   const textToCopyRef = useRef(null);
   const [filedata, Showfiledata] = useState(false);
   const handleFileData = () => {

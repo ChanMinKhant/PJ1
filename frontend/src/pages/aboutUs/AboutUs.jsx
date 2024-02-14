@@ -2,7 +2,8 @@ import Nav from '../../components/nav';
 import './aboutUs.css';
 import Coder1 from '../auth/css/coder-1.jpg'
 import Coder2 from '../auth/css/coder-2.jpg'
-
+import Chart1 from '../auth/css/chart4.jpg'
+import Chart2 from '../auth/css/chart.jpg'
 
 
 
@@ -34,9 +35,11 @@ const AboutUs = () =>{
                             <h1>Our Goal</h1>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi incidunt delectus atque voluptas omnis quibusdam ipsa dolorum sunt minima. Aspernatur, nemo soluta facilis sapiente rerum impedit esse inventore commodi quam?
                         </p>
-                    </div>
+                    </div> 
                     <div className='item-2-sub-2'>
-                    <img src={Coder1} className='img-3'/>
+                    <img src={Chart1} className='img-3'/>
+                    <img src={Chart2} className='img-4'/>
+
                     </div>
                 </div>
                 <div className='item-3'>
