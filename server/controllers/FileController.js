@@ -21,7 +21,7 @@ exports.uploadFile = asyncErrorHandler(async (req, res, next) => {
     if (!req.user?.isPremium) {
       const err = new CustomError(
         'these feactures are only available for premium users',
-        400,
+        400
       );
       return next(err);
     }
@@ -30,7 +30,7 @@ exports.uploadFile = asyncErrorHandler(async (req, res, next) => {
       if (customLink.length < 3) {
         const err = new CustomError(
           'Custom link must be atleast 3 characters',
-          400,
+          400
         );
         return next(err);
       }
@@ -46,7 +46,7 @@ exports.uploadFile = asyncErrorHandler(async (req, res, next) => {
       if (password.length < 3) {
         const err = new CustomError(
           'Password must be atleast 3 characters',
-          400,
+          400
         );
         return next(err);
       }
@@ -88,7 +88,7 @@ exports.getFile = asyncErrorHandler(async (req, res, next) => {
 
   res.setHeader(
     'Content-Disposition',
-    `attachment; filename="${encodeURIComponent(file.originalFilename)}"`,
+    `attachment; filename="${encodeURIComponent(file.originalFilename)}"`
   );
   //check if file is active or not
   if (!file.isActive) {
@@ -121,7 +121,7 @@ exports.getFile = asyncErrorHandler(async (req, res, next) => {
     'uploads',
     'file',
     file.user_id || 'allfiles',
-    file.filename,
+    file.filename
   );
 
   const filename = file.originalFilename;
@@ -150,7 +150,7 @@ exports.getAllFiles = asyncErrorHandler(async (req, res, next) => {
   if (!req.user) {
     const err = new CustomError(
       'only login user can see the uploaded file',
-      400,
+      400
     );
     return next(err);
   }
@@ -190,7 +190,7 @@ exports.updateFile = asyncErrorHandler(async (req, res, next) => {
     if (!req.user?.isPremium) {
       const err = new CustomError(
         'this feature is only available for premium users',
-        400,
+        400
       );
       return next(err);
     }
@@ -204,7 +204,7 @@ exports.updateFile = asyncErrorHandler(async (req, res, next) => {
   const updatedFile = await Url.findOneAndUpdate(
     { shortId },
     { $set: updateFields },
-    { new: true }, // To return the updated document
+    { new: true } // To return the updated document
   );
 
   // Check if the URL was found and updated
@@ -239,17 +239,17 @@ exports.deleteFile = asyncErrorHandler(async (req, res, next) => {
     return next(err);
   }
   console.log(
-    path.join(__dirname, '..', 'uploads', 'file', 'allFiles', file.filename),
+    path.join(__dirname, '..', 'uploads', 'file', 'allFiles', file.filename)
   );
   try {
     await fs.unlink(
-      path.join(__dirname, '..', 'uploads', 'file', 'allFiles', file.filename),
+      path.join(__dirname, '..', 'uploads', 'file', 'allFiles', file.filename)
     );
   } catch (error) {
     await File.deleteOne({ shortId });
     const err = new CustomError(
       'An error occurred while deleting the file',
-      500,
+      500
     );
     return next(err);
   }
@@ -272,5 +272,14 @@ exports.sendDownloadFile = asyncErrorHandler(async (req, res, next) => {
   if (file.password !== password) {
     next(new CustomError("password doesn't match", 401));
   }
-  res.sendFile;
+
+  const filePath = path.join(
+    __dirname,
+    '..',
+    'uploads',
+    'file',
+    'allFiles',
+    file.filename
+  );
+  res.sendFile(filePath);
 });
