@@ -10,7 +10,7 @@ const {
   updateFile,
   deleteFile,
   sendDownloadFile,
-} = require('./../controllers/fileController');
+} = require('../controllers/fileController');
 
 //use verifyJWT to verify token
 //use protect to verify user
