@@ -58,6 +58,17 @@ const deleteFile = async (shortId) => {
   }
 };
 
+const sendDownloadFile = async (shortId) => {
+  try {
+    const response = await apiService.delete(
+      `${fileBaseUrl}/sendDownloadFile/${shortId}`,
+    );
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
 export {
   uploadFile,
   getFile,

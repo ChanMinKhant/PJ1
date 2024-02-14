@@ -21,8 +21,8 @@
   overflow-x: scroll;
 }
 ::-webkit-scrollbar {
-  width: 0; /* Hide scrollbar width */
-  height: 0; /* Hide scrollbar height */
+  width: 0;
+  height: 0;
 }
 .clip {
   font-size: 12px;

@@ -9,7 +9,8 @@ const {
   getAllFiles,
   updateFile,
   deleteFile,
-} = require('../controllers/fileController');
+  sendDownloadFile,
+} = require('./../controllers/fileController');
 
 //use verifyJWT to verify token
 //use protect to verify user
@@ -24,5 +25,6 @@ router.route('/').get(getAllFiles);
 router.route('/:shortId').patch(updateFile).delete(deleteFile).get(getFile);
 
 router.route('/orignalName/:shortId').get(getOriginalFilename);
+router.route('/sendDownloadFile/:shortId').get(sendDownloadFile);
 
 module.exports = router;

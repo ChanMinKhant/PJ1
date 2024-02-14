@@ -3,43 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
-/* .container1 {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-} */
-/* .nav {
-  height: 10%;
-  display: flex;
-}
-.nav-front {
-  background: gray;
-  width: 20%;
-  font-weight: bold;
-  font-size: 30px;
-  display: flex;
-  justify-content: center;
-}
-.nav-front h2 {
-  font-size: 30px;
-  text-align: center;
-}
-.nav-front h2 span {
-  color: blue;
-}
-.nav-end {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
 
-  background: green;
-}
-
-.nav-end ul li {
-  margin-top: 10px;
-  display: block;
-} */
 .showbox {
   align-items: center;
   display: flex;
@@ -57,14 +21,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: absolute;
+  /* position: absolute; */
   height: 100%;
-  left: 0px;
+  /* left: 0px;
   right: 0px;
-  top: 50px;
-  bottom: 10px;
+  top: 50px; */
+  /* bottom: 10px; */
   background-color: transparent;
   overflow: scroll;
+  /* margin-bottom: 300px; */
 }
 .inputform {
   width: 100%;
@@ -87,7 +52,6 @@
   color: rgb(3, 3, 3);
   padding-left: 20px;
   padding-bottom: 10px;
-  background-color: #e8eff4;
   box-shadow: 5px 5px 5px rgb(127, 127, 127);
 }
 
@@ -106,7 +70,7 @@
   padding-top: 10px;
   color: rgb(2, 2, 2);
   width: 94%;
-  background-color: #e8eff4;
+  /* background-color: #e8eff4; */
   margin-top: 10px;
   border: 1px groove rgb(132, 131, 131);
   padding-left: 20px;
@@ -139,7 +103,6 @@
 .shortbtn:active {
   padding: 0 5px;
   font-size: 14px;
-  background-color: rgb(183, 198, 224);
   border: 3px inset rgb(148, 163, 160);
 }
 .left {
@@ -147,7 +110,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 400px;
+  height: 330px;
 
   width: 100%;
   margin-left: 0px;
@@ -157,18 +120,18 @@
   padding-top: 15px;
 
   margin-bottom: 10px;
-  background: #f1f5f8;
+  /* background: #f1f5f8; */
   overflow: scroll;
 }
 input {
   width: 100%;
 }
 .right {
-  background-color: #f1f5f8;
-  overflow: scroll;
+  /* background-color: #f1f5f8; */
+  /* overflow: scroll; */
   width: 100%;
-  max-height: 350px;
-  padding-bottom: 50px;
+  /* max-height: 350px; */
+  /* padding-bottom: 50px; */
 }
 
 table {
@@ -181,7 +144,7 @@ table {
 }
 th {
   /* background-color: rgb(85, 85, 86); */
-  background-color: #020202;
+  background-color: #083969;
   /* border: 1px solid rgb(255, 254, 254); */
   backdrop-filter: blur(5px); /* Blur effect */
   /* padding: 20px; */
@@ -201,14 +164,7 @@ thead {
   top: 400px; */
 }
 tbody {
-  /* position: absolute;
-  top: 40px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px; */
   height: 100%;
-  /* max-height: 200px; */
-  /* overflow-y: scroll; */
 }
 th,
 td {

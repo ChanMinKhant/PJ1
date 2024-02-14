@@ -1,8 +1,25 @@
-import React, { useRef } from 'react';
-
+import React, { useRef, useState } from 'react';
+import './File.css';
+import htmlIcon from '../../assets/html-5.png';
+import cssIcon from '../../assets/css-3.png';
+import jsIcon from '../../assets/js-file.png';
+import javaIcon from '../../assets/java (1).png';
+import wordIcon from '../../assets/word (1).png';
+import pngIcon from '../../assets/png.png';
+import excelIcon from '../../assets/excel.png';
+import powerpointIcon from '../../assets/powerpoint.png';
+import pdfIcon from '../../assets/pdf.png';
+import jpgIcon from '../../assets/jpg.png';
+import phpIcon from '../../assets/php.png';
+import txtIcon from '../../assets/txt-file.png';
+import defaultIcon from '../../assets/word.png';
+import downloadcountIcon from '../../assets/download.png';
 const FileCompo = (props) => {
-  console.log(props);
   const textToCopyRef = useRef(null);
+  const [filedata, Showfiledata] = useState(false);
+  const handleFileData = () => {
+    Showfiledata(!filedata);
+  };
 
   const handleCopyClick = () => {
     const range = document.createRange();
@@ -17,41 +34,108 @@ const FileCompo = (props) => {
     // Deselect the text
     selection.removeAllRanges();
   };
+  const handleFileDeleteClick = () => {
+    const isConfirmed = window.confirm('Are you sure to delete?');
 
+    // Check if user confirmed the deletion
+    if (isConfirmed) {
+      // Invoke the onDelete function passed from the parent (FileUploadPage)
+      props.onFileDelete(props.shortId);
+    }
+  };
+  const getFileIcon = (extension) => {
+    switch (extension.toLowerCase()) {
+      case 'html':
+        return <img src={htmlIcon} alt='HTML' className='filePngs' />;
+      case 'css':
+        return <img src={cssIcon} alt='CSS' className='filePngs' />;
+      case 'js':
+        return <img src={jsIcon} alt='JavaScript' className='filePngs' />;
+      case 'java':
+        return <img src={javaIcon} alt='Java' className='filePngs' />;
+      case 'word':
+        return <img src={wordIcon} alt='HTML' className='filePngs' />;
+      case 'xlsx':
+        return <img src={excelIcon} alt='Excel' className='filePngs' />;
+      case 'pptx':
+        return (
+          <img src={powerpointIcon} alt='Powerpoint' className='filePngs' />
+        );
+      case 'pdf':
+        return <img src={pdfIcon} alt='Pdf' className='filePngs' />;
+      case 'jpg':
+        return <img src={jpgIcon} alt='Jpg' className='filePngs' />;
+      case 'png':
+        return <img src={pngIcon} alt='Png' className='filePngs' />;
+      case 'php':
+        return <img src={phpIcon} alt='PHP' className='filePngs' />;
+      case 'txt':
+        return <img src={txtIcon} alt='Text' className='filePngs' />;
+      default:
+        return <img src={defaultIcon} alt='File' className='filePngs' />;
+    }
+  };
+  const checkFileSize = (fileSize) => {
+    if (fileSize > 1000000) {
+      return `${(fileSize / 1000000).toFixed(2)} MB`;
+    } else if (fileSize > 1000) {
+      return `${(fileSize / 1000).toFixed(2)} KB`;
+    } else {
+      return `${fileSize} B`;
+    }
+  };
+
+  const fileExtension = props.originalFilename.split('.').pop();
   return (
     <div>
-      <ul>
-        <li>{props.originalFilename}</li>
-        {/* <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li> */}
+      <div className='fli'>
+        <div className='nonda'>
+          <div className='fileno'>{props.no}. </div>
+
+          <div className='fileda'>
+            {getFileIcon(fileExtension)}
+            <div>
+              {props.originalFilename}
+              <br />
+              <div className='someimportant'>
+                {checkFileSize(props.fileSize)}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className='floatd'>
+          <div className='downloadcountspan'>
+            <img
+              src={downloadcountIcon}
+              alt='downloadcount'
+              className='downloadcount'
+            />
+            <br />
+            <b>{props.downloadCount}</b>
+            <i className='ii'>download</i>
+          </div>
+
+          <span onClick={handleFileDeleteClick} className='filedeletebtn '>
+            Delete
+          </span>
+          <i
+            className={`bi bi-caret-down-fill me-3 fs-3.5 ${
+              filedata
+                ? 'bi bi-caret-up-fill me-3 fs-3.5'
+                : 'fbi bi-caret-down-fill me-3 fs-3.5'
+            }`}
+            onClick={handleFileData}
+          ></i>
+        </div>
+      </div>
+      <ul className={`file-u ${filedata ? 'fileshow' : 'fileclose'}`}>
+        <li className='fileli'>gkhjhk</li>
+        <li className='fileli'>jkhkjh</li>
+        <li className='fileli'>gkkhl</li>
+        <li className='fileli'>gukhlih</li>
+        <li className='fileli'>dytryt</li>
       </ul>
     </div>
-    // <tr>
-    //   <td>
-    //     <a
-    //       href={props.url}
-    //       target='_blank'
-    //       rel='noopener noreferrer'
-    //       ref={textToCopyRef}
-    //       style={{ marginRight: '10px' }}
-    //     >
-    //       {`${window.location.origin}/url/${props.shortUrl}`}
-    //     </a>
-    //   </td>
-    //   <td>{props.clickCount}</td>
-    //   <td>{props.isActive ? 'true' : 'false'}</td>
-    //   <td>{props.limit}</td>
-    //   <td>{props.shortUrl}</td>
-    //   <td></td>
-    //   <td>{props.url}</td>
-
-    //   <td>
-    //     <button onClick={handleCopyClick}>Copy</button>
-    //   </td>
-    // </tr>
   );
 };
 
