@@ -217,6 +217,6 @@
   width: 250px;
   height: 250px;
   border-radius: 50%;
-  background: url(cogwheel.png);
+  /* background: url(cogwheel.png); */
   background-size: cover;
 }

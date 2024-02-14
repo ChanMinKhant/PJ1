@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import { getHost } from '../../services/hostService';
 const ViewHost = () => {
   const subdomain = window.location.host.split('.')[0];
+  console.log(subdomain)
   // useEffect(() => {
   //     getHost(subdomain)
   //         .then(res => {
