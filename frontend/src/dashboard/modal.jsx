@@ -1,86 +1,71 @@
-// import React, { useState } from 'react';
+// MyModal.js
+import React, { useRef, useEffect } from 'react';
+import { Modal } from 'react-bootstrap';
+import './modal.css';
+const MyModal = ({
+  show,
+  handleClose,
+  shortId,
+  downloadCount,
+  showCopiedMessage,
+  handleCopyClick,
+  name,
+  date,
+  fileSize,
+}) => {
+  const modalRef = useRef();
 
-// const ModalBox = ({ showModal, closeModal }) => {
-//   const modalStyle = {
-//     display: showModal ? 'block' : 'none',
-//   };
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        handleClose();
+      }
+    };
 
-//   return (
-//     <div className='modal' style={modalStyle}>
-//       <div className='modal-content'>
-//         <span className='close' onClick={closeModal}>
-//           &times;
-//         </span>
-//         <h2>Modal Box</h2>
-//         <p>This is a modal box component with a cancel button.</p>
-//         <button onClick={closeModal}>Cancel</button>
-//         {/* <div className='deletebtn editdel' onClick={handleDeleteClick}>
-//           Delete
-//         </div> */}
-//       </div>
-//     </div>
-//   );
-// };
+    if (show) {
+      document.addEventListener('mousedown', handleOutsideClick);
+    }
 
-// export default ModalBox;
-// ModalBox.js
-
-import React, { useState } from 'react';
-// import './ModalBox.css';
-
-const ModalBox = ({ showModal, closeModal, onEdit, onDelete, data }) => {
-  const [input1, setInput1] = useState(data.input1 || '');
-  const [input2, setInput2] = useState(data.input2 || '');
-  const [input3, setInput3] = useState(data.input3 || '');
-
-  const handleEditClick = () => {
-    // Pass the edited data to the parent component
-    onEdit({ input1, input2, input3 });
-    closeModal();
-  };
-
-  const handleDeleteClick = () => {
-    // Pass the data to be deleted to the parent component
-    onDelete(data);
-    closeModal();
-  };
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, [show, handleClose]);
 
   return (
-    <div className={`modal ${showModal ? 'show' : 'hide'}`}>
-      <div className='modal-content'>
-        <span className='close' onClick={closeModal}>
-          &times;
-        </span>
-        <h2>Edit Data</h2>
-        <label htmlFor='input1'>Input 1:</label>
-        <input
-          type='text'
-          id='input1'
-          value={input1}
-          onChange={(e) => setInput1(e.target.value)}
-        />
-
-        <label htmlFor='input2'>Input 2:</label>
-        <input
-          type='text'
-          id='input2'
-          value={input2}
-          onChange={(e) => setInput2(e.target.value)}
-        />
-
-        <label htmlFor='input3'>Input 3:</label>
-        <input
-          type='text'
-          id='input3'
-          value={input3}
-          onChange={(e) => setInput3(e.target.value)}
-        />
-
-        <button onClick={handleEditClick}>Edit</button>
-        <button onClick={handleDeleteClick}>Delete</button>
+    <Modal show={show} onHide={handleClose} backdrop='static' keyboard={false}>
+      <div ref={modalRef}>
+        <Modal.Header closeButton={false}>
+          <Modal.Title>{name}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <ul className='modalul'>
+            <h6>File</h6>
+            <li>{name}</li>
+            <h6>Link</h6>
+            <li>
+              {shortId}{' '}
+              <span className='clipspan'>
+                {showCopiedMessage ? (
+                  <span className='copied-message'>Copied!</span>
+                ) : (
+                  <i
+                    className='bi bi-clipboard clip'
+                    onClick={handleCopyClick}
+                  ></i>
+                )}
+              </span>
+            </li>
+            <h6>Download count</h6>
+            <li>{downloadCount}</li>
+            <h6>Date</h6>
+            <li>{date}</li>
+            <h6>File size</h6>
+            <li>{fileSize}</li>
+          </ul>
+        </Modal.Body>
       </div>
-    </div>
+    </Modal>
   );
 };
 
-export default ModalBox;
+export default MyModal;

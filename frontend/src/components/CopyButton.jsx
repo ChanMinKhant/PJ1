@@ -103,6 +103,7 @@
 import React, { useRef, useState } from 'react';
 import './CopyButton.css';
 import ModalBox from './../dashboard/modal';
+// import CopyComponent from './copy.jsx';
 const CopyButton = (props) => {
   //from
   const [showModal, setShowModal] = useState(false);

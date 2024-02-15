@@ -75,10 +75,16 @@
   text-align: center;
 }
 .fli .fileda {
-  /* width: 250px; */
+  /* width: 450px; */
+  /* border: 1px solid; */
   height: auto;
   display: flex;
   font-weight: 550;
+}
+.modalposition {
+  position: absolute;
+  top: 0px;
+  right: 0px;
 }
 .nonda {
   display: flex;

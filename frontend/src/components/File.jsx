@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import MyModal from '../dashboard/modal';
 import './File.css';
 import htmlIcon from '../../assets/html-5.png';
 import cssIcon from '../../assets/css-3.png';
@@ -20,7 +21,7 @@ const FileCompo = (props) => {
   const handleFileData = () => {
     Showfiledata(!filedata);
   };
-
+  const [showCopiedMessage, setShowCopiedMessage] = useState(false);
   const handleCopyClick = () => {
     const range = document.createRange();
     range.selectNode(textToCopyRef.current);
@@ -33,6 +34,16 @@ const FileCompo = (props) => {
 
     // Deselect the text
     selection.removeAllRanges();
+    // Show "Copied!" message for 2 seconds
+    setShowCopiedMessage(true);
+    setTimeout(() => {
+      setShowCopiedMessage(false);
+    }, 2000);
+
+    // Hide the "Copied!" message and show the clip icon again after 4 seconds
+    setTimeout(() => {
+      setShowCopiedMessage(false);
+    }, 4000);
   };
   const handleFileDeleteClick = () => {
     const isConfirmed = window.confirm('Are you sure to delete?');
@@ -53,7 +64,7 @@ const FileCompo = (props) => {
         return <img src={jsIcon} alt='JavaScript' className='filePngs' />;
       case 'java':
         return <img src={javaIcon} alt='Java' className='filePngs' />;
-      case 'word':
+      case 'docx':
         return <img src={wordIcon} alt='HTML' className='filePngs' />;
       case 'xlsx':
         return <img src={excelIcon} alt='Excel' className='filePngs' />;
@@ -84,6 +95,19 @@ const FileCompo = (props) => {
       return `${fileSize} B`;
     }
   };
+  const [showModal, setShowModal] = useState(false);
+
+  const handleShowModal = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+  const dateObject = new Date(props.createdAt);
+
+  // Format the date using toLocaleString()
+  const formattedDate = dateObject.toLocaleString();
 
   const fileExtension = props.originalFilename.split('.').pop();
   return (
@@ -102,6 +126,17 @@ const FileCompo = (props) => {
               </div>
             </div>
           </div>
+          <p
+            // className='surl'
+            // href={props.shortId}
+            target='_blank'
+            rel='noopener noreferrer'
+            ref={textToCopyRef}
+            style={{ marginRight: '10px', cursor: 'pointer' }}
+            // onClick={handleNavagate}
+          >
+            {props.shortId}
+          </p>
         </div>
         <div className='floatd'>
           <div className='downloadcountspan'>
@@ -114,18 +149,47 @@ const FileCompo = (props) => {
             <b>{props.downloadCount}</b>
             <i className='ii'>download</i>
           </div>
-
+          {/* <div className='clipdiv'>
+            {showCopiedMessage ? (
+              <span className='copied-message'>Copied!</span>
+            ) : (
+              <i className='bi bi-clipboard clip' onClick={handleCopyClick}></i>
+            )}
+          </div> */}
           <span onClick={handleFileDeleteClick} className='filedeletebtn '>
             Delete
           </span>
-          <i
+          {/* <i
             className={`bi bi-caret-down-fill me-3 fs-3.5 ${
               filedata
                 ? 'bi bi-caret-up-fill me-3 fs-3.5'
                 : 'fbi bi-caret-down-fill me-3 fs-3.5'
             }`}
             onClick={handleFileData}
-          ></i>
+          ></i> */}
+          <div>
+            <i
+              className='bi bi-three-dots me-3 fs-3.5'
+              onClick={handleShowModal}
+            ></i>
+            {/* <span>&#8226;&#8226;&#8226;</span> */}
+            <div className='modalposition'>
+              <MyModal
+                show={showModal}
+                handleClose={handleCloseModal}
+                showCopiedMessage={showCopiedMessage}
+                handleCopyClick={handleCopyClick}
+                shortId={props.shortId}
+                name={props.originalFilename}
+                downloadCount={props.downloadCount}
+                date={formattedDate}
+                fileSize={checkFileSize(props.fileSize)}
+                onFileDelete={props.onFileDelete}
+                limit={props.limit}
+                isactive={props.isActive}
+              />
+            </div>
+          </div>
         </div>
       </div>
       <ul className={`file-u ${filedata ? 'fileshow' : 'fileclose'}`}>
