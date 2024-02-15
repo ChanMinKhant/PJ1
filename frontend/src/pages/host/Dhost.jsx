@@ -112,14 +112,16 @@ const FileUploadPage = () => {
           <th>Delete</th>
         </tr>
       </thead>
-      
+    
    <tbody>
     
     {
-      hosts?.map((host)=>{
-        <div  key={host.id}>
-          <Host host={host}/>
-        </div>
+      hosts?.map((host) => {
+        return (
+          <div key={host.id}>
+            <Host {...host}/>
+          </div>
+        )
       })
     }
     
@@ -128,7 +130,8 @@ const FileUploadPage = () => {
     </tbody>
     </table>
 </div>
-  );
+);
+
 };
 
 export default FileUploadPage;
