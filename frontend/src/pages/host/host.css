@@ -24,3 +24,11 @@
 .host ul li button{
    float: right;
 }
+.HostTable,tr,td,th{
+    background-color: aqua;
+    
+    
+}
+.HostTable th{
+    color: black;
+}

@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import { createHost } from '../../services/hostService';
+import { useEffect, useState } from 'react';
+import { createHost, getHosts } from '../../services/hostService';
 import './host.css';
-
+import Host from '../../components/Host'
 const FileUploadPage = () => {
   const [formData, setFormData] = useState({
     customDomain: '',
@@ -10,10 +10,21 @@ const FileUploadPage = () => {
     comment: '',
     files: [],
   });
-
+  const [hosts, setHosts]= useState([]);
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
+  useEffect(()=>{
+    const tempfunc= async ()=>{
+     try {
+      const res = await getHosts();
+      setHosts(res.data)
+     } catch (error) {
+      console.log(error.response?.data?.message);
+     }
+    }
+    tempfunc()
+  },[])
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -44,6 +55,7 @@ const FileUploadPage = () => {
 
       setSuccessMessage('File(s) uploaded successfully!');
       setErrorMessage('');
+      setHosts([...hosts,response.data]);
       console.log('File uploaded successfully:', response.data);
       // Additional actions after successful upload
     } catch (error) {
@@ -56,9 +68,10 @@ const FileUploadPage = () => {
       // Handle error, e.g., show an error message to the user
     }
   };
-
+  // const linktohost=`http://${host.domain}.${window.location.host}`;
   return (
-    <div className='host-box'>
+<div>
+<div className='host-box'>
       
       <form onSubmit={handleSubmit} className='host'>
         <fieldset>
@@ -90,7 +103,31 @@ const FileUploadPage = () => {
           </ul>
         </fieldset>
       </form>
+      
     </div>
+    <table className='HostTable'>
+      <thead>
+        <tr>
+          <th>Url</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      
+   <tbody>
+    
+    {
+      hosts?.map((host)=>{
+        <div  key={host.id}>
+          <Host host={host}/>
+        </div>
+      })
+    }
+    
+    
+    
+    </tbody>
+    </table>
+</div>
   );
 };
 

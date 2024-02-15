@@ -11,4 +11,13 @@ const createHost = async (formData) => {
   }
 };
 
-export { createHost };
+const getHosts = async () => {
+  try {
+    const response = await apiService.get(`${hostBaseUrl}`);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export { createHost,getHosts };

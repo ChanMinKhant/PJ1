@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import './ViewHost.css'
 const ViewHost = () => {
   const subdomain = window.location.host.split('.')[0];
   console.log(subdomain)
@@ -13,8 +14,7 @@ const ViewHost = () => {
   // }, [])
   return (
     <div>
-      <h1>View Host</h1>
-      <iframe
+      <iframe className='full'
         src={`http://localhost:3001/host/allfiles/${subdomain}/index.html`}
       ></iframe>
     </div>
