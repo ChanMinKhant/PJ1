@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { createHost, getHosts } from '../../services/hostService';
+import { createHost, getHosts, } from '../../services/hostService';
 import './host.css';
 import Host from '../../components/Host'
 const FileUploadPage = () => {
@@ -68,6 +68,16 @@ const FileUploadPage = () => {
       // Handle error, e.g., show an error message to the user
     }
   };
+  // Delet Host
+  // const handleDeleteHost = async (domain) => {
+  //   try {
+  //     await deleteHost(domain);
+  //     const updatedHosts = hosts.filter((host) => host.domain !== domain);
+  //     setUrls(updatedHosts);
+  //   } catch (error) {
+  //     console.error('Error deleting URL:', error.message);
+  //   }
+  // };
   // const linktohost=`http://${host.domain}.${window.location.host}`;
   return (
 <div>
