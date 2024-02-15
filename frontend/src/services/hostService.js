@@ -29,4 +29,4 @@ const suspendHost= async (domain) => {
   }
 };
 
-export { createHost,getHosts };
+export { createHost,getHosts,suspendHost };
