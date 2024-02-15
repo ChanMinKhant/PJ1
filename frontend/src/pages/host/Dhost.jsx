@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { createHost, getHosts, } from '../../services/hostService';
+import { createHost, getHosts,suspendHost } from '../../services/hostService';
 import './host.css';
 import Host from '../../components/Host'
 const FileUploadPage = () => {
