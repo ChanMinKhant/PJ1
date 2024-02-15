@@ -20,4 +20,13 @@ const getHosts = async () => {
   }
 };
 
+const suspendHost= async (domain) => {
+  try {
+    const response = await apiService.delete(`${hostBaseUrl}/${domain}`);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
 export { createHost,getHosts };
