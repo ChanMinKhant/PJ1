@@ -105,16 +105,7 @@ const FileUploadPage = () => {
       </form>
       
     </div>
-    <table className='HostTable'>
-      <thead>
-        <tr>
-          <th>Url</th>
-          <th>Delete</th>
-        </tr>
-      </thead>
-    
-   <tbody>
-    
+   
     {
       hosts?.map((host) => {
         return (
@@ -127,8 +118,7 @@ const FileUploadPage = () => {
     
     
     
-    </tbody>
-    </table>
+    
 </div>
 );
 
