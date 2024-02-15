@@ -1,32 +1,60 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getFile, getOriginalFilename } from '../../services/fileService'; // Import your apiService function
-import { useState, useEffect } from 'react';
+import { getFile, getOriginalFilename } from '../../services/fileService';
 import download from 'downloadjs';
+import './FileDownloadPage.css'; // Import your external CSS file
 
 const FileDownloadPage = () => {
   const { shortId } = useParams();
+  const [filename, setFilename] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState(null);
+  const [isPasswordRequired, setIsPasswordRequired] = useState(false);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await getFile(shortId);
         const originalFilename = await getOriginalFilename(shortId);
-        console.log(originalFilename);
-        download(response.data, originalFilename.data);
+        setFilename(originalFilename.data);
       } catch (error) {
         setErrorMessage(error?.response?.data?.message);
-        console.log(error?.response);
         if (error?.response?.data?.message === 'Password required') {
           setIsPasswordRequired(true);
         }
       }
     };
+
     fetchData();
-    // if (file) window.location.href = file;
-  });
-  return <div>FileDownloadPage</div>;
+  }, [shortId]);
+
+  const handleDownload = async () => {
+    try {
+      window.confirm('Are you sure you want to download this file?');
+      const response = await getFile(shortId, password); // Pass password if required
+      download(response.data, filename);
+    } catch (error) {
+      setErrorMessage(error?.response?.data?.message);
+    }
+  };
+
+  return (
+    <div className='file-download-container'>
+      <h1>File Download Page</h1>
+      {errorMessage && <div className='error-message'>{errorMessage}</div>}
+      <button className='download-button' onClick={handleDownload}>
+        Download
+      </button>
+      {isPasswordRequired && (
+        <input
+          type='password'
+          placeholder='Enter password'
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className='password-input'
+        />
+      )}
+    </div>
+  );
 };
 
 export default FileDownloadPage;

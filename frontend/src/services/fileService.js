@@ -23,7 +23,7 @@ const getFile = async (shortId) => {
 const getOriginalFilename = async (shortId) => {
   try {
     const response = await apiService.get(
-      `${fileBaseUrl}/${shortId}/original-filename`,
+      `${fileBaseUrl}/orignalName/${shortId}`,
     );
     return response.data;
   } catch (error) {

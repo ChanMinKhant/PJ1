@@ -18,7 +18,6 @@ import { Host } from './pages/host/index';
 import { Dhost } from './pages/host/index';
 import { AboutUs } from './pages/aboutUs/index';
 
-
 import DashboardLayout from './dashboard/DashboardLayout';
 import ViewHost from './pages/host/ViewHost';
 
@@ -27,7 +26,7 @@ function App() {
     <div className='App'>
       <Router>
         <Routes>
-        <Route path='/' element={<ViewHost />} />
+          <Route path='/' element={<ViewHost />} />
           <Route path='/home' element={<Home />} />
           <Route path='/register' element={<Register />} />
           <Route path='/login' element={<Login />} />
@@ -47,8 +46,8 @@ function App() {
           <Route path='/url' element={<Url />} />
           <Route path='/url/:shortUrl' element={<RedirectPage />} />
           <Route path='/host' element={<Host />} />
-          
-          <Route path='/files/:shortId' element={<FileDownloadPage />} />
+
+          <Route path='/file/:shortId' element={<FileDownloadPage />} />
           {/* <Route path='/dashboard' element={<Dash />} /> */}
 
           <Route path='/dashboard/*' element={<Dash />}>

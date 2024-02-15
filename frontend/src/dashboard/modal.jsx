@@ -43,7 +43,7 @@ const MyModal = ({
             <li>{name}</li>
             <h6>Link</h6>
             <li>
-              {shortId}{' '}
+              {`${window.location.origin}/file/${shortId}`}{' '}
               <span className='clipspan'>
                 {showCopiedMessage ? (
                   <span className='copied-message'>Copied!</span>

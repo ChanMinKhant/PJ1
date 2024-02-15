@@ -38,7 +38,7 @@ const ShortenUrlApp = () => {
       };
       const response = await createShortenUrl(data);
       console.log(response.data);
-      setShortenedUrl(response.data.shortUrl);
+      setShortenedUrl(response.data?.shortUrl);
 
       setSuccessMessage('URL successfully shortened!');
       setErrorMessage('');

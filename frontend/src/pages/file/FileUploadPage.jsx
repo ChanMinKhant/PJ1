@@ -79,10 +79,12 @@ const FileUploadPage = () => {
     };
 
     fetchFiles();
-  }, [files]);
+  }, []);
   const handleDeleteFile = async (shortId) => {
     try {
       const res = await deleteFile(shortId);
+      const updatedFiles = files.filter((file) => file.shortId !== shortId);
+      setFiles(updatedFiles);
       console.log(res);
       // console.log(updatedFiles);
     } catch (error) {
