@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {} = require('../controllers/hostController');
+const { suspendHost } = require('../controllers/hostController');
 const { verifyJWT } = require('../middlewares/verifyJWT');
 const {
   createHost,
@@ -10,6 +10,6 @@ const { protect } = require('../middlewares/protectRoute');
 
 router.use(protect);
 router.route('/').post(createHost).get(getHosts);
-router.route('/:domain').get(getHost);
+router.route('/:domain').get(getHost).delete(suspendHost);
 
 module.exports = router;

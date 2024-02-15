@@ -12,7 +12,7 @@ exports.createHost = asyncErrorHandler(async (req, res, next) => {
     if (req?.user?.isPremium) {
       const err = new CustomError(
         'these feactures are only available for premium users',
-        400
+        400,
       );
       return next(err);
     }
@@ -21,7 +21,7 @@ exports.createHost = asyncErrorHandler(async (req, res, next) => {
       if (customDomain.length < 3) {
         const err = new CustomError(
           'Custom domain must be atleast 3 characters',
-          400
+          400,
         );
         return next(err);
       }
@@ -37,7 +37,7 @@ exports.createHost = asyncErrorHandler(async (req, res, next) => {
       if (password.length < 3) {
         const err = new CustomError(
           'Password must be atleast 3 characters',
-          400
+          400,
         );
         return next(err);
       }
@@ -98,6 +98,7 @@ exports.getHosts = asyncErrorHandler(async (req, res, next) => {
     const err = new CustomError('You are not logged in', 401);
     return next(err);
   }
+
   if (req.user) {
     const hosts = await Host.find({ creator: req.user._id });
     return res.status(200).json({
@@ -105,4 +106,31 @@ exports.getHosts = asyncErrorHandler(async (req, res, next) => {
       data: hosts,
     });
   }
+});
+
+exports.suspendHost = asyncErrorHandler(async (req, res, next) => {
+  const { domain } = req.params;
+  const host = await Host.findOne({ domain });
+  if (!host) {
+    const err = new CustomError('Host not found', 404);
+    return next(err);
+  }
+  if (!host.isActive) {
+    const err = new CustomError('Host is not active', 404);
+    return next(err);
+  }
+  if (host.creator.toString() !== req.user._id.toString()) {
+    const err = new CustomError(
+      'You are not authorized to delete this host',
+      401,
+    );
+    return next(err);
+  }
+  host.isActive = false;
+  await host.save();
+  return res.status(200).json({
+    success: true,
+    message: 'Host is suspended',
+    data: host,
+  });
 });
