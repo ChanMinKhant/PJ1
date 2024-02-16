@@ -8,8 +8,7 @@ const {
 } = require('../controllers/hostController');
 const { protect } = require('../middlewares/protectRoute');
 
-router.use(protect);
-router.route('/').post(createHost).get(getHosts);
-router.route('/:domain').get(getHost).delete(suspendHost);
+router.route('/').post(protect, createHost).get(protect, getHosts);
+router.route('/suspend/:domain').get(getHost).delete(protect, suspendHost);
 
 module.exports = router;

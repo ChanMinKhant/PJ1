@@ -103,7 +103,7 @@ exports.verifyEmail = asyncErrorHandler(async (req, res, next) => {
     console.log('here');
     await verification.deleteOne();
     await account.deleteOne();
-    const err = new CustomError('Token is invalid or has expired', 400);
+    const err = new CustomError('Token has expired', 400);
     return next(err);
   }
   account.verify = true;
@@ -116,7 +116,7 @@ exports.verifyEmail = asyncErrorHandler(async (req, res, next) => {
     maxAge: 1000 * 60 * 60 * 24 * parseInt(process.env.EXPIRES_IN || 7),
   });
   saveToken(account._id, accessToken);
-  res.status(201).json({
+  return res.status(200).json({
     status: 'success',
     user: account,
     message: 'Email verified successfully',
