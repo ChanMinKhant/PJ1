@@ -98,11 +98,58 @@ exports.forgotPasswordEmailTemplate = (token, username) => {
   `;
 };
 
-exports.sendEmail = async (option) => {
+exports.examResultEmailTemplate = (student) => {
+  return `
+  <html>
+      <head>
+          <style>
+              body {
+                  font-family: Arial, sans-serif;
+                  line-height: 1.6;
+              }
+              .container {
+                  max-width: 600px;
+                  margin: 0 auto;
+                  padding: 20px;
+                  border: 1px solid #ccc;
+                  border-radius: 5px;
+              }
+              .header {
+                  text-align: center;
+                  margin-bottom: 20px;
+              }
+              .message {
+                  margin-bottom: 20px;
+              }
+              .signature {
+                  font-weight: bold;
+              }
+          </style>
+      </head>
+      <body>
+          <div class="container">
+              <div class="header">
+                  <h2>Important Notification</h2>
+              </div>
+              <div class="message">
+                  <p>Dear ${student.studentName},</p>
+                  <p>This is to inform you about an important update regarding your ${student.year} ${student.semester} ${student.major} semester.</p>
+                  <p>Please review the attached file for further details.</p>
+                  <p>Best Regards,</p>
+                  <p class="signature">Admin</p>
+              </div>
+          </div>
+      </body>
+  </html>
+`;
+};
+
+exports.sendEmail = async (options) => {
   try {
-    if (!option.email) {
+    if (!options.email) {
       throw new Error('Please provide email');
     }
+
     const transporter = nodemailer.createTransport({
       service: process.env.EMAIL_SERVICE || 'gmail',
       auth: {
@@ -113,36 +160,32 @@ exports.sendEmail = async (option) => {
 
     const mailOptions = {
       from: `Website Name <${process.env.EMAIL_USERNAME}>`,
-      to: option.email,
-      subject: option.subject,
-      html: option.message,
+      to: options.email,
+      subject: options.subject,
+      html: options.message,
+      attachments: options.attachments || [], // Add attachments if provided
     };
+
     await transporter.sendMail(mailOptions);
   } catch (error) {
-    return;
+    console.error('Error sending email:', error);
+    throw error; // Rethrow the error for handling in the calling code
   }
 };
 
-exports.verifyEmailTemplate = (link) => {
-  return `
-    <html>
-      <head>
-      </head>
-      <body style="font-family: Arial, sans-serif; background-color: #f0f0f0;">
-        <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border: 1px solid #cccccc; padding: 20px;">
-          <div style="text-align: center;">
-            <img src="^1^" alt="Logo" width="200" height="100">
-          </div>
-          <div style="font-size: 16px; line-height: 1.5; color: #333333;">
-            <h1>Welcome to our website!</h1>
-            <p>Thank you for signing up. To complete your registration, please verify your email address by clicking the button below.</p>
-            <p><a href="${link}" style="display: inline-block; background-color: #0099ff; color: #ffffff; padding: 10px 20px; text-decoration: none;">Verify Email</a></p>
-            <p>If you have any questions or need any help, please contact us at support@website.com.</p>
-            <p>Thank you for choosing us!</p>
-            <p>The Website Team</p>
-          </div>
-        </div>
-      </body>
-    </html>
-  `;
-};
+// Example usage with attachment
+// const attachmentFilePath = './upload/file/result.txt';
+// const options = {
+//   email: 'recipient@example.com',
+//   subject: 'Email with Attachment',
+//   message: 'Please see the attached file.',
+//   attachments: [
+//     {
+//       filename: 'result.txt',
+//       path: attachmentFilePath,
+//     }
+//   ],
+// };
+
+// Send the email
+// sendEmail(options)
