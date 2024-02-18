@@ -1,4 +1,4 @@
-.file-u .fileli {
+/* .file-u .fileli {
   width: 100%;
   overflow: scroll;
 
@@ -8,7 +8,7 @@
   padding-top: 8px;
 
   border-bottom: 1px groove rgb(156, 151, 151);
-}
+} */
 
 .file-u {
   width: 95%;
@@ -19,13 +19,10 @@
 
   transition: max-height 0.5s ease;
 }
-.fileshow {
-  max-height: 250px;
-}
+
 .filePngs {
   width: 30px;
   height: 33px;
-  /* margin-bottom: -150px; */
 }
 .someimportant {
   font-size: 13px;
@@ -34,10 +31,17 @@
   height: auto;
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid black;
+
+  border-radius: 20px;
+  box-shadow: 0px 0px 5px rgb(129, 129, 129);
+  background-color: #f1f5f8;
+  margin: 20px 10px;
   padding-top: 12px;
   padding-left: 10px;
   padding-bottom: 10px;
+}
+.fileshow {
+  max-height: 250px;
 }
 .fileclose {
   max-height: 0px;
@@ -52,7 +56,6 @@
 .floatd {
   display: flex;
   float: inline-end;
-  /* margin-top: -23px; */
 }
 .filedeletebtn {
   margin-right: 10px;
@@ -71,12 +74,10 @@
   width: 20px;
 }
 .downloadcountspan {
-  margin-bottom: 10px;
+  margin-top: 10px;
   text-align: center;
 }
 .fli .fileda {
-  /* width: 450px; */
-  /* border: 1px solid; */
   height: auto;
   display: flex;
   font-weight: 550;
@@ -89,6 +90,89 @@
 .nonda {
   display: flex;
 }
+.fileicon,
+.fileno {
+  padding-top: 8px;
+}
+.filedeletebtn {
+  margin-top: 13px;
+}
+.tdotdesk {
+  position: relative;
+  top: 14px;
+  left: 5px;
+}
+.towrapdown {
+  display: flex;
+  flex-direction: column;
+  /* max-width: calc(100%);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; */
+}
+.ofilename {
+  overflow-x: hidden;
+  max-width: 600px;
+  /* border: 1px solid; */
+}
+.deleteicon {
+  width: 20px;
+}
+@media (max-width: 768px) {
+  .floatd {
+    display: none;
+  }
+  .fli {
+    flex-direction: column;
+  }
+  .ofilename {
+    width: 550px;
+    overflow-x: hidden;
+  }
+}
+@media (max-width: 700px) {
+  .ofilename {
+    width: 450px;
+    overflow-x: hidden;
+  }
+}
+
+@media (max-width: 650px) {
+  .ofilename {
+    width: 350px;
+    overflow-x: hidden;
+  }
+}
+@media (max-width: 600px) {
+  .ofilename {
+    width: 250px;
+    overflow-x: hidden;
+  }
+}
+@media (max-width: 550px) {
+  .ofilename {
+    width: 200px;
+    overflow-x: hidden;
+  }
+}
+/*@media (max-width: 500px) {
+  .ofilename {
+    width: 420px;
+    overflow-x: hidden;
+  }
+}
+@media (max-width: 450px) {
+  .ofilename {
+    width: 370px;
+    overflow-x: hidden;
+  }
+}
+@media (max-width: 400px) {
+  .ofilename {
+    width: 300px;
+    overflow-x: hidden;
+  }
+} */
 /* :-webkit-scrollbar {
   width: 100%; 
   height: 5px; 

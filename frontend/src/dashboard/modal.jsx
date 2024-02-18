@@ -12,6 +12,8 @@ const MyModal = ({
   name,
   date,
   fileSize,
+  refe,
+  onFileDelete,
 }) => {
   const modalRef = useRef();
 
@@ -43,7 +45,9 @@ const MyModal = ({
             <li>{name}</li>
             <h6>Link</h6>
             <li>
-              {`${window.location.origin}/file/${shortId}`}{' '}
+              <a href={`${window.location.origin}/file/${shortId}`} ref={refe}>
+                {`${window.location.origin}/file/${shortId}`}{' '}
+              </a>
               <span className='clipspan'>
                 {showCopiedMessage ? (
                   <span className='copied-message'>Copied!</span>
@@ -61,6 +65,9 @@ const MyModal = ({
             <li>{date}</li>
             <h6>File size</h6>
             <li>{fileSize}</li>
+            {/* <li onClick={onFileDelete}>
+              <h3>Delete</h3>
+            </li> */}
           </ul>
         </Modal.Body>
       </div>
