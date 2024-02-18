@@ -23,7 +23,16 @@ const corsOptions = {
       process.env.FRONTEND_URL, // This should be the base domain without any subdomain
     ];
 
-    if (!origin || whitelist.some((domain) => origin.includes(domain))) {
+    // Regular expression pattern for allowing specific subdomains of localhost
+    const regex = /^(http:\/\/)?[a-z0-9]+\.localhost:\d+$/;
+
+    if (
+      !origin ||
+      whitelist.some((domain) => {
+        // Check if origin is included in the whitelist or matches the regex pattern
+        return domain === origin || regex.test(origin);
+      })
+    ) {
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));
