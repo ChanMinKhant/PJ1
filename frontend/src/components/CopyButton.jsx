@@ -176,9 +176,9 @@ const CopyButton = (props) => {
     }, 2000);
 
     // Hide the "Copied!" message and show the clip icon again after 4 seconds
-    setTimeout(() => {
-      setShowCopiedMessage(false);
-    }, 4000);
+    // setTimeout(() => {
+    //   setShowCopiedMessage(false);
+    // }, 4000);
   };
   const handleDeleteClick = () => {
     // Invoke the onDelete function passed from the parent (ShortenUrlApp)

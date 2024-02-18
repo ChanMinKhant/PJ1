@@ -101,6 +101,14 @@ const FileUploadPage = () => {
     setSelectedFile(null);
     setFileName(null);
   };
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setError('');
+      setUploadMessage('');
+    }, 1000);
+
+    return () => clearTimeout(timeoutId); // Clear the timeout on component unmount
+  }, [error, uploadMessage]);
   // to
   return (
     <div className='fileparent'>
@@ -124,14 +132,23 @@ const FileUploadPage = () => {
                   id='fileInput'
                   hidden
                 />
-                <img src={cloud} alt='' width={68} />
+                <img src={cloud} alt='' className='cloudimg' />
                 <p>Browse file to upload</p>
               </label>
               <section className='uploaded-row'>
-                <button type='submit' className='border-0 bgg btn btn-primary'>
+                <button
+                  type='submit'
+                  className='border-0 bgg btn btn-primary d-md-block d-none'
+                >
                   {/* <img src={uploadcloud} alt='' width={20} /> */}
                   Upload
                 </button>
+                <img
+                  src={uploadcloud}
+                  alt=''
+                  width={20}
+                  className='d-md-none d-flex'
+                />
                 <div>
                   <span>{fileName}</span>
 
@@ -155,7 +172,7 @@ const FileUploadPage = () => {
                   placeholder='Custom Link'
                   value={customLink}
                   onChange={handleCustomLinkChange}
-                  className='form-control'
+                  className='form-control bgi'
                   id='customlink'
                 />
               </div>
@@ -168,7 +185,7 @@ const FileUploadPage = () => {
                   placeholder='Password'
                   value={password}
                   onChange={handlePasswordChange}
-                  className='form-control'
+                  className='form-control bgi'
                   id='password'
                 />
               </div>
@@ -181,7 +198,7 @@ const FileUploadPage = () => {
                   placeholder='Limit'
                   value={limit}
                   onChange={handleLimitChange}
-                  className='form-control'
+                  className='form-control bgi'
                   id='limit'
                 />
               </div>
@@ -194,10 +211,17 @@ const FileUploadPage = () => {
                   placeholder='Custom File Name'
                   value={customFileName}
                   onChange={handleCustomFileNameChange}
-                  className='form-control'
+                  className='form-control bgi'
                   id='customfilename'
                 />
               </div>
+              <button
+                type='submit'
+                className='border-0 bgg btn btn-primary d-md-none d-block pt-1'
+              >
+                {/* <img src={uploadcloud} alt='' width={20} /> */}
+                Upload
+              </button>
               {error && <p style={{ color: 'red' }}>{error}</p>}
               {uploadMessage && (
                 <p style={{ color: 'green' }}>{uploadMessage}</p>
