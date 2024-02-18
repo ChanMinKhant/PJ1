@@ -9,7 +9,7 @@
 }
 
 .not-found-heading {
-  font-size: 6rem;
+  font-size: 2.5rem;
   margin-bottom: 0.5rem;
   color: #333; /* Adjust color as needed */
 }
@@ -17,4 +17,15 @@
 .not-found-message {
   font-size: 1.5rem;
   color: #666; /* Adjust color as needed */
+}
+
+/* Responsive Styles */
+@media only screen and (max-width: 600px) {
+  .not-found-heading {
+    font-size: 2rem;
+  }
+
+  .not-found-message {
+    font-size: 1rem;
+  }
 }
