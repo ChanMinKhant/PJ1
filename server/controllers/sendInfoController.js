@@ -32,11 +32,6 @@ exports.sendStudentEmail = asyncErrorHandler(async (req, res, next) => {
   const { year, semester, major } = req.body;
   const students = await Student.find({ year, semester, major });
   const missingFiles = [];
-  if (!req.user.isAdmin) {
-    return next(
-      new CustomError('You are not authorized to access this route', 401)
-    );
-  }
   students.forEach(async (student) => {
     const filePath = `./upload/file/${student.rollNo}.txt`;
 
@@ -88,5 +83,33 @@ exports.uploadFile = asyncErrorHandler(async (req, res, next) => {
   res.status(200).json({
     success: true,
     message: 'File uploaded successfully',
+  });
+});
+
+exports.sendInfomation = asyncErrorHandler(async (req, res, next) => {
+  const { year, semester, major, section, message, subject } = req.body;
+  let query = {};
+  if (year) {
+    query.year = year;
+  }
+  if (semester) {
+    query.semester = semester;
+  }
+  if (major) {
+    query.major = major;
+  }
+  if (section) {
+    query.section = section;
+  }
+  const students = await Student.find(query);
+  //sent meaasges to students
+  students.forEach(async (student) => {
+    const options = {
+      email: student.studentEmail,
+      subject: subject,
+      message,
+    };
+
+    await sendEmail(options);
   });
 });
