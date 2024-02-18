@@ -15,17 +15,24 @@ const cookieParser = require('cookie-parser');
 
 dbConnect();
 
-app.use(
-  cors({
-    // multiple origin
-    origin: [
+const corsOptions = {
+  origin: function (origin, callback) {
+    const whitelist = [
       'http://localhost:3000',
       'http://localhost:5173',
-      process.env.FRONTEND_URL,
-    ],
-    credentials: true,
-  })
-);
+      process.env.FRONTEND_URL, // This should be the base domain without any subdomain
+    ];
+
+    if (!origin || whitelist.some((domain) => origin.includes(domain))) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 //cors option with localhost 5173
 // const corsOptions = {
 //   origin: 'http://localhost:5173',
