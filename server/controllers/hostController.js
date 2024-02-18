@@ -12,7 +12,7 @@ exports.createHost = asyncErrorHandler(async (req, res, next) => {
     if (req?.user?.isPremium) {
       const err = new CustomError(
         'these feactures are only available for premium users',
-        400,
+        400
       );
       return next(err);
     }
@@ -21,7 +21,7 @@ exports.createHost = asyncErrorHandler(async (req, res, next) => {
       if (customDomain.length < 3) {
         const err = new CustomError(
           'Custom domain must be atleast 3 characters',
-          400,
+          400
         );
         return next(err);
       }
@@ -37,14 +37,14 @@ exports.createHost = asyncErrorHandler(async (req, res, next) => {
       if (password.length < 3) {
         const err = new CustomError(
           'Password must be atleast 3 characters',
-          400,
+          400
         );
         return next(err);
       }
     }
   }
 
-  const domain = customDomain || generateRandomString();
+  const domain = customDomain || generateRandomString().toLowerCase();
   console.log(domain);
 
   multiUpload('host', domain, true)(req, res, async (err) => {
@@ -72,25 +72,6 @@ exports.createHost = asyncErrorHandler(async (req, res, next) => {
   });
 });
 
-exports.getHost = asyncErrorHandler(async (req, res, next) => {
-  const { domain } = req.params;
-  const { start } = req.query;
-  // const host = await Host.findOne({ domain }).populate('creator');
-  // if (!host) {
-  //   const err = new CustomError('Host not found', 404);
-  //   return next(err);
-  // }
-  // if (!host.isActive) {
-  //   const err = new CustomError('Host is not active', 404);
-  //   return next(err);
-  // }
-  // if (start && start === 'true') {
-  //   host.views += 1;
-  //   await host.save();
-  // }
-  res.sendFile(`uploads/host/allFiles/${domain}/index.html`);
-});
-
 exports.getHosts = asyncErrorHandler(async (req, res, next) => {
   //if request all uploaded hosts by user
   //first i need to check the user id and then find all hosts by user id
@@ -108,6 +89,29 @@ exports.getHosts = asyncErrorHandler(async (req, res, next) => {
   }
 });
 
+exports.isValidHost = asyncErrorHandler(async (req, res, next) => {
+  const { subdomain } = req.params;
+  const { password } = req.body;
+  console.log(subdomain);
+  const host = await Host.findOne({ domain: subdomain });
+  if (!host) {
+    const err = new CustomError('Host not found', 404);
+    return next(err);
+  }
+  if (host.password) {
+    if (host.password !== password) {
+      const err = new CustomError('Password is incorrect', 401);
+      return next(err);
+    }
+  }
+  host.views++;
+  await host.save();
+  return res.status(200).json({
+    success: true,
+    data: host,
+  });
+});
+
 exports.suspendHost = asyncErrorHandler(async (req, res, next) => {
   const { domain } = req.params;
   const host = await Host.findOne({ domain });
@@ -122,7 +126,7 @@ exports.suspendHost = asyncErrorHandler(async (req, res, next) => {
   if (host.creator.toString() !== req.user._id.toString()) {
     const err = new CustomError(
       'You are not authorized to delete this host',
-      401,
+      401
     );
     return next(err);
   }

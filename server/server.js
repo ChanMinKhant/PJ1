@@ -2,11 +2,11 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 // 1) UNCAUGHT EXCEPTIONS
-process.on('uncaughtException', (err) => {
-  console.log('UNCAUGHT EXCEPTION! 💥 Shutting down...');
-  console.log(err.name, err.message);
-  process.exit(1);
-});
+// process.on('uncaughtException', (err) => {
+//   console.log('UNCAUGHT EXCEPTION! 💥 Shutting down...');
+//   console.log(err.name, err.message);
+//   process.exit(1);
+// });
 const app = express();
 const CustomError = require('./utils/CustomError.js');
 //const { exec,fork } = require('child_process');
@@ -15,17 +15,33 @@ const cookieParser = require('cookie-parser');
 
 dbConnect();
 
-app.use(
-  cors({
-    // multiple origin
-    origin: [
+const corsOptions = {
+  origin: function (origin, callback) {
+    const whitelist = [
       'http://localhost:3000',
       'http://localhost:5173',
-      process.env.FRONTEND_URL,
-    ],
-    credentials: true,
-  })
-);
+      process.env.FRONTEND_URL, // This should be the base domain without any subdomain
+    ];
+
+    // Regular expression pattern for allowing specific subdomains of localhost
+    const regex = /^(http:\/\/)?[a-z0-9]+\.localhost:\d+$/;
+
+    if (
+      !origin ||
+      whitelist.some((domain) => {
+        // Check if origin is included in the whitelist or matches the regex pattern
+        return domain === origin || regex.test(origin);
+      })
+    ) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 //cors option with localhost 5173
 // const corsOptions = {
 //   origin: 'http://localhost:5173',

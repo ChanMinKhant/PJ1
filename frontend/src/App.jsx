@@ -14,12 +14,10 @@ import {
 } from './pages/auth/index';
 import { FileUploadPage, FileDownloadPage } from './pages/file/index';
 import { Url, RedirectPage } from './pages/url/index';
-import { Host } from './pages/host/index';
 import { Dhost } from './pages/host/index';
 import { AboutUs } from './pages/aboutUs/index';
-
-import DashboardLayout from './dashboard/DashboardLayout';
 import ViewHost from './pages/host/ViewHost';
+import NotFound from './pages/error/NotFound';
 
 function App() {
   return (
@@ -34,29 +32,18 @@ function App() {
           <Route path='/change-password' element={<ChangePassword />} />
           <Route path='/logout' element={<Logout />} />
           <Route path='/aboutus' element={<AboutUs />} />
-
           <Route path='/forgot-password' element={<ForgotPassword />} />
           <Route path='/reset-password/:token' element={<ResetPassword />} />
-          {/* <Route path='/files' element={<FileUploadPage />} />
-           <Route path='/url' element={<Url />} />
-          </Route>  */}
-          {/* <Route path='/dashboard/*' element={<Dash />}>
-            <Route path='url' element={<ShortenUrlApp />} />
-          </Route> */}
           <Route path='/url' element={<Url />} />
           <Route path='/url/:shortUrl' element={<RedirectPage />} />
-          <Route path='/host' element={<Host />} />
-
           <Route path='/file/:shortId' element={<FileDownloadPage />} />
-          {/* <Route path='/dashboard' element={<Dash />} /> */}
-
           <Route path='/dashboard/*' element={<Dash />}>
-            {/* <Route index element={<Home />} /> */}
             <Route path='url' element={<ShortenUrlApp />} />
             <Route path='host' element={<Dhost />} />
             <Route path='files' element={<FileUploadPage />} />
-            {/* <Route path='*' element={<Home />} /> */}
           </Route>
+          <Route path='*' element={<NotFound />} />{' '}
+          {/* Catch-all route at the end */}
         </Routes>
       </Router>
     </div>
