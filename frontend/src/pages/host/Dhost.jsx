@@ -11,9 +11,10 @@ const FileUploadPage = () => {
     files: [],
   });
   const [hosts, setHosts] = useState([]);
+
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-
+  console.log(hosts)
   useEffect(() => {
     const tempfunc = async () => {
       try {
@@ -113,7 +114,16 @@ const FileUploadPage = () => {
           </fieldset>
         </form>
       </div>
-
+      <table>
+        <thead>
+          <tr>
+                <th>Filename</th>
+                <th>Type</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
       {hosts?.map((host) => {
         return (
           <div key={host.id} className='hostUpload'>
@@ -121,6 +131,13 @@ const FileUploadPage = () => {
           </div>
         );
       })}
+      </td>
+      <td>
+        <button>Remove All Files</button>
+      </td>
+      </tr>
+      </tbody>
+      </table>
     </div>
   );
 };

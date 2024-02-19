@@ -15,7 +15,7 @@ const ViewHost = () => {
         const result = await isValidHost(subdomain);
         setIsValid(true);
         console.log(result);
-        setIsSuspended(!result.isActive);
+        setIsSuspended(result.isActive);
       } catch (error) {
         console.log(error.response.data.message);
         setIsValid(false); // Set isValid to false if an error occurs
