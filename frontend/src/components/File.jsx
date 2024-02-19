@@ -179,7 +179,7 @@ const FileCompo = (props) => {
           ></i> */}
           <div>
             <i
-              className='bi bi-three-dots me-3 fs-3.5 tdotdesk'
+              className='bi bi-three-dots-vertical me-3 fs-3.5 tdotdesk'
               onClick={handleShowModal}
             ></i>
             {/* <span>&#8226;&#8226;&#8226;</span> */}

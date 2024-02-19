@@ -102,11 +102,10 @@
 // export default CopyButton;
 import React, { useRef, useState } from 'react';
 import './CopyButton.css';
-import ModalBox from './../dashboard/modal';
+import UrlModal from './UrlModal';
 // import CopyComponent from './copy.jsx';
 const CopyButton = (props) => {
   //from
-  const [showModal, setShowModal] = useState(false);
   const [showEdit, setshowEdit] = useState(false);
   const [editedValues, setEditedValues] = useState({
     clickCount: props.clickCount,
@@ -145,13 +144,7 @@ const CopyButton = (props) => {
   //   setshowEdit(!showEdit);
   //   console.log('After toggle: ', showEdit);
   // };
-  const openModal = () => {
-    setShowModal(true);
-  };
 
-  const closeModal = () => {
-    setShowModal(false);
-  };
   //to
   const textToCopyRef = useRef(null);
   const [showCopiedMessage, setShowCopiedMessage] = useState(false);
@@ -188,6 +181,15 @@ const CopyButton = (props) => {
 
   const handleNavagate = () => {
     window.open(`${window.location.origin}/url/${props.shortUrl}`);
+  };
+  const [showModal, setShowModal] = useState(false);
+
+  const handleShowModal = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
   };
   return (
     <tr className='tableRow'>
@@ -294,6 +296,13 @@ const CopyButton = (props) => {
         >
           Delete
         </div>
+        <i
+          className='bi bi-three-dots-vertical me-3 fs-3.5 '
+          onClick={handleShowModal}
+        ></i>
+        <div>
+          <UrlModal show={showModal} handleClose={handleCloseModal} />
+        </div>
         {/* <td className={`editbtn editdel ${showEdit ? 'hideinp' : 'notHide'}`}> */}
         <div
           className={`btnsss ${showEdit ? 'notHide' : 'hideinp'}`}
@@ -305,6 +314,10 @@ const CopyButton = (props) => {
         <div
           className={`btnsss ${showEdit ? 'notHide' : 'hideinp'}`}
           onClick={handleCancel}
+          origin={props.url}
+          shorten={props.shortUrl}
+          password={props.password}
+          limit={props.limit}
         >
           cancle
         </div>
