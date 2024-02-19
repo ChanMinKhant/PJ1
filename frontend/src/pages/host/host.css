@@ -7,7 +7,7 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-   
+   background: url();
 }
 .host{
     margin: auto;
@@ -32,3 +32,9 @@
 .HostTable th{
     color: black;
 } */
+.hostUpload{
+    display: flex;
+    align-items: center;
+    
+    padding: 10px;
+}

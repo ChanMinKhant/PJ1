@@ -116,8 +116,8 @@ const FileUploadPage = () => {
 
       {hosts?.map((host) => {
         return (
-          <div key={host.id}>
-            <Host {...host} />
+          <div key={host.id} className='hostUpload'>
+            <Host {...host}/>
           </div>
         );
       })}
