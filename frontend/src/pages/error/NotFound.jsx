@@ -1,7 +1,7 @@
 // NotFoundPage.js
 
 import React from 'react';
-import './NotFound.css'; // Import CSS file for styling
+import './error.css'; // Import CSS file for styling
 
 const NotFound = () => {
   return (

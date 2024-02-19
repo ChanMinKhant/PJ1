@@ -17,7 +17,7 @@ import { Url, RedirectPage } from './pages/url/index';
 import { Dhost } from './pages/host/index';
 import { AboutUs } from './pages/aboutUs/index';
 import ViewHost from './pages/host/ViewHost';
-import NotFound from './pages/notFound/NotFound';
+import NotFound from './pages/error/NotFound';
 
 function App() {
   return (

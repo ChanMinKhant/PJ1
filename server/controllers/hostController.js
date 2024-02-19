@@ -44,7 +44,7 @@ exports.createHost = asyncErrorHandler(async (req, res, next) => {
     }
   }
 
-  const domain = customDomain || generateRandomString();
+  const domain = customDomain || generateRandomString().toLowerCase();
   console.log(domain);
 
   multiUpload('host', domain, true)(req, res, async (err) => {
@@ -90,14 +90,12 @@ exports.getHosts = asyncErrorHandler(async (req, res, next) => {
 });
 
 exports.isValidHost = asyncErrorHandler(async (req, res, next) => {
-  const { subdomain, password } = req.body;
+  const { subdomain } = req.params;
+  const { password } = req.body;
+  console.log(subdomain);
   const host = await Host.findOne({ domain: subdomain });
   if (!host) {
     const err = new CustomError('Host not found', 404);
-    return next(err);
-  }
-  if (!host.isActive) {
-    const err = new CustomError('Website is not Active', 404);
     return next(err);
   }
   if (host.password) {
@@ -106,6 +104,8 @@ exports.isValidHost = asyncErrorHandler(async (req, res, next) => {
       return next(err);
     }
   }
+  host.views++;
+  await host.save();
   return res.status(200).json({
     success: true,
     data: host,

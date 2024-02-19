@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import MyModal from '../dashboard/modal';
 import './File.css';
+import deleteIcon from '../../assets/delete.png';
 import htmlIcon from '../../assets/html-5.png';
 import cssIcon from '../../assets/css-3.png';
 import jsIcon from '../../assets/js-file.png';
@@ -109,25 +110,32 @@ const FileCompo = (props) => {
 
   // Format the date using toLocaleString()
   const formattedDate = dateObject.toLocaleString();
-
-  const fileExtension = props.originalFilename.split('.').pop();
+  const fileExtension =
+    props.originalFilename && props.originalFilename.includes('.')
+      ? props.originalFilename.split('.').pop()
+      : 'unknown';
+  // const fileExtension = props.originalFilename.split('.').pop();
   return (
     <div>
-      <div className='fli'>
+      <div className='fli position-relative'>
         <div className='nonda'>
           <div className='fileno'>{props.no}. </div>
 
           <div className='fileda'>
-            {getFileIcon(fileExtension)}
+            <div className='fileicon'>{getFileIcon(fileExtension)}</div>
             <div>
-              {props.originalFilename}
-              <br />
-              <div className='someimportant'>
-                {checkFileSize(props.fileSize)}
+              <div className='towrapdown'>
+                <div className='ofilename'>{props.originalFilename}</div>
+
+                {/* <br /> */}
+                <div className='someimportant'>
+                  {checkFileSize(props.fileSize)}
+                </div>
               </div>
             </div>
           </div>
-          {/* <p
+
+          {/* <p 
             // className='surl'
             // href={props.shortId}
             target='_blank'
@@ -139,6 +147,7 @@ const FileCompo = (props) => {
             {props.shortId}
           </p> */}
         </div>
+
         <div className='floatd'>
           <div className='downloadcountspan'>
             <img
@@ -146,7 +155,7 @@ const FileCompo = (props) => {
               alt='downloadcount'
               className='downloadcount'
             />
-            <br />
+            <br className='b' />
             <b>{props.downloadCount}</b>
             <i className='ii'>download</i>
           </div>
@@ -170,7 +179,7 @@ const FileCompo = (props) => {
           ></i> */}
           <div>
             <i
-              className='bi bi-three-dots me-3 fs-3.5'
+              className='bi bi-three-dots-vertical me-3 fs-3.5 tdotdesk'
               onClick={handleShowModal}
             ></i>
             {/* <span>&#8226;&#8226;&#8226;</span> */}
@@ -188,18 +197,28 @@ const FileCompo = (props) => {
                 onFileDelete={props.onFileDelete}
                 limit={props.limit}
                 isactive={props.isActive}
+                refe={textToCopyRef}
               />
             </div>
           </div>
         </div>
+        <div className='d-md-none d-flex position-absolute top-20 end-0'>
+          <span onClick={handleFileDeleteClick}>
+            <img src={deleteIcon} alt='delete' className='deleteicon' />
+          </span>
+          <i
+            className='bi bi-three-dots-vertical me-3 fs-3.5 '
+            onClick={handleShowModal}
+          ></i>
+        </div>
       </div>
-      <ul className={`file-u ${filedata ? 'fileshow' : 'fileclose'}`}>
+      {/* <ul className={`file-u ${filedata ? 'fileshow' : 'fileclose'}`}>
         <li className='fileli'>gkhjhk</li>
         <li className='fileli'>jkhkjh</li>
         <li className='fileli'>gkkhl</li>
         <li className='fileli'>gukhlih</li>
         <li className='fileli'>dytryt</li>
-      </ul>
+      </ul> */}
     </div>
   );
 };

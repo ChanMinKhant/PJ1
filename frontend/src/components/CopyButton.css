@@ -4,17 +4,9 @@
   box-sizing: border-box;
 }
 .addcpybtn {
-  /* display: flex;
-  flex-direction: row; */
   width: 150px;
-  /* position: absolute; */
-  /* justify-content: space-evenly; */
 }
 
-/* .url {
-  width: 80px;
-  overflow: scroll;
-} */
 .surl {
   float: left;
   width: 110px;
@@ -29,22 +21,15 @@
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  /* height: 10px; */
+
   left: 0px;
   border-radius: 3px;
 }
-/* .clipdiv {
-  height: 17px;
-  border: 1px solid;
-  
-  overflow: hidden;
-  border-top-right-radius: 2px;
-  border-top-left-radius: 2px;
-} */
+
 .copied-message {
   position: relative;
   font-size: 10px;
-  /* height: 10px; */
+
   left: 0px;
   font-weight: bold;
   border-radius: 3px;
@@ -91,16 +76,14 @@
   border: 1px solid;
   padding: 5px;
 }
-/* .editdelon {
-  border: 1px solid;
-} */
+
 .btntd {
   display: flex;
   flex-direction: column;
 }
 .editdel {
   font-size: 14px;
-  /* text-transform: uppercase; */
+
   cursor: pointer;
   font-weight: bold;
   padding: 5px;
@@ -130,9 +113,7 @@
 .hideinp {
   display: none;
 }
-.url .form-control {
-  display: none;
-}
+
 @media (max-width: 700px) {
   .tableRow {
     display: flex;
@@ -140,21 +121,19 @@
     justify-content: center;
     align-items: flex-start;
     border: 1px solid;
-    /* width: 90%; */
   }
   tr {
     display: flex;
-    /* align-items: center; */
-    /* text-align: left; */
+
     flex: 1;
     flex-direction: column;
     width: 100%;
-    /* border: 1px solid black; */
+
     margin: 30px;
   }
   .bbbbb {
     width: 100%;
-    /* border: 1px solid; */
+
     text-align: left;
   }
   td {
@@ -163,10 +142,7 @@
     padding: 8px;
     width: 100%;
   }
-  /* }
-  .tableRow td {
-    flex: 1;
-  }*/
+
   .addcpybtn {
     border-bottom: 1px solid black;
     width: 100%;
@@ -181,21 +157,16 @@
   .msilalel {
     display: block;
     width: 100px;
-    /* background-color: blueviolet; */
-    /* color: aliceblue; */
+
     font-weight: bold;
   }
   .formobs {
-    /* width: 94%; */
     display: flex;
-    /* grid-template-rows: auto auto; */
 
-    /* grid-template-columns: auto auto; */
     gap: 10px;
   }
   .formobs p {
     text-align: left;
-    /* background-color: brown; */
   }
   .fone {
     background-color: #c7cfd1;
@@ -204,9 +175,6 @@
   .sone {
     background-color: #5f7b82;
   }
-  /* .clipdiv {
-    width: 30%;
-  } */
 }
 
 /* td {

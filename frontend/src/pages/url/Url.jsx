@@ -86,61 +86,14 @@ const ShortenUrlApp = () => {
   return (
     <div className='container1'>
       <div className='main'>
-        <div className='left'>
+        <div className='leftt'>
           {/* <h1>Shorten URL App</h1> */}
 
           {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
 
           {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
 
-          {/* <div className='uindiv'>
-            <label>
-              URL:
-              <br />
-              <input
-                className='uurl'
-                type='text'
-                value={url}
-                onChange={(e) => setUrl(e.target.value)}
-              />{' '}
-            </label>
-
-            <label>
-              isActive:
-              <input
-                type='checkbox'
-                checked={isActive}
-                onChange={handleIsActiveChange}
-              />
-            </label>
-          </div>
-
-          <br />
-
-          <div className='paslimdiv'>
-            <label>
-              Password:
-              <br />
-              <input
-                type='password'
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </label>
-
-            <label>
-              Limit:
-              <br />
-              <input
-                type='number'
-                value={limit}
-                onChange={(e) => setLimit(e.target.value)}
-              />
-            </label>
-          </div> */}
-          {/* <br /> */}
-
-          <form className='inputform' onSubmit={handleSubmit}>
+          {/* <form className='inputform' onSubmit={handleSubmit}>
             <div className='gbox'>
               <div className={`grid-item ${isPremium ? 'isnot' : 'span-two'}`}>
                 <label>
@@ -198,19 +151,6 @@ const ShortenUrlApp = () => {
                 </label>
               </div>
 
-              {/* <div className={`ull ${isPremium ? 'showbox' : 'donotshow'}`}>
-              <div>
-                <label>
-                  Custom Link:
-                  <input
-                    type='text'
-                    value={customLink}
-                    onChange={(e) => setCustomLink(e.target.value)}
-                  />
-                </label>
-              </div>
-            </div> 
-            <br /> */}
             </div>
             <div className='gcontainer'>
               <div className='grid-item1'>
@@ -230,8 +170,76 @@ const ShortenUrlApp = () => {
                 </label>
               </div>
             </div>
-          </form>
+          </form> */}
+          <div className='form-contain'>
+            <form className='formtag' onSubmit={handleSubmit}>
+              <div className='rownow'>
+                <div className='each'>
+                  <label className='form-label'>
+                    URL:
+                    <input
+                      className='form-control'
+                      type='text'
+                      value={url}
+                      onChange={(e) => setUrl(e.target.value)}
+                    />
+                  </label>
+                </div>
 
+                <div className='each'>
+                  <label className='form-label'>
+                    Custom Link:
+                    <input
+                      className='form-control'
+                      type='text'
+                      value={customLink}
+                      onChange={(e) => setCustomLink(e.target.value)}
+                    />
+                  </label>
+                </div>
+
+                <div className='each'>
+                  <label className='form-label'>
+                    Password:
+                    <input
+                      className='form-control'
+                      type='password'
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
+                  </label>
+                </div>
+
+                <div className='each'>
+                  <label className='form-label'>
+                    Limit:
+                    <input
+                      className='form-control'
+                      type='number'
+                      value={limit}
+                      onChange={(e) => setLimit(e.target.value)}
+                    />
+                  </label>
+                </div>
+              </div>
+              <div className='each'>
+                <label className='form-check'>
+                  isActive:
+                  <input
+                    className='form-check-input'
+                    type='checkbox'
+                    checked={isActive}
+                    onChange={handleIsActiveChange}
+                  />
+                </label>
+              </div>
+              <div className='each'>
+                <button type='submit' className='btn btn-primary'>
+                  Shorten URL
+                </button>
+              </div>
+            </form>
+          </div>
           {shortenedUrl && (
             <div>
               <p>Shortened URL:</p>
