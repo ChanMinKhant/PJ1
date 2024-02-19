@@ -1,0 +1,482 @@
+[
+  {
+    "email": "student0022200@ucspyay.edu.mm",
+    "rollNo": "002200",
+    "section": "A",
+    "year": "First",
+    "semester": "First",
+    "major": "CST"
+  },
+  {
+    "email": "student0022201@ucspyay.edu.mm",
+    "rollNo": "002201",
+    "section": "A",
+    "year": "First",
+    "semester": "First",
+    "major": "CST"
+  },
+  {
+    "email": "student0022202@ucspyay.edu.mm",
+    "rollNo": "002202",
+    "section": "A",
+    "year": "First",
+    "semester": "First",
+    "major": "CST"
+  },
+  {
+    "email": "student0022203@ucspyay.edu.mm",
+    "rollNo": "002203",
+    "section": "B",
+    "year": "First",
+    "semester": "First",
+    "major": "CST"
+  },
+  {
+    "email": "student0022204@ucspyay.edu.mm",
+    "rollNo": "002204",
+    "section": "B",
+    "year": "First",
+    "semester": "First",
+    "major": "CST"
+  },
+  {
+    "email": "student0022205@ucspyay.edu.mm",
+    "rollNo": "002205",
+    "section": "B",
+    "year": "First",
+    "semester": "First",
+    "major": "CST"
+  },
+  {
+    "email": "student0022206@ucspyay.edu.mm",
+    "rollNo": "002206",
+    "section": "A",
+    "year": "Second",
+    "semester": "First",
+    "major": "CS"
+  },
+  {
+    "email": "student0022207@ucspyay.edu.mm",
+    "rollNo": "002207",
+    "section": "A",
+    "year": "Second",
+    "semester": "First",
+    "major": "CS"
+  },
+  {
+    "email": "student0022208@ucspyay.edu.mm",
+    "rollNo": "002208",
+    "section": "A",
+    "year": "Second",
+    "semester": "First",
+    "major": "CS"
+  },
+  {
+    "email": "student0022209@ucspyay.edu.mm",
+    "rollNo": "002209",
+    "section": "A",
+    "year": "Second",
+    "semester": "First",
+    "major": "CT"
+  },
+  {
+    "email": "student0022210@ucspyay.edu.mm",
+    "rollNo": "002210",
+    "section": "A",
+    "year": "Second",
+    "semester": "First",
+    "major": "CT"
+  },
+  {
+    "email": "student0022211@ucspyay.edu.mm",
+    "rollNo": "002211",
+    "section": "A",
+    "year": "Second",
+    "semester": "First",
+    "major": "CT"
+  },
+  {
+    "email": "student0022212@ucspyay.edu.mm",
+    "rollNo": "002212",
+    "section": "B",
+    "year": "Second",
+    "semester": "First",
+    "major": "CS"
+  },
+  {
+    "email": "student0022213@ucspyay.edu.mm",
+    "rollNo": "002213",
+    "section": "B",
+    "year": "Second",
+    "semester": "First",
+    "major": "CS"
+  },
+  {
+    "email": "student0022214@ucspyay.edu.mm",
+    "rollNo": "002214",
+    "section": "B",
+    "year": "Second",
+    "semester": "First",
+    "major": "CS"
+  },
+  {
+    "email": "student0022215@ucspyay.edu.mm",
+    "rollNo": "002215",
+    "section": "B",
+    "year": "Second",
+    "semester": "First",
+    "major": "CT"
+  },
+  {
+    "email": "student0022216@ucspyay.edu.mm",
+    "rollNo": "002216",
+    "section": "B",
+    "year": "Second",
+    "semester": "First",
+    "major": "CT"
+  },
+  {
+    "email": "student0022217@ucspyay.edu.mm",
+    "rollNo": "002217",
+    "section": "B",
+    "year": "Second",
+    "semester": "First",
+    "major": "CT"
+  },
+  {
+    "email": "student0022218@ucspyay.edu.mm",
+    "rollNo": "002218",
+    "section": "A",
+    "year": "Third",
+    "semester": "First",
+    "major": "CS"
+  },
+  {
+    "email": "student0022219@ucspyay.edu.mm",
+    "rollNo": "002219",
+    "section": "A",
+    "year": "Third",
+    "semester": "First",
+    "major": "CS"
+  },
+  {
+    "email": "student0022220@ucspyay.edu.mm",
+    "rollNo": "002220",
+    "section": "A",
+    "year": "Third",
+    "semester": "First",
+    "major": "CS"
+  },
+  {
+    "email": "student0022221@ucspyay.edu.mm",
+    "rollNo": "002221",
+    "section": "A",
+    "year": "Third",
+    "semester": "First",
+    "major": "CT"
+  },
+  {
+    "email": "student0022222@ucspyay.edu.mm",
+    "rollNo": "002222",
+    "section": "A",
+    "year": "Third",
+    "semester": "First",
+    "major": "CT"
+  },
+  {
+    "email": "student0022223@ucspyay.edu.mm",
+    "rollNo": "002223",
+    "section": "A",
+    "year": "Third",
+    "semester": "First",
+    "major": "CT"
+  },
+  {
+    "email": "student0022224@ucspyay.edu.mm",
+    "rollNo": "002224",
+    "section": "B",
+    "year": "Third",
+    "semester": "First",
+    "major": "CS"
+  },
+  {
+    "email": "student0022225@ucspyay.edu.mm",
+    "rollNo": "002225",
+    "section": "B",
+    "year": "Third",
+    "semester": "First",
+    "major": "CS"
+  },
+  {
+    "email": "student0022226@ucspyay.edu.mm",
+    "rollNo": "002226",
+    "section": "B",
+    "year": "Third",
+    "semester": "First",
+    "major": "CS"
+  },
+  {
+    "email": "student0022227@ucspyay.edu.mm",
+    "rollNo": "002227",
+    "section": "B",
+    "year": "Third",
+    "semester": "First",
+    "major": "CT"
+  },
+  {
+    "email": "student0022228@ucspyay.edu.mm",
+    "rollNo": "002228",
+    "section": "B",
+    "year": "Third",
+    "semester": "First",
+    "major": "CT"
+  },
+  {
+    "email": "student0022229@ucspyay.edu.mm",
+    "rollNo": "002229",
+    "section": "B",
+    "year": "Third",
+    "semester": "First",
+    "major": "CT"
+  },
+  {
+    "email": "student0022230@ucspyay.edu.mm",
+    "rollNo": "002230",
+    "section": "A",
+    "year": "Fourth",
+    "semester": "First",
+    "major": "CS"
+  },
+  {
+    "email": "student0022231@ucspyay.edu.mm",
+    "rollNo": "002231",
+    "section": "A",
+    "year": "Fourth",
+    "semester": "First",
+    "major": "CS"
+  },
+  {
+    "email": "student0022232@ucspyay.edu.mm",
+    "rollNo": "002232",
+    "section": "A",
+    "year": "Fourth",
+    "semester": "First",
+    "major": "CS"
+  },
+  {
+    "email": "student0022233@ucspyay.edu.mm",
+    "rollNo": "002233",
+    "section": "A",
+    "year": "Fourth",
+    "semester": "First",
+    "major": "CT"
+  },
+  {
+    "email": "student0022234@ucspyay.edu.mm",
+    "rollNo": "002234",
+    "section": "A",
+    "year": "Fourth",
+    "semester": "First",
+    "major": "CT"
+  },
+  {
+    "email": "student0022235@ucspyay.edu.mm",
+    "rollNo": "002235",
+    "section": "A",
+    "year": "Fourth",
+    "semester": "First",
+    "major": "CT"
+  },
+  {
+    "email": "student0022236@ucspyay.edu.mm",
+    "rollNo": "002236",
+    "section": "B",
+    "year": "Fourth",
+    "semester": "First",
+    "major": "CS"
+  },
+  {
+    "email": "student0022237@ucspyay.edu.mm",
+    "rollNo": "002237",
+    "section": "B",
+    "year": "Fourth",
+    "semester": "First",
+    "major": "CS"
+  },
+  {
+    "email": "student0022238@ucspyay.edu.mm",
+    "rollNo": "002238",
+    "section": "B",
+    "year": "Fourth",
+    "semester": "First",
+    "major": "CS"
+  },
+  {
+    "email": "student0022239@ucspyay.edu.mm",
+    "rollNo": "002239",
+    "section": "B",
+    "year": "Fourth",
+    "semester": "First",
+    "major": "CT"
+  },
+  {
+    "email": "student0022240@ucspyay.edu.mm",
+    "rollNo": "002240",
+    "section": "B",
+    "year": "Fourth",
+    "semester": "First",
+    "major": "CT"
+  },
+  {
+    "email": "student0022241@ucspyay.edu.mm",
+    "rollNo": "002241",
+    "section": "B",
+    "year": "Fourth",
+    "semester": "First",
+    "major": "CT"
+  },
+  {
+    "email": "student0022242@ucspyay.edu.mm",
+    "rollNo": "002242",
+    "section": "A",
+    "year": "Fifth",
+    "semester": "First",
+    "major": "CS"
+  },
+  {
+    "email": "student0022243@ucspyay.edu.mm",
+    "rollNo": "002243",
+    "section": "A",
+    "year": "Fifth",
+    "semester": "First",
+    "major": "CS"
+  },
+  {
+    "email": "student0022244@ucspyay.edu.mm",
+    "rollNo": "002244",
+    "section": "A",
+    "year": "Fifth",
+    "semester": "First",
+    "major": "CS"
+  },
+  {
+    "email": "student0022245@ucspyay.edu.mm",
+    "rollNo": "002245",
+    "section": "A",
+    "year": "Fifth",
+    "semester": "First",
+    "major": "CT"
+  },
+  {
+    "email": "student0022246@ucspyay.edu.mm",
+    "rollNo": "002246",
+    "section": "A",
+    "year": "Fifth",
+    "semester": "First",
+    "major": "CT"
+  },
+  {
+    "email": "student0022247@ucspyay.edu.mm",
+    "rollNo": "002247",
+    "section": "A",
+    "year": "Fifth",
+    "semester": "First",
+    "major": "CT"
+  },
+  {
+    "email": "student0022248@ucspyay.edu.mm",
+    "rollNo": "002248",
+    "section": "B",
+    "year": "Fifth",
+    "semester": "First",
+    "major": "CS"
+  },
+  {
+    "email": "student0022249@ucspyay.edu.mm",
+    "rollNo": "002249",
+    "section": "B",
+    "year": "Fifth",
+    "semester": "First",
+    "major": "CS"
+  },
+  {
+    "email": "student0022250@ucspyay.edu.mm",
+    "rollNo": "002250",
+    "section": "B",
+    "year": "Fifth",
+    "semester": "First",
+    "major": "CS"
+  },
+  {
+    "email": "student0022251@ucspyay.edu.mm",
+    "rollNo": "002251",
+    "section": "B",
+    "year": "Fifth",
+    "semester": "First",
+    "major": "CT"
+  },
+  {
+    "email": "student0022252@ucspyay.edu.mm",
+    "rollNo": "002252",
+    "section": "B",
+    "year": "Fifth",
+    "semester": "First",
+    "major": "CT"
+  },
+  {
+    "email": "student0022253@ucspyay.edu.mm",
+    "rollNo": "002253",
+    "section": "B",
+    "year": "Fifth",
+    "semester": "First",
+    "major": "CT"
+  },
+  {
+    "email": "student0022254@ucspyay.edu.mm",
+    "rollNo": "002254",
+    "section": "A",
+    "year": "Fifth",
+    "semester": "First",
+    "major": "CS"
+  },
+  {
+    "email": "student0022255@ucspyay.edu.mm",
+    "rollNo": "002255",
+    "section": "A",
+    "year": "Fifth",
+    "semester": "First",
+    "major": "CS"
+  },
+  {
+    "email": "student0022256@ucspyay.edu.mm",
+    "rollNo": "002256",
+    "section": "A",
+    "year": "Fifth",
+    "semester": "First",
+    "major": "CS"
+  },
+  {
+    "email": "student0022257@ucspyay.edu.mm",
+    "rollNo": "002257",
+    "section": "A",
+    "year": "Fifth",
+    "semester": "First",
+    "major": "CT"
+  },
+  {
+    "email": "student0022258@ucspyay.edu.mm",
+    "rollNo": "002258",
+    "section": "A",
+    "year": "Fifth",
+    "semester": "First",
+    "major": "CT"
+  },
+  {
+    "email": "student0022259@ucspyay.edu.mm",
+    "rollNo": "002259",
+    "section": "A",
+    "year": "Fifth",
+    "semester": "First",
+    "major": "CT"
+  }
+]

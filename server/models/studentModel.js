@@ -45,7 +45,7 @@ const studentSchema = new mongoose.Schema({
   },
   major: {
     type: String,
-    enum: ['CS', 'CT'],
+    enum: ['CS', 'CT', 'CST'],
     required: [true, 'Please enter a major'],
   },
   semester: {

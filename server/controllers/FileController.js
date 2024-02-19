@@ -5,7 +5,6 @@ const asyncErrorHandler = require('../utils/asyncErrorHandler.js');
 const generateRandomString = require('../helper/generateRandomString.js');
 const path = require('path');
 const fs = require('fs').promises;
-const { log } = require('console');
 
 // Upload File @ POST /file/upload
 exports.uploadFile = asyncErrorHandler(async (req, res, next) => {
@@ -15,6 +14,11 @@ exports.uploadFile = asyncErrorHandler(async (req, res, next) => {
   const originalFilename = customFileName
     ? `${customFileName}${path.extname(req.file?.originalname)}`
     : req.file?.originalname;
+  console.log(req.file);
+  if (!originalFilename) {
+    const err = new CustomError('you cannot upload without file name', 400);
+    return next(err);
+  }
   const filename = req.uniqueFilename;
   const fileSize = req.file?.size || 0;
   if (customLink || password || limit) {

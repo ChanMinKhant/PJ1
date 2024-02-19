@@ -5,10 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body style="background-color: blue; height: 200vh;">
-    <div>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem delectus quasi velit odit distinctio a minus et doloremque! Eligendi eum perferendis repudiandae nostrum velit temporibus omnis optio odio at dolor. Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias rem possimus iste minima architecto quis qui consectetur maiores non incidunt, aspernatur sit quod omnis doloribus animi. Doloremque molestias repellendus debitis!
-    </div>
-    
+  <body style="background-color: blue; height: 200vh">
+    <!-- wnat to center the canvas -->
+    <canvas width="500" height="500" id="dd" style="margin: auto"></canvas>
+    <!-- <canvas width="500" height="500" id="dd" ></canvas> -->
+    <script>
+      //draw a red rectangular with shadow
+      var canvas = document.getElementById('dd');
+      var ctx = canvas.getContext('2d');
+      ctx.shadowColor = 'red';
+      ctx.shadowBlur = 50;
+      // ctx.shadowOffsetX = 10;
+      ctx.shadowOffsetY = 10;
+      // ctx.fillStyle = 'red';
+      // ctx.fillRect(50, 50, 200, 200);
+      // //draw a green circle with stoke
+      // ctx.fillStyle = 'green';
+      // ctx.beginPath();
+      // ctx.arc(150, 150, 100, 0, Math.PI * 2, true);
+      // ctx.closePath();
+      // ctx.fill();
+      // ctx.stroke();
+      // //draw a blue circle with stoke
+      // ctx.fillStyle = 'blue';
+      // ctx.beginPath();
+      // ctx.arc(150, 150, 50, 0, Math.PI * 2, true);
+      // ctx.closePath();
+      // ctx.fill();
+      // ctx.stroke();
+      // gradiend color fill to circle
+      var grd = ctx.createRadialGradient(150, 150, 50, 150, 150, 150);
+      grd.addColorStop(0, 'red');
+      grd.addColorStop(1, 'yellow');
+      ctx.fillStyle = grd;
+      ctx.beginPath();
+      ctx.arc(150, 150, 150, 0, Math.PI * 2, true);
+      ctx.closePath();
+      ctx.fill();
+    </script>
   </body>
 </html>

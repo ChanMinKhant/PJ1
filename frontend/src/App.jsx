@@ -18,6 +18,8 @@ import { Dhost } from './pages/host/index';
 import { AboutUs } from './pages/aboutUs/index';
 import ViewHost from './pages/host/ViewHost';
 import NotFound from './pages/error/NotFound';
+import AdminUploading from './pages/Admin/AdminUploading';
+import SendExamResult from './pages/Admin/SendExamResult';
 
 function App() {
   return (
@@ -31,6 +33,8 @@ function App() {
           <Route path='/verify-email/:token' element={<EmailVerification />} />
           <Route path='/change-password' element={<ChangePassword />} />
           <Route path='/logout' element={<Logout />} />
+          <Route path='/AdminUpload' element={<AdminUploading />} />
+          <Route path='/sendEmail' element={<SendExamResult />} />
           <Route path='/aboutus' element={<AboutUs />} />
           <Route path='/forgot-password' element={<ForgotPassword />} />
           <Route path='/reset-password/:token' element={<ResetPassword />} />
