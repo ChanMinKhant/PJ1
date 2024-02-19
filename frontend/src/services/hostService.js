@@ -20,7 +20,18 @@ const getHosts = async () => {
   }
 };
 
-const suspendHost= async (domain) => {
+const isValidHost = async (subdomain, password) => {
+  try {
+    const response = await apiService.get(`${hostBaseUrl}/${subdomain}`, {
+      data: { password },
+    });
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+const suspendHost = async (domain) => {
   try {
     const response = await apiService.delete(`${hostBaseUrl}/${domain}`);
     return response.data;
@@ -29,4 +40,4 @@ const suspendHost= async (domain) => {
   }
 };
 
-export { createHost,getHosts,suspendHost };
+export { createHost, getHosts, suspendHost, isValidHost };

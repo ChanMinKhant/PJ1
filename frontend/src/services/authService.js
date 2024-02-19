@@ -14,7 +14,7 @@ const register = async (userData) => {
 const verifyEmail = async (token) => {
   try {
     const response = await apiService.get(
-      `${authBaseUrl}/verifyemail/${token}`,
+      `${authBaseUrl}/verifyemail/${token}`
     );
     return response.data;
   } catch (error) {
@@ -55,7 +55,7 @@ const resetPassword = async (resetToken, password, confirmPassword) => {
   try {
     const response = await apiService.patch(
       `${authBaseUrl}/resetpassword/${resetToken}`,
-      { password, confirmPassword },
+      { password, confirmPassword }
     );
     return response.data;
   } catch (error) {
@@ -67,7 +67,7 @@ const changePassword = async (passwordData) => {
   try {
     const response = await apiService.patch(
       `${authBaseUrl}/changepassword`,
-      passwordData,
+      passwordData
     );
     return response.data;
   } catch (error) {

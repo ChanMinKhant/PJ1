@@ -7,17 +7,18 @@ const EmailVerificationPage = () => {
   const [verificationStatus, setVerificationStatus] = useState('Verifying...');
 
   const { token } = useParams();
-  console.log(token);
-  const verify = async () => {
-    try {
-      const response = await verifyEmail(token);
-      console.log(response);
-      setVerificationStatus(response.message);
-    } catch (error) {
-      setVerificationStatus(error?.response?.data?.message);
-    }
-  };
+
   useEffect(() => {
+    console.log('first');
+    const verify = async () => {
+      console.log('reached');
+      try {
+        const response = await verifyEmail(token);
+        setVerificationStatus('Email Verified');
+      } catch (error) {
+        setVerificationStatus('Email Verification Failed');
+      }
+    };
     verify();
   }, []);
 
