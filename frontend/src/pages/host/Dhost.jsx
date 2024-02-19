@@ -81,13 +81,11 @@ const FileUploadPage = () => {
   // };
   // const linktohost=`http://${host.domain}.${window.location.host}`;
   return (
-    <div>
-      <div className='host-box'>
+    <div className='host-box'>
+      <div >
         <form onSubmit={handleSubmit} className='host'>
           <fieldset>
-            <legend>
-              <h1>File Upload Page</h1>
-            </legend>
+           
             <ul>
               {/* ... (previous form inputs) ... */}
 
@@ -114,7 +112,8 @@ const FileUploadPage = () => {
           </fieldset>
         </form>
       </div>
-      <table>
+      <div className='tableHost'>
+      <table className='hostTable'>
         <thead>
           <tr>
                 <th>Filename</th>
@@ -122,22 +121,19 @@ const FileUploadPage = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>
+          
       {hosts?.map((host) => {
         return (
-          <div key={host.id} className='hostUpload'>
-            <Host {...host}/>
-          </div>
+          
+            <Host {...host} key={host.id}/>
+         
         );
       })}
-      </td>
-      <td>
-        <button>Remove All Files</button>
-      </td>
-      </tr>
+      
+      
       </tbody>
       </table>
+      </div>
     </div>
   );
 };

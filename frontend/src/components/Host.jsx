@@ -1,14 +1,25 @@
 import React from 'react';
+import  { useState, useEffect } from 'react';
+
+
 
 const Host = (props) => {
   return (
-    // <tr className='tableRow'>
-    <div>
+    // <tr>
+   
+      <tr>
+        <td>
       <a href={`http://${props.domain}.${window.location.host}`}>
         `http://${props.domain}.${window.location.host}`
       </a>
-    </div>
-    // </tr>
+      </td>
+      <td>
+        <button >Edit</button>
+      </td>
+      </tr>
+      
+   
+    
   );
 };
 
