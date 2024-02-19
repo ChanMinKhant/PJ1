@@ -3,6 +3,7 @@ const { sendEmail } = require('../utils/index');
 const CustomError = require('../utils/CustomError');
 const asyncErrorHandler = require('../utils/asyncErrorHandler');
 const { examResultEmailTemplate } = require('../utils/index');
+const { multiUpload, singleUpload } = require('../middlewares/uploadFile');
 const fs = require('fs');
 
 exports.createStudent = asyncErrorHandler(async (req, res, next) => {
@@ -28,7 +29,7 @@ exports.createStudent = asyncErrorHandler(async (req, res, next) => {
   });
 });
 
-exports.sendStudentEmail = asyncErrorHandler(async (req, res, next) => {
+exports.sendExamResult = asyncErrorHandler(async (req, res, next) => {
   const { year, semester, major } = req.body;
   const students = await Student.find({ year, semester, major });
   const missingFiles = [];
@@ -53,10 +54,9 @@ exports.sendStudentEmail = asyncErrorHandler(async (req, res, next) => {
   //sent mail with attach file to student
   students.forEach(async (student) => {
     const filePath = `./upload/file/${student.rollNo}.txt`;
-    const message = `Dear ${student.studentName},\n\nPlease find the attached file for your ${student.year} ${student.semester} ${student.major} semester.\n\nBest Regards,\nAdmin`;
     const options = {
       email: student.studentEmail,
-      subject: 'Semester File',
+      subject: 'Exam result',
       message: examResultEmailTemplate(student),
       attachments: [
         {
@@ -74,12 +74,14 @@ exports.sendStudentEmail = asyncErrorHandler(async (req, res, next) => {
   });
 });
 
+// 002283.jpg
 exports.uploadFile = asyncErrorHandler(async (req, res, next) => {
   multiUpload('results', 'ucspyay', true)(req, res, async (err) => {
     if (err) {
       return next(err);
     }
   });
+  console.log(req.files);
   res.status(200).json({
     success: true,
     message: 'File uploaded successfully',
