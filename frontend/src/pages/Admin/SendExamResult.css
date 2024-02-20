@@ -1,0 +1,25 @@
+/* .rowww { */
+/* margin-top: 20px; */
+/* display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 7px;
+  width: 100%;
+  border: 30px solid;
+} */
+/* .sss {
+  width: 30px;
+} */
+.cont {
+  width: 100%;
+}
+.sto {
+  width: 100%;
+}
+.tooo {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  /* border: 1px solid black; */
+}
+@media screen and (max-width: 768px) {
+}
