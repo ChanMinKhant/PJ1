@@ -64,3 +64,12 @@
 .tableHost {
     overflow: scroll;
 }
+.dhostCustom{
+    display: flex;
+    width:  300px;
+    
+}
+.CustomInput{
+    margin-left: 15px;
+   
+}

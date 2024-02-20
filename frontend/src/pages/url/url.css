@@ -161,6 +161,7 @@ tr:nth-child(odd) {
   border: 1px solid;
 }
 .each {
+
 }
 @media (max-width: 860px) {
 }
@@ -196,4 +197,10 @@ tr:nth-child(odd) {
   tr:nth-child(odd) {
     background-color: #c7cfd1;
   }
+} */
+/* .each{
+  width: 500px;
+}
+.form1{
+  width: 10px;
 } */

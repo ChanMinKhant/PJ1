@@ -11,7 +11,7 @@ const FileUploadPage = () => {
     files: [],
   });
   const [hosts, setHosts] = useState([]);
-
+  const [customLink, setCustomLink] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   console.log(hosts)
@@ -95,7 +95,18 @@ const FileUploadPage = () => {
                   <input type='file' multiple onChange={handleFileChange} />
                 </label>
               </li>
-
+              <li>
+              <label className="dhostCustom">
+                    Custom Link:
+                    <input
+                      className='CustomInput'
+                      // className='form1'
+                      type='text'
+                      value={customLink}
+                      onChange={(e) => setCustomLink(e.target.value)}
+                    />
+                  </label>
+              </li>
               <li>
                 <button type='submit'>Upload File(s)</button>
               </li>
@@ -123,10 +134,8 @@ const FileUploadPage = () => {
         <tbody>
           
       {hosts?.map((host) => {
-        return (
-          
+        return ( 
             <Host {...host} key={host.id}/>
-         
         );
       })}
       

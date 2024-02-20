@@ -190,7 +190,8 @@ const ShortenUrlApp = () => {
                   <label className='form-label'>
                     Custom Link:
                     <input
-                      className='form-control'
+                      className='form-control form1'
+                      // className='form1'
                       type='text'
                       value={customLink}
                       onChange={(e) => setCustomLink(e.target.value)}
