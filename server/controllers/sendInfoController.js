@@ -4,7 +4,8 @@ const CustomError = require('../utils/CustomError');
 const asyncErrorHandler = require('../utils/asyncErrorHandler');
 const { examResultEmailTemplate } = require('../utils/index');
 const { multiUpload, singleUpload } = require('../middlewares/uploadFile');
-const fs = require('fs');
+const path = require('path');
+const fs = require('fs').promises;
 
 exports.createStudent = asyncErrorHandler(async (req, res, next) => {
   const { studentName, studentEmail, rollNo, section, year, major } = req.body;
@@ -31,10 +32,11 @@ exports.createStudent = asyncErrorHandler(async (req, res, next) => {
 
 exports.sendExamResult = asyncErrorHandler(async (req, res, next) => {
   const { year, semester, major } = req.body;
+  console.log(year);
   // const students = await Student.find({ year, semester, major });
   const students = [
     {
-      email: 'chanminkhant@ucspyay.edu.mm',
+      email: 'sayagyi226@gmail.com',
       rollNo: '002200',
       section: 'A',
       year: 'First',
@@ -51,18 +53,23 @@ exports.sendExamResult = asyncErrorHandler(async (req, res, next) => {
     },
   ];
   const missingFiles = [];
-  students.forEach(async (student) => {
-    const filePath = `./upload/results/allFiles/ucspyay/${student.rollNo}.jpg`;
+  await Promise.all(
+    students.map(async (student) => {
+      const filePath = path.join(
+        __dirname,
+        `../uploads/results/allFiles/ucspyay/${student.rollNo}.jpg`
+      );
 
-    fs.access(filePath, fs.constants.F_OK, (err) => {
-      if (err) {
+      try {
+        await fs.access(filePath, fs.constants.F_OK);
+        console.log('File exists');
+      } catch (error) {
+        console.error('File does not exist');
         missingFiles.push(student.rollNo);
       }
-      console.log('file exist');
-    });
-  });
+    })
+  );
 
-  console.log('Roll numbers of students with missing files:', missingFiles);
   if (missingFiles.length > 0) {
     return res.status(400).json({
       success: false,
@@ -70,22 +77,26 @@ exports.sendExamResult = asyncErrorHandler(async (req, res, next) => {
       missingRollNumbers: missingFiles,
     });
   }
+
   //sent mail with attach file to student
   students.forEach(async (student) => {
-    const filePath = `./upload/file/${student.rollNo}.txt`;
+    const filePath = `./uploads/results/allFiles/ucspyay/${student.rollNo}.jpg`;
     const options = {
-      email: student.studentEmail,
+      email: student.email,
       subject: 'Exam result',
       message: examResultEmailTemplate(student),
       attachments: [
         {
-          filename: `${student.rollNo}.txt`,
+          filename: `${student.rollNo}.jpg`,
           path: filePath,
         },
       ],
     };
-
-    await sendEmail(options);
+    try {
+      await sendEmail(options);
+    } catch (error) {
+      console.log(error);
+    }
   });
   res.status(200).json({
     success: true,
