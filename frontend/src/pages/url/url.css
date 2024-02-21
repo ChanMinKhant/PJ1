@@ -205,9 +205,10 @@ tr:nth-child(odd) {
   height: 100%;
   background-color: transparent;
   overflow: scroll;
+  margin-top: 50px;
 }
 .each {
-  width: 500px;
+  width: 600px;
 }
 .form1 {
   width: 10px;
@@ -239,6 +240,14 @@ tr:nth-child(odd) {
 }
 .left {
   margin-top: 100px;
+  margin-bottom: 10px;
+  padding-bottom: 30px;
+}
+.right {
+  padding-top: 30px;
+}
+.formtag {
+  display: flex;
 }
 /* tr:nth-child(even) {
   background-color: #c7cfd1;

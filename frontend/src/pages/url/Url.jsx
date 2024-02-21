@@ -171,7 +171,7 @@ const ShortenUrlApp = () => {
               </div>
             </div>
           </form> */}
-          <div className='form-contain'>
+          <div className='form-container'>
             <form className='formtag' onSubmit={handleSubmit}>
               <div className='rownow'>
                 <div className='each'>
