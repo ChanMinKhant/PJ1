@@ -133,6 +133,7 @@ exports.examResultEmailTemplate = (student) => {
               </div>
               <div class="message">
                   <p>Dear ${student.studentName},</p>
+                  <p>Roll No: ${student.rollNo}</p>
                   <p>This is to inform you about an important update regarding your ${student.year} year, ${student.semester} semester, ${student.major} major.</p>
                   <p>Please review the attached file for further details.</p>
                   <p>Best Regards,</p>
