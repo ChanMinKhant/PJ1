@@ -252,18 +252,26 @@ const ShortenUrlApp = () => {
         </div>
 
         <div className='right'>
-          <table>
-            <thead>
-              <tr>
-                <th>shortened url</th>
-                <th>clickCount</th>
-                <th>isActive</th>
-                <th>limit</th>
-                <th>original url</th>
-                <th></th>
+          {/* <table className='table table-striped'> */}
+          <table className='striped table'>
+            <thead className='thea'>
+              <tr className='headsec'>
+                <th className='text-center'>
+                  {/* <div>shortened url</div> */}shortened Url
+                </th>
+                <th className='text-center'>
+                  {/* <div>clickCount</div> */}clickCount
+                </th>
+                {/* <th>isActive</th> */}
+                <th className='text-center'>
+                  {/* <div>limit</div> */}
+                  limit
+                </th>
+                <th> </th>
+                {/* <th></th> */}
               </tr>
             </thead>
-            <tbody className='tbody'>
+            <tbody className='tbo'>
               {urls.map((url) => (
                 <CopyButton
                   className={`${isPremium ? 'donotshow' : 'show'}`}

@@ -8,11 +8,12 @@ const { multiUpload, singleUpload } = require('../middlewares/uploadFile.js');
 exports.createHost = asyncErrorHandler(async (req, res, next) => {
   console.log(req.body);
   const { customDomain, password, description, comment = true } = req.body;
+  console.log(customDomain, password, description, comment);
   if (customDomain || password || !comment) {
     if (req?.user?.isPremium) {
       const err = new CustomError(
         'these feactures are only available for premium users',
-        400
+        400,
       );
       return next(err);
     }
@@ -21,7 +22,7 @@ exports.createHost = asyncErrorHandler(async (req, res, next) => {
       if (customDomain.length < 3) {
         const err = new CustomError(
           'Custom domain must be atleast 3 characters',
-          400
+          400,
         );
         return next(err);
       }
@@ -37,7 +38,7 @@ exports.createHost = asyncErrorHandler(async (req, res, next) => {
       if (password.length < 3) {
         const err = new CustomError(
           'Password must be atleast 3 characters',
-          400
+          400,
         );
         return next(err);
       }
@@ -45,7 +46,6 @@ exports.createHost = asyncErrorHandler(async (req, res, next) => {
   }
 
   const domain = customDomain || generateRandomString().toLowerCase();
-  console.log(domain);
 
   multiUpload('host', domain, true)(req, res, async (err) => {
     if (err) {
@@ -126,7 +126,7 @@ exports.suspendHost = asyncErrorHandler(async (req, res, next) => {
   if (host.creator.toString() !== req.user._id.toString()) {
     const err = new CustomError(
       'You are not authorized to delete this host',
-      401
+      401,
     );
     return next(err);
   }

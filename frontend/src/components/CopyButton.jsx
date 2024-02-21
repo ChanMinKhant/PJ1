@@ -192,8 +192,15 @@ const CopyButton = (props) => {
     setShowModal(false);
   };
   return (
-    <tr className='tableRow'>
-      <td className='addcpybtn'>
+    <tr className='tabl '>
+      <td className='addcpybtn text-center'>
+        <div className='clipdiv'>
+          {showCopiedMessage ? (
+            <span className='copied-message'>Copied!</span>
+          ) : (
+            <i className='bi bi-clipboard clip' onClick={handleCopyClick}></i>
+          )}
+        </div>
         <p
           className='surl'
           href={props.url}
@@ -205,15 +212,8 @@ const CopyButton = (props) => {
         >
           {`${window.location.origin}/url/${props.shortUrl}`}
         </p>
-        <div className='clipdiv'>
-          {showCopiedMessage ? (
-            <span className='copied-message'>Copied!</span>
-          ) : (
-            <i className='bi bi-clipboard clip' onClick={handleCopyClick}></i>
-          )}
-        </div>
       </td>
-      <td className='bbbbb formobs fone'>
+      <td className='bbbbb formobs fone text-center'>
         <label className='msilalel'>Click count:</label>
         <p className={`datas ${showEdit ? 'hideinp' : 'notHide'}`}>
           {props.clickCount}
@@ -227,7 +227,7 @@ const CopyButton = (props) => {
           }
         />
       </td>
-      <td className='bbbbb formobs sone'>
+      {/* <td className='bbbbb formobs sone'>
         <label className='msilalel'>IsActive:</label>
         <p className={`datas ${showEdit ? 'hideinp' : 'notHide'}`}>
           {props.isActive ? 'true' : 'false'}
@@ -240,8 +240,8 @@ const CopyButton = (props) => {
             setEditedValues({ ...editedValues, isActive: e.target.value })
           }
         />
-      </td>
-      <td className='bbbbb formobs fone'>
+      </td> */}
+      <td className='bbbbb formobs fone text-center'>
         <label className='msilalel'>Limit:</label>
         <p className={`datas ${showEdit ? 'hideinp' : 'notHide'}`}>
           {props.limit}
@@ -258,7 +258,7 @@ const CopyButton = (props) => {
         />
       </td>
 
-      <td className='url bbbbb formobs sone'>
+      {/* <td className='url bbbbb formobs sone'>
         <label className='msilalel'>Original url:</label>
         <p className={`datas ${showEdit ? 'hideinp' : 'notHide'}`}>
           {props.url}
@@ -273,17 +273,9 @@ const CopyButton = (props) => {
             setEditedValues({ ...editedValues, url: e.target.value })
           }
         />
+      </td> */}
 
-        {/* <div className='clipdiv'>
-          {showCopiedMessage ? (
-            <span className='copied-message'>Copied!</span>
-          ) : (
-            <i className='bi bi-clipboard clip' onClick={handleCopyClick}></i>
-          )}
-        </div> */}
-      </td>
-
-      <td className='btns'>
+      <td className='btnss text-center'>
         <div
           className={`editbtn editdel ${showEdit ? 'hideinp' : 'notHide'}`}
           onClick={handleEdit}

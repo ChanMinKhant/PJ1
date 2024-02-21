@@ -45,6 +45,7 @@ function App() {
             <Route path='url' element={<ShortenUrlApp />} />
             <Route path='host' element={<Dhost />} />
             <Route path='files' element={<FileUploadPage />} />
+            <Route path='sendInfo' element={<AdminUploading />} />
           </Route>
           <Route path='*' element={<NotFound />} />{' '}
           {/* Catch-all route at the end */}

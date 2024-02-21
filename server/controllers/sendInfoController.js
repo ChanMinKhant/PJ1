@@ -31,15 +31,34 @@ exports.createStudent = asyncErrorHandler(async (req, res, next) => {
 
 exports.sendExamResult = asyncErrorHandler(async (req, res, next) => {
   const { year, semester, major } = req.body;
-  const students = await Student.find({ year, semester, major });
+  // const students = await Student.find({ year, semester, major });
+  const students = [
+    {
+      email: 'chanminkhant@ucspyay.edu.mm',
+      rollNo: '002200',
+      section: 'A',
+      year: 'First',
+      semester: 'First',
+      major: 'CST',
+    },
+    {
+      email: 'nyeinchanaung@ucspyay.edu.mm',
+      rollNo: '002201',
+      section: 'A',
+      year: 'First',
+      semester: 'First',
+      major: 'CST',
+    },
+  ];
   const missingFiles = [];
   students.forEach(async (student) => {
-    const filePath = `./upload/file/${student.rollNo}.txt`;
+    const filePath = `./upload/results/allFiles/ucspyay/${student.rollNo}.jpg`;
 
     fs.access(filePath, fs.constants.F_OK, (err) => {
       if (err) {
         missingFiles.push(student.rollNo);
       }
+      console.log('file exist');
     });
   });
 

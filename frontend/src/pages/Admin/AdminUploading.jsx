@@ -134,7 +134,7 @@ const AdminUploading = () => {
       console.log(response);
       setError('');
     } catch (error) {
-      console.error('Error uploading files:', error);
+      console.error('Error uploading files:', error.response.data);
       setError(error?.response?.data?.message || 'Error uploading files.');
       setUploadMessage('');
     }

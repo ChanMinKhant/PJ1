@@ -11,10 +11,9 @@ const FileUploadPage = () => {
     files: [],
   });
   const [hosts, setHosts] = useState([]);
-  const [customLink, setCustomLink] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  console.log(hosts)
+  console.log(hosts);
   useEffect(() => {
     const tempfunc = async () => {
       try {
@@ -41,13 +40,12 @@ const FileUploadPage = () => {
 
     try {
       const { customDomain, password, description, comment, files } = formData;
-
+      console.log(customDomain);
       const formDataApi = new FormData();
       formDataApi.append('customDomain', customDomain);
       formDataApi.append('password', password);
       formDataApi.append('description', description);
       formDataApi.append('comment', comment);
-
       for (let i = 0; i < files.length; i++) {
         formDataApi.append('files', files[i]);
       }
@@ -62,30 +60,18 @@ const FileUploadPage = () => {
     } catch (error) {
       setErrorMessage(
         error?.response?.data?.message ||
-          'Error uploading file(s). Please try again.'
+          'Error uploading file(s). Please try again.',
       );
       setSuccessMessage('');
       console.error('Error uploading file:', error);
       // Handle error, e.g., show an error message to the user
     }
   };
-  // Delet Host
-  // const handleDeleteHost = async (domain) => {
-  //   try {
-  //     await deleteHost(domain);
-  //     const updatedHosts = hosts.filter((host) => host.domain !== domain);
-  //     setUrls(updatedHosts);
-  //   } catch (error) {
-  //     console.error('Error deleting URL:', error.message);
-  //   }
-  // };
-  // const linktohost=`http://${host.domain}.${window.location.host}`;
   return (
     <div className='host-box'>
-      <div >
+      <div>
         <form onSubmit={handleSubmit} className='host'>
           <fieldset>
-           
             <ul>
               {/* ... (previous form inputs) ... */}
 
@@ -96,16 +82,17 @@ const FileUploadPage = () => {
                 </label>
               </li>
               <li>
-              <label className="dhostCustom">
-                    Custom Link:
-                    <input
-                      className='CustomInput'
-                      // className='form1'
-                      type='text'
-                      value={customLink}
-                      onChange={(e) => setCustomLink(e.target.value)}
-                    />
-                  </label>
+                <label className='dhostCustom'>
+                  Custom Link:
+                  <input
+                    className='CustomInput'
+                    // className='form1'
+                    type='text'
+                    onChange={(e) =>
+                      setFormData({ ...formData, customDomain: e.target.value })
+                    }
+                  />
+                </label>
               </li>
               <li>
                 <button type='submit'>Upload File(s)</button>
@@ -124,24 +111,19 @@ const FileUploadPage = () => {
         </form>
       </div>
       <div className='tableHost'>
-      <table className='hostTable'>
-        <thead>
-          <tr>
-                <th>Filename</th>
-                <th>Type</th>
-          </tr>
-        </thead>
-        <tbody>
-          
-      {hosts?.map((host) => {
-        return ( 
-            <Host {...host} key={host.id}/>
-        );
-      })}
-      
-      
-      </tbody>
-      </table>
+        <table className='hostTable'>
+          <thead>
+            <tr>
+              <th>Filename</th>
+              <th>Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            {hosts?.map((host) => {
+              return <Host {...host} key={host.id} />;
+            })}
+          </tbody>
+        </table>
       </div>
     </div>
   );

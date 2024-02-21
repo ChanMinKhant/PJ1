@@ -198,9 +198,58 @@ tr:nth-child(odd) {
     background-color: #c7cfd1;
   }
 } */
-/* .each{
+.main {
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center; */
+  height: 100%;
+  background-color: transparent;
+  overflow: scroll;
+}
+.each {
   width: 500px;
 }
-.form1{
+.form1 {
   width: 10px;
+}
+/* .right table {
+  border-collapse: collapse;
+  width: 100%;
+} */
+.striped {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0px 5px;
+  /* border-radius: 25px; */
+}
+.striped tr td {
+  background-color: #edf6fd;
+}
+.striped tr {
+  box-shadow: 0px 0px 5px 0px #404040;
+}
+.striped tr th {
+  background-color: rgb(222, 219, 219);
+}
+.thead {
+  background-color: rgb(26, 31, 30);
+}
+.headsec {
+  background-color: black;
+}
+.left {
+  margin-top: 100px;
+}
+/* tr:nth-child(even) {
+  background-color: #c7cfd1;
+}
+tr:nth-child(odd) {
+  background-color: #5f7b82;
+  color: rgb(4, 4, 4);
+} */
+/* tr {
+  width: 100%;
+}
+td {
+  width: 100%;
 } */

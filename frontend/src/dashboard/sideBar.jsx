@@ -31,6 +31,10 @@ function SideBar() {
           <i className='bi bi-file-earmark fs-5 me-3'></i>
           <span className='sbil fs-5'>File</span>
         </Link>
+        <Link to='/dashboard/sendInfo' className='list-group-item py-2 in'>
+          <i className='bi bi-file-earmark fs-5 me-3'></i>
+          <span className='sbil fs-5'>Send Info</span>
+        </Link>
         <div className='iinn'></div>
       </div>
     </div>

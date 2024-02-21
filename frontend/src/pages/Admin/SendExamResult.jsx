@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { sendEmail } from '../../services/sendInfoService';
 import Nav from '../../components/Nav';
 import './SendExamResult.css';
 const SendExamResult = () => {
@@ -16,9 +17,15 @@ const SendExamResult = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    try {
+      console.log('first');
+      const res = await sendEmail(formData);
+      console.log(res);
+    } catch (error) {
+      console.log(error.response?.data?.message);
+    }
     // Now you can send formData to your backend API
     // sendDataToBackend(formData);
   };
@@ -26,7 +33,8 @@ const SendExamResult = () => {
   return (
     <div className='cont'>
       {/* <Nav /> */}
-      <form onSubmit={handleSubmit} className='mt-3 p-2'>
+      <button onClick={handleSubmit}>sdfhajsdbfkjashdk</button>
+      <form className='mt-3 p-2'>
         {/* <table border={1}>
           <tr>
             <td> */}

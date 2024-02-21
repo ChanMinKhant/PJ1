@@ -10,4 +10,17 @@ const AdminUpload = async (userData) => {
     throw error;
   }
 };
-export { AdminUpload };
+
+const sendEmail = async (data) => {
+  try {
+    const response = await apiService.post(`${authBaseUrl}/send`, {
+      year: 'First',
+      semester: 'First',
+    });
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export { AdminUpload, sendEmail };

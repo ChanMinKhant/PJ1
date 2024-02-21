@@ -4,13 +4,22 @@
   box-sizing: border-box;
 }
 .addcpybtn {
-  width: 150px;
+  /* width: 160px; */
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  height: 100%;
 }
 
 .surl {
-  float: left;
-  width: 110px;
+  /* float: left; */
+  /* position: relative;
+  left: 30px;
+  top: 12px; */
+  /* width: 110px; */
+  margin-left: 5px;
   overflow-x: scroll;
+  /* margin-top: 15px; */
 }
 ::-webkit-scrollbar {
   width: 0;
@@ -66,10 +75,10 @@
   padding: 4px;
   font-size: 13px;
 }
-.btns {
+/* .btns {
   display: flex;
   flex-direction: row;
-}
+} */
 .btnsss {
   background-color: aquamarine;
   margin: 5px;
@@ -93,9 +102,9 @@
   text-align: center;
   border-radius: 10px;
 }
-.tableRow {
+/* .tableRow {
   width: 100%;
-}
+} */
 .clip:hover {
   background-color: rgb(168, 199, 199);
   color: black;
@@ -113,9 +122,13 @@
 .hideinp {
   display: none;
 }
+.clipdiv {
+  float: left;
+  margin-bottom: 20px;
+}
 
 @media (max-width: 700px) {
-  .tableRow {
+  /* .tableRow {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -149,18 +162,18 @@
     justify-content: center;
     color: azure;
     background-color: rgb(4, 4, 4);
-  }
+  } */
   .surl {
-    width: 80%;
-    text-align: left;
+    width: 110px;
+    /* text-align: left; */
   }
-  .msilalel {
+  /* .msilalel {
     display: block;
     width: 100px;
 
     font-weight: bold;
-  }
-  .formobs {
+  } */
+  /* .formobs {
     display: flex;
 
     gap: 10px;
@@ -174,7 +187,7 @@
   }
   .sone {
     background-color: #5f7b82;
-  }
+  } */
 }
 
 /* td {
