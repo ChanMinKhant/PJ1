@@ -175,69 +175,59 @@ const ShortenUrlApp = () => {
             <form className='formtag' onSubmit={handleSubmit}>
               <div className='rownow'>
                 <div className='each'>
-                  <label className='form-label'>
-                    URL:
-                    <input
-                      className='form-control'
-                      type='text'
-                      value={url}
-                      onChange={(e) => setUrl(e.target.value)}
-                    />
-                  </label>
+                  <label className='form-label'>URL:</label>
+                  <input
+                    className='form-control bgu'
+                    type='text'
+                    value={url}
+                    onChange={(e) => setUrl(e.target.value)}
+                  />
                 </div>
 
                 <div className='each'>
-                  <label className='form-label'>
-                    Custom Link:
-                    <input
-                      className='form-control form1'
-                      // className='form1'
-                      type='text'
-                      value={customLink}
-                      onChange={(e) => setCustomLink(e.target.value)}
-                    />
-                  </label>
+                  <label className='form-label'>Custom Link:</label>
+                  <input
+                    className='form-control bgu'
+                    // className='form1'
+                    type='text'
+                    value={customLink}
+                    onChange={(e) => setCustomLink(e.target.value)}
+                  />
                 </div>
 
                 <div className='each'>
-                  <label className='form-label'>
-                    Password:
-                    <input
-                      className='form-control'
-                      type='password'
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                    />
-                  </label>
+                  <label className='form-label'>Password:</label>
+                  <input
+                    className='form-control bgu'
+                    type='password'
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
                 </div>
 
                 <div className='each'>
-                  <label className='form-label'>
-                    Limit:
-                    <input
-                      className='form-control'
-                      type='number'
-                      value={limit}
-                      onChange={(e) => setLimit(e.target.value)}
-                    />
-                  </label>
+                  <label className='form-label'>Limit:</label>
+                  <input
+                    className='form-control bgu'
+                    type='number'
+                    value={limit}
+                    onChange={(e) => setLimit(e.target.value)}
+                  />
                 </div>
-              </div>
-              <div className='each'>
-                <label className='form-check'>
-                  isActive:
+                <div className='each'>
+                  <label className='form-check'>isActive:</label>
                   <input
                     className='form-check-input'
                     type='checkbox'
                     checked={isActive}
                     onChange={handleIsActiveChange}
                   />
-                </label>
-              </div>
-              <div className='each'>
-                <button type='submit' className='btn btn-primary'>
-                  Shorten URL
-                </button>
+                </div>
+                <div className='each'>
+                  <button type='submit' className='btn btn-primary'>
+                    Shorten URL
+                  </button>
+                </div>
               </div>
             </form>
           </div>
