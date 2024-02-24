@@ -187,7 +187,7 @@ const ShortenUrlApp = () => {
                 <div className='each'>
                   <label className='form-label'>Custom Link:</label>
                   <input
-                    className='form-control bgu'
+                    className='form-control bgu bg-secondary'
                     // className='form1'
                     type='text'
                     value={customLink}
@@ -234,7 +234,11 @@ const ShortenUrlApp = () => {
           {shortenedUrl && (
             <div>
               <p>Shortened URL:</p>
-              <a href={shortenedUrl} target='_blank' rel='noopener noreferrer'>
+              <a
+                href={`/url/${shortenedUrl}`}
+                target='_blank'
+                rel='noopener noreferrer'
+              >
                 {`${window.location.origin}/url/${shortenedUrl}`}
               </a>
             </div>

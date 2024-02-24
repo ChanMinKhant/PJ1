@@ -37,12 +37,21 @@ const MyModal = ({
     <Modal show={show} onHide={handleClose} backdrop='static' keyboard={false}>
       <div ref={modalRef}>
         <Modal.Header closeButton={false}>
-          <Modal.Title>{name}</Modal.Title>
+          <Modal.Title>
+            <div className='wwrap'>{name}</div>
+          </Modal.Title>
+          <div variant='secondary' onClick={handleClose}>
+            Close{' '}
+            <span className='mt-1' role='img' aria-label='close'>
+              <i className='bi bi-x me-3 fs-4'></i>
+            </span>
+          </div>
         </Modal.Header>
         <Modal.Body>
           <ul className='modalul'>
             <h6>File</h6>
             <li>{name}</li>
+            <br />
             <h6>Link</h6>
             <li>
               <a href={`${window.location.origin}/file/${shortId}`} ref={refe}>
@@ -59,10 +68,13 @@ const MyModal = ({
                 )}
               </span>
             </li>
+            <br />
             <h6>Download count</h6>
             <li>{downloadCount}</li>
+            <br />
             <h6>Date</h6>
             <li>{date}</li>
+            <br />
             <h6>File size</h6>
             <li>{fileSize}</li>
             {/* <li onClick={onFileDelete}>

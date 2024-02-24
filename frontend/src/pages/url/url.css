@@ -244,7 +244,7 @@ tr:nth-child(odd) {
 .left {
   /* margin-top: 90px; */
   /* margin-bottom: 10px; */
-  background-color: #4a6172;
+  background-color: #d3dbe1;
   padding-bottom: 30px;
 }
 .right {
@@ -257,7 +257,7 @@ tr:nth-child(odd) {
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
   /* background: linear-gradient(to right, #d6ebf4, #868ca4); */
-  background-color: rgb(4, 162, 253);
+  background-color: rgb(208, 206, 206);
   /* color: #d9dfe4; */
   border-radius: 10px;
   width: 100%;

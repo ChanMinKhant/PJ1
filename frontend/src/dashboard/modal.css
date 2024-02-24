@@ -1,3 +1,8 @@
 .modalul {
   list-style-type: none;
 }
+.wwrap {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  width: 360px;
+}

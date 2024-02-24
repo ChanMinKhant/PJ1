@@ -191,6 +191,10 @@ const CopyButton = (props) => {
   const handleCloseModal = () => {
     setShowModal(false);
   };
+  const dateObject = new Date(props.createdAt);
+
+  // Format the date using toLocaleString()
+  const formattedDateurl = dateObject.toLocaleString();
   return (
     <tr className='tabl '>
       <td className='addcpybtn text-center'>
@@ -293,25 +297,31 @@ const CopyButton = (props) => {
           onClick={handleShowModal}
         ></i>
         <div>
-          <UrlModal show={showModal} handleClose={handleCloseModal} />
+          <UrlModal
+            show={showModal}
+            handleClose={handleCloseModal}
+            origin={props.url}
+            shorten={props.shortUrl}
+            password={props.password}
+            limit={props.limit}
+            clickCount={props.clickCount}
+            isActive={props.isActive}
+            createdAt={formattedDateurl}
+          />
         </div>
         {/* <td className={`editbtn editdel ${showEdit ? 'hideinp' : 'notHide'}`}> */}
         <div
           className={`btnsss ${showEdit ? 'notHide' : 'hideinp'}`}
           onClick={handleEdit}
         >
-          Edit
+          Save
         </div>
         {/* {`btnsss ${showEdit ? 'notHide' : 'hideinp'}`} */}
         <div
           className={`btnsss ${showEdit ? 'notHide' : 'hideinp'}`}
           onClick={handleCancel}
-          origin={props.url}
-          shorten={props.shortUrl}
-          password={props.password}
-          limit={props.limit}
         >
-          cancle
+          Cancle
         </div>
         {/* </td> */}
         {/* <ModalBox showModal={showModal} closeModal={closeModal} /> */}
