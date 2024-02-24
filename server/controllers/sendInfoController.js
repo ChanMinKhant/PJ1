@@ -33,25 +33,8 @@ exports.createStudent = asyncErrorHandler(async (req, res, next) => {
 exports.sendExamResult = asyncErrorHandler(async (req, res, next) => {
   const { year, semester, major } = req.body;
   console.log(year);
-  // const students = await Student.find({ year, semester, major });
-  const students = [
-    {
-      email: 'sayagyi226@gmail.com',
-      rollNo: '002200',
-      section: 'A',
-      year: 'First',
-      semester: 'First',
-      major: 'CST',
-    },
-    {
-      email: 'nyeinchanaung@ucspyay.edu.mm',
-      rollNo: '002201',
-      section: 'A',
-      year: 'First',
-      semester: 'First',
-      major: 'CST',
-    },
-  ];
+  const students = await Student.find({ year, semester, major });
+
   const missingFiles = [];
   await Promise.all(
     students.map(async (student) => {
