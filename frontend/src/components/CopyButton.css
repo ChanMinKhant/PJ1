@@ -19,7 +19,11 @@
   /* width: 110px; */
   margin-left: 5px;
   overflow-x: scroll;
+  height: 100%;
   /* margin-top: 15px; */
+}
+.formcon {
+  height: 100%;
 }
 ::-webkit-scrollbar {
   width: 0;
@@ -30,7 +34,7 @@
   position: relative;
   overflow: hidden;
   cursor: pointer;
-
+  /* top: 7px; */
   left: 0px;
   border-radius: 3px;
 }
@@ -124,7 +128,7 @@
 }
 .clipdiv {
   float: left;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 }
 
 @media (max-width: 700px) {
