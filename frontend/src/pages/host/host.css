@@ -8,8 +8,7 @@
     padding: 50px;
    height: 100vh;
     display: flex;
-    
-   
+
     overflow: hidden;
 }
 .host{
@@ -72,4 +71,11 @@
 .CustomInput{
     margin-left: 15px;
    
+}
+@media (max-width: 550px) {
+    .host-box{
+        display: flex;
+        flex-direction: column;
+        
+    }
 }

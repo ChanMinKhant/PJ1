@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { createHost, getHosts, suspendHost } from '../../services/hostService';
 import './host.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Host from '../../components/Host';
 const FileUploadPage = () => {
   const [formData, setFormData] = useState({
@@ -51,7 +53,7 @@ const FileUploadPage = () => {
       }
 
       const response = await createHost(formDataApi);
-
+toast.success('File(s) uploaded successfully!')
       setSuccessMessage('File(s) uploaded successfully!');
       setErrorMessage('');
       setHosts([...hosts, response.data]);
@@ -69,7 +71,9 @@ const FileUploadPage = () => {
   };
   return (
     <div className='host-box'>
+      
       <div>
+      <ToastContainer/>
         <form onSubmit={handleSubmit} className='host'>
           <fieldset>
             <ul>

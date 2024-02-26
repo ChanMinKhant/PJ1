@@ -24,10 +24,10 @@ const Home = () => {
             </Link>
           </div>
           <div className='m-right'>
-            <div className='circle'>
+            {/* <div className='circle'>
               <div className='logo'> </div>
               <div className='text'></div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
