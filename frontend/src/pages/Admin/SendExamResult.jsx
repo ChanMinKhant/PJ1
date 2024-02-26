@@ -24,7 +24,7 @@ const SendExamResult = () => {
       const res = await sendEmail(formData);
       console.log(res);
     } catch (error) {
-      console.log(error.response?.data?.message);
+      console.log(error.response);
     }
     // Now you can send formData to your backend API
     // sendDataToBackend(formData);

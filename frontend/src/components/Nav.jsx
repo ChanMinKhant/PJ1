@@ -57,21 +57,21 @@ function Nav() {
             dashboard
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link to='/examples' onClick={toggleMenu}>
             examples
           </Link>
-        </li>
+        </li> */}
         <li>
           <Link to='/aboutUs' onClick={toggleMenu}>
             about us
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link to='/store' onClick={toggleMenu}>
             store
           </Link>
-        </li>
+        </li> */}
       </ul>
       <div className='dropdown' onClick={toggleDropdown} ref={dropdownRef}>
         <i className='bi bi-person lgsu'></i>

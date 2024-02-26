@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Resizable } from 'react-resizable';
+import Switch from '../../components/Switch.jsx';
 import {
   createShortenUrl,
   getAllUrls,
   deleteUrl,
+  updateUrl,
 } from '../../services/urlService'; // Import your apiService functions
 import CopyButton from '../../components/CopyButton';
 import './url.css';
@@ -35,6 +37,7 @@ const ShortenUrlApp = () => {
         customLink: customLink || undefined,
         password: password || undefined,
         limit: limit || undefined,
+        isActive: isActive,
       };
       const response = await createShortenUrl(data);
       console.log(response.data);
@@ -82,7 +85,23 @@ const ShortenUrlApp = () => {
       console.error('Error deleting URL:', error.message);
     }
   };
-
+  const handleUpdatedUrl = async (shortUrl, data) => {
+    try {
+      await updateUrl(shortUrl, data);
+      const updatedUrls = urls.map((url) => {
+        if (url.shortUrl === shortUrl) {
+          return {
+            ...url,
+            ...data,
+          };
+        }
+        return url;
+      });
+      setUrls(updatedUrls);
+    } catch (error) {
+      console.error('Error updating URL:', error.message);
+    }
+  };
   return (
     <div className='container1'>
       <div className='main'>
@@ -93,158 +112,82 @@ const ShortenUrlApp = () => {
 
           {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
 
-          {/* <form className='inputform' onSubmit={handleSubmit}>
-            <div className='gbox'>
-              <div className={`grid-item ${isPremium ? 'isnot' : 'span-two'}`}>
-                <label>
-                  URL:
-                  <br />
-                  <input
-                    style={{ width: '90%' }}
-                    className='uurl'
-                    type='text'
-                    value={url}
-                    onChange={(e) => setUrl(e.target.value)}
-                  />{' '}
-                </label>
-              </div>
-
-              <div
-                className={`ull grid-item ${
-                  isPremium ? 'showbox' : 'donotshow'
-                }`}
-              >
-                <div>
-                  <label>
-                    Custom Link:
-                    <br />
-                    <input
-                      type='text'
-                      value={customLink}
-                      onChange={(e) => setCustomLink(e.target.value)}
-                    />
-                  </label>
-                </div>
-              </div>
-
-              <div className='grid-item'>
-                <label>
-                  Password:
-                  <br />
-                  <input
-                    type='password'
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
-                </label>
-              </div>
-
-              <div className='grid-item'>
-                <label>
-                  Limit:
-                  <br />
-                  <input
-                    type='number'
-                    value={limit}
-                    onChange={(e) => setLimit(e.target.value)}
-                  />
-                </label>
-              </div>
-
-            </div>
-            <div className='gcontainer'>
-              <div className='grid-item1'>
-                <button type='submit' className='shortbtn'>
-                  Shorten URL
-                </button>
-              </div>
-              <div className='grid-item1'>
-                <label className='isac'>
-                  isActive:
-                  <input
-                    className='ccbox'
-                    type='checkbox'
-                    checked={isActive}
-                    onChange={handleIsActiveChange}
-                  />
-                </label>
-              </div>
-            </div>
-          </form> */}
           <div className='form-container'>
             <form className='formtag' onSubmit={handleSubmit}>
               <div className='rownow'>
                 <div className='each'>
-                  <label className='form-label'>
-                    URL:
-                    <input
-                      className='form-control'
-                      type='text'
-                      value={url}
-                      onChange={(e) => setUrl(e.target.value)}
-                    />
-                  </label>
-                </div>
-
-                <div className='each'>
-                  <label className='form-label'>
-                    Custom Link:
-                    <input
-                      className='form-control form1'
-                      // className='form1'
-                      type='text'
-                      value={customLink}
-                      onChange={(e) => setCustomLink(e.target.value)}
-                    />
-                  </label>
-                </div>
-
-                <div className='each'>
-                  <label className='form-label'>
-                    Password:
-                    <input
-                      className='form-control'
-                      type='password'
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                    />
-                  </label>
-                </div>
-
-                <div className='each'>
-                  <label className='form-label'>
-                    Limit:
-                    <input
-                      className='form-control'
-                      type='number'
-                      value={limit}
-                      onChange={(e) => setLimit(e.target.value)}
-                    />
-                  </label>
-                </div>
-              </div>
-              <div className='each'>
-                <label className='form-check'>
-                  isActive:
+                  <label className='form-label'>URL:</label>
                   <input
+                    className='form-control bgu'
+                    type='text'
+                    value={url}
+                    onChange={(e) => setUrl(e.target.value)}
+                  />
+                </div>
+
+                <div className='each'>
+                  <label className='form-label'>Custom Link:</label>
+                  <input
+                    className='form-control bgu bg-secondary'
+                    // className='form1'
+                    type='text'
+                    value={customLink}
+                    onChange={(e) => setCustomLink(e.target.value)}
+                  />
+                </div>
+
+                <div className='each'>
+                  <label className='form-label'>Password:</label>
+                  <input
+                    className='form-control bgu'
+                    type='password'
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </div>
+
+                <div className='each'>
+                  <label className='form-label'>Limit:</label>
+                  <input
+                    className='form-control bgu'
+                    type='number'
+                    value={limit}
+                    onChange={(e) => setLimit(e.target.value)}
+                  />
+                </div>
+                <div className='each'>
+                  <label className='form-check'>isActive:</label>
+                  {/* <input
                     className='form-check-input'
                     type='checkbox'
                     checked={isActive}
                     onChange={handleIsActiveChange}
+                  /> */}
+                  <Switch
+                    isToggled={isActive}
+                    onToggle={handleIsActiveChange}
                   />
-                </label>
-              </div>
-              <div className='each'>
-                <button type='submit' className='btn btn-primary'>
-                  Shorten URL
-                </button>
+                </div>
+                <div className='each'>
+                  <button
+                    type='submit'
+                    className='btn btn-primary'
+                    rounded={true}
+                  >
+                    Shorten URL
+                  </button>
+                </div>
               </div>
             </form>
           </div>
           {shortenedUrl && (
             <div>
               <p>Shortened URL:</p>
-              <a href={shortenedUrl} target='_blank' rel='noopener noreferrer'>
+              <a
+                href={`/url/${shortenedUrl}`}
+                target='_blank'
+                rel='noopener noreferrer'
+              >
                 {`${window.location.origin}/url/${shortenedUrl}`}
               </a>
             </div>
@@ -278,6 +221,8 @@ const ShortenUrlApp = () => {
                   key={url._id}
                   {...url}
                   onDelete={handleDeleteUrl}
+                  onEdit={handleUpdatedUrl}
+                  shortUrl={url.shortUrl}
                 />
               ))}
             </tbody>

@@ -1,5 +1,5 @@
 import './css/home.css';
-import Nav from '../../components/nav';
+import Nav from '../../components/Nav';
 import myImg from './css/cogwheel.png';
 import { Link } from 'react-router-dom';
 // import Loading from '../../components/Loading';

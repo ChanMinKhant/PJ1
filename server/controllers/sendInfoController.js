@@ -128,3 +128,70 @@ exports.sendInfomation = asyncErrorHandler(async (req, res, next) => {
     await sendEmail(options);
   });
 });
+
+exports.getStudents = asyncErrorHandler(async (req, res, next) => {
+  const { year, semester, major, section } = req.body;
+  let query = {};
+  if (year) {
+    query.year = year;
+  }
+  if (semester) {
+    query.semester = semester;
+  }
+  if (major) {
+    query.major = major;
+  }
+  if (section) {
+    query.section = section;
+  }
+  const students = await Student.find(query);
+  res.status(200).json({
+    success: true,
+    students,
+  });
+});
+
+exports.deleteStudent = asyncErrorHandler(async (req, res, next) => {
+  const { id } = req.params;
+  const student = await Student.findByIdAndDelete(id);
+  if (!student) {
+    return next(new CustomError('Student not found', 404));
+  }
+  res.status(200).json({
+    success: true,
+    message: 'Student deleted successfully',
+  });
+});
+
+exports.updateStudent = asyncErrorHandler(async (req, res, next) => {
+  const { id } = req.params;
+  const { studentName, studentEmail, rollNo, section, year, major } = req.body;
+  const studentToUpdate = {};
+  if (studentName) {
+    studentToUpdate.studentName = studentName;
+  }
+  if (studentEmail) {
+    studentToUpdate.studentEmail = studentEmail;
+  }
+  if (rollNo) {
+    studentToUpdate.rollNo = rollNo;
+  }
+  if (section) {
+    studentToUpdate.section = section;
+  }
+  if (year) {
+    studentToUpdate.year = year;
+  }
+  if (major) {
+    studentToUpdate.major = major;
+  }
+
+  const student = await Student.findByIdAndUpdate(id, studentToUpdate);
+  if (!student) {
+    return next(new CustomError('Student not found', 404));
+  }
+  res.status(200).json({
+    success: true,
+    message: 'Student updated successfully',
+  });
+});

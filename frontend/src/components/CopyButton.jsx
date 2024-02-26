@@ -1,117 +1,17 @@
-// import React, { useRef, useState } from 'react';
-// import './CopyButton.css';
-// import ModalBox from './../dashboard/modal';
-// const CopyButton = (props) => {
-//   //from
-//   const [showModal, setShowModal] = useState(false);
-
-//   const openModal = () => {
-//     setShowModal(true);
-//   };
-
-//   const closeModal = () => {
-//     setShowModal(false);
-//   };
-//   //to
-//   const textToCopyRef = useRef(null);
-//   const [showCopiedMessage, setShowCopiedMessage] = useState(false);
-
-//   const handleCopyClick = () => {
-//     const range = document.createRange();
-//     range.selectNode(textToCopyRef.current);
-
-//     const selection = window.getSelection();
-//     selection.removeAllRanges();
-//     selection.addRange(range);
-
-//     document.execCommand('copy');
-
-//     // Deselect the text
-//     selection.removeAllRanges();
-
-//     // Show "Copied!" message for 2 seconds
-//     setShowCopiedMessage(true);
-//     setTimeout(() => {
-//       setShowCopiedMessage(false);
-//     }, 2000);
-
-//     // Hide the "Copied!" message and show the clip icon again after 4 seconds
-//     setTimeout(() => {
-//       setShowCopiedMessage(false);
-//     }, 4000);
-//   };
-//   const handleDeleteClick = () => {
-//     // Invoke the onDelete function passed from the parent (ShortenUrlApp)
-//     props.onDelete(props.shortUrl);
-//   };
-//   return (
-//     <tr className='tableRow'>
-//       <td className='addcpybtn'>
-//         <a
-//           className='surl'
-//           href={props.url}
-//           target='_blank'
-//           rel='noopener noreferrer'
-//           ref={textToCopyRef}
-//           style={{ marginRight: '10px' }}
-//         >
-//           {`${window.location.origin}/url/${props.shortUrl}`}
-//         </a>
-//         <div className='clipdiv'>
-//           {showCopiedMessage ? (
-//             <span className='copied-message'>Copied!</span>
-//           ) : (
-//             <i className='bi bi-clipboard clip' onClick={handleCopyClick}></i>
-//           )}
-//         </div>
-//       </td>
-//       <td>{props.clickCount}</td>
-//       <td>{props.isActive ? 'true' : 'false'}</td>
-//       <td>{props.limit}</td>
-
-//       <td className='url'>
-//         {props.url}
-
-//         {/* <div className='clipdiv'>
-//           {showCopiedMessage ? (
-//             <span className='copied-message'>Copied!</span>
-//           ) : (
-//             <i className='bi bi-clipboard clip' onClick={handleCopyClick}></i>
-//           )}
-//         </div> */}
-//       </td>
-
-//       <td className='btns'>
-//         <div className='editbtn editdel'>Edit</div>
-//         <span
-//           onClick={openModal}
-//           className='deletebtn editdel'
-//           style={{ cursor: 'pointer' }}
-//         >
-//           Delete {/* Icon - You can use any icon or image here */}
-//         </span>
-//         <ModalBox showModal={showModal} closeModal={closeModal} />
-//         <div className='deletebtn editdel' onClick={handleDeleteClick}>
-//           Delete
-//         </div>
-//       </td>
-//     </tr>
-//   );
-// };
-
-// export default CopyButton;
 import React, { useRef, useState } from 'react';
 import './CopyButton.css';
 import UrlModal from './UrlModal';
+import sliderCX from './Switch.jsx';
 // import CopyComponent from './copy.jsx';
 const CopyButton = (props) => {
   //from
   const [showEdit, setshowEdit] = useState(false);
+  const [editedLimit, setEditedLimit] = useState('');
   const [editedValues, setEditedValues] = useState({
     clickCount: props.clickCount,
     isActive: props.isActive,
     limit: props.limit,
-    url: props.url,
+    shortUrl: props.shortUrl,
   });
 
   // Update the handleEdit function
@@ -123,11 +23,16 @@ const CopyButton = (props) => {
         clickCount: props.clickCount,
         isActive: props.isActive,
         limit: props.limit,
-        url: props.url,
+        shortUrl: props.shortUrl,
       });
     }
     setshowEdit(!showEdit);
     // console.log('After toggle: ', showEdit);
+  };
+  const handleEditClicks = () => {
+    props.onEdit(props.shortUrl, editedValues);
+    setshowEdit(false);
+    console.log('handle edit clicks');
   };
   const handleCancel = () => {
     // Reset edited values to the original values
@@ -135,7 +40,7 @@ const CopyButton = (props) => {
       clickCount: props.clickCount,
       isActive: props.isActive,
       limit: props.limit,
-      url: props.url,
+      shortUrl: props.shortUrl,
     });
     setshowEdit(false);
   };
@@ -191,41 +96,54 @@ const CopyButton = (props) => {
   const handleCloseModal = () => {
     setShowModal(false);
   };
+  const dateObject = new Date(props.createdAt);
+
+  // Format the date using toLocaleString()
+  const formattedDateurl = dateObject.toLocaleString();
   return (
     <tr className='tabl '>
       <td className='addcpybtn text-center'>
-        <div className='clipdiv'>
-          {showCopiedMessage ? (
-            <span className='copied-message'>Copied!</span>
-          ) : (
-            <i className='bi bi-clipboard clip' onClick={handleCopyClick}></i>
-          )}
+        <div className={`clipdivdiv ${showEdit ? 'hideinp' : 'notHide'}`}>
+          <div className='clipdiv'>
+            {showCopiedMessage ? (
+              <span className='copied-message'>Copied!</span>
+            ) : (
+              <i className='bi bi-clipboard clip' onClick={handleCopyClick}></i>
+            )}
+          </div>
+          <p
+            className='surl'
+            href={props.url}
+            target='_blank'
+            rel='noopener noreferrer'
+            ref={textToCopyRef}
+            style={{ marginRight: '10px', cursor: 'pointer' }}
+            onClick={handleNavagate}
+          >
+            {`${window.location.origin}/url/${props.shortUrl}`}
+          </p>
         </div>
-        <p
-          className='surl'
-          href={props.url}
-          target='_blank'
-          rel='noopener noreferrer'
-          ref={textToCopyRef}
-          style={{ marginRight: '10px', cursor: 'pointer' }}
-          onClick={handleNavagate}
-        >
-          {`${window.location.origin}/url/${props.shortUrl}`}
-        </p>
+        <div></div>
+        <input
+          type='text'
+          value={editedValues.shortUrl}
+          className={`formcon ${showEdit ? 'notHide' : 'hideinp'}`}
+          onChange={(e) =>
+            setEditedValues({ ...editedValues, shortUrl: e.target.value })
+          }
+        />
       </td>
       <td className='bbbbb formobs fone text-center'>
         <label className='msilalel'>Click count:</label>
-        <p className={`datas ${showEdit ? 'hideinp' : 'notHide'}`}>
-          {props.clickCount}
-        </p>
-        <input
+        <p className='datas'>{props.clickCount}</p>
+        {/* <input
           type='text'
           value={editedValues.clickCount}
           className={`formcon ${showEdit ? 'notHide' : 'hideinp'}`}
           onChange={(e) =>
             setEditedValues({ ...editedValues, clickCount: e.target.value })
           }
-        />
+        /> */}
       </td>
       {/* <td className='bbbbb formobs sone'>
         <label className='msilalel'>IsActive:</label>
@@ -289,29 +207,37 @@ const CopyButton = (props) => {
           Delete
         </div>
         <i
-          className='bi bi-three-dots-vertical me-3 fs-3.5 '
+          className={`bi bi-three-dots-vertical me-3 fs-3.5 ${
+            showEdit ? 'hideinp' : 'notHide'
+          }`}
           onClick={handleShowModal}
         ></i>
         <div>
-          <UrlModal show={showModal} handleClose={handleCloseModal} />
+          <UrlModal
+            show={showModal}
+            handleClose={handleCloseModal}
+            origin={props.url}
+            shorten={props.shortUrl}
+            password={props.password}
+            limit={props.limit}
+            clickCount={props.clickCount}
+            isActive={props.isActive}
+            createdAt={formattedDateurl}
+          />
         </div>
         {/* <td className={`editbtn editdel ${showEdit ? 'hideinp' : 'notHide'}`}> */}
         <div
           className={`btnsss ${showEdit ? 'notHide' : 'hideinp'}`}
-          onClick={handleEdit}
+          onClick={handleEditClicks}
         >
-          Edit
+          Save
         </div>
         {/* {`btnsss ${showEdit ? 'notHide' : 'hideinp'}`} */}
         <div
           className={`btnsss ${showEdit ? 'notHide' : 'hideinp'}`}
           onClick={handleCancel}
-          origin={props.url}
-          shorten={props.shortUrl}
-          password={props.password}
-          limit={props.limit}
         >
-          cancle
+          Cancle
         </div>
         {/* </td> */}
         {/* <ModalBox showModal={showModal} closeModal={closeModal} /> */}

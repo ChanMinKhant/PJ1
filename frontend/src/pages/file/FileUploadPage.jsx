@@ -138,7 +138,7 @@ const FileUploadPage = () => {
               <section className='uploaded-row'>
                 <button
                   type='submit'
-                  className='border-0 bgg btn btn-primary d-md-block d-none p-2'
+                  className='border-0 bgg btn btn-primary d-md-block d-none pt-0'
                 >
                   {/* <img src={uploadcloud} alt='' width={20} /> */}
                   Upload
@@ -217,7 +217,7 @@ const FileUploadPage = () => {
               </div>
               <button
                 type='submit'
-                className='border-0 bgg btn btn-primary d-md-none d-block pt-1'
+                className='border-0 bgg btn btn-primary d-md-none d-block pt-0'
               >
                 {/* <img src={uploadcloud} alt='' width={20} /> */}
                 Upload

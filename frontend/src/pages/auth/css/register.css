@@ -12,8 +12,8 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  background: url('rgBg2.jpg');
-
+  /* background: url('rgBg2.jpg');
+  opacity: 0.3; */
   background: linear-gradient(45deg, white);
 }
 .blur {
