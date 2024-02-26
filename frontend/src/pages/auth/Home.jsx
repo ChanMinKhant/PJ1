@@ -16,9 +16,7 @@ const Home = () => {
                 <span></span>
               </h1>
             </div>
-            <br />
-            <br />
-            <br />
+            
             <Link to='/register'>
               <button className='homebtn'>Register Now</button>
             </Link>
