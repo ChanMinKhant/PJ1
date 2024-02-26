@@ -33,8 +33,12 @@ exports.createStudent = asyncErrorHandler(async (req, res, next) => {
 exports.sendExamResult = asyncErrorHandler(async (req, res, next) => {
   const { year, semester, major } = req.body;
   console.log(year);
-  const students = await Student.find({ year, semester, major });
-
+  const students = await Student.find({
+    year: 'First',
+    semester: 'First',
+    major: 'CST',
+  });
+  console.log(students);
   const missingFiles = [];
   await Promise.all(
     students.map(async (student) => {
@@ -94,12 +98,6 @@ exports.uploadFile = asyncErrorHandler(async (req, res, next) => {
       return next(err);
     }
   });
-  if (req.files.length === 0) {
-    return res.status(400).json({
-      success: false,
-      message: 'No file uploaded',
-    });
-  }
   console.log(req.files);
   res.status(200).json({
     success: true,

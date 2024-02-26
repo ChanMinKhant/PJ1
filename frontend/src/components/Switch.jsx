@@ -7,7 +7,7 @@ const Switch = ({ rounded = false, isToggled, onToggle }) => {
   });
 
   return (
-    <label htmlFor='' className='switch'>
+    <label className='switch'>
       <input type='checkbox' checked={isToggled} onChange={onToggle} />
       <span className={sliderCX}></span>
     </label>

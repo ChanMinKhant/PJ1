@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Resizable } from 'react-resizable';
-import sliderCX from '../../components/Switch.jsx';
+import Switch from '../../components/Switch.jsx';
 import {
   createShortenUrl,
   getAllUrls,
@@ -163,13 +163,17 @@ const ShortenUrlApp = () => {
                     checked={isActive}
                     onChange={handleIsActiveChange}
                   /> */}
-                  <sliderCX
-                    isActive={isActive}
+                  <Switch
+                    isToggled={isActive}
                     onToggle={handleIsActiveChange}
                   />
                 </div>
                 <div className='each'>
-                  <button type='submit' className='btn btn-primary'>
+                  <button
+                    type='submit'
+                    className='btn btn-primary'
+                    rounded={true}
+                  >
                     Shorten URL
                   </button>
                 </div>

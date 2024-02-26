@@ -14,14 +14,14 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #111111;
-  height: 50px;
+  background-color: #0c0970;
+  height: 60px;
   z-index: 4;
   position: sticky;
   top: 0px;
 }
 nav .title {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: bold;
   margin: 1rem;
   margin-right: 15%;
@@ -35,7 +35,7 @@ nav ul {
   width: 70%;
   bottom: -8px;
   /* align-items: center; */
-  right: 0%;
+  right: -10%;
 }
 nav ul li {
   list-style: none;
@@ -45,7 +45,7 @@ nav ul li {
 nav ul li a {
   display: block;
   text-decoration: none;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   margin-left: auto;
   margin-top: auto;
   padding: 0.5rem;

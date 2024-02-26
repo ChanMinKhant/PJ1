@@ -1,5 +1,5 @@
 import './css/home.css';
-import Nav from '../../components/nav';
+import Nav from '../../components/Nav';
 import myImg from './css/cogwheel.png';
 import { Link } from 'react-router-dom';
 // import Loading from '../../components/Loading';
@@ -24,10 +24,10 @@ const Home = () => {
             </Link>
           </div>
           <div className='m-right'>
-            <div className='circle'>
+            {/* <div className='circle'>
               <div className='logo'> </div>
               <div className='text'></div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

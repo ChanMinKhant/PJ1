@@ -1,8 +1,9 @@
 .switch {
   position: relative;
   display: inline-block;
-  width: 50px;
+  width: 60px;
   height: 34px;
+  border-radius: 20px;
 }
 .switch input {
   opacity: 0;
@@ -18,6 +19,7 @@
   bottom: 0;
   background-color: #ccc;
   transition: 0.4s;
+  /* border: 10px solid black; */
 }
 .slider:before {
   position: absolute;
@@ -36,7 +38,7 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 .slider.rounded {
-  border-radius: 34px;
+  border-radius: 50%px;
 }
 .slider.rounded:before {
   border-radius: 50%;

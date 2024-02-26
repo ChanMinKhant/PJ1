@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 // import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { register } from '../../services/authService';
-import Nav from '../../components/nav';
+import Nav from '../../components/Nav';
 
 import './css/register.css';
 // import Nav from '../../components/Nav';
