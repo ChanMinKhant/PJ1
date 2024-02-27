@@ -40,7 +40,7 @@ exports.sendExamResult = asyncErrorHandler(async (req, res, next) => {
     students.map(async (student) => {
       const filePath = path.join(
         __dirname,
-        `../uploads/results/allFiles/ucspyay/${student.rollNo}.jpg`
+        `../uploads/results/allFiles/ucspyay/${student.rollNo}.jpg`,
       );
 
       try {
@@ -50,7 +50,7 @@ exports.sendExamResult = asyncErrorHandler(async (req, res, next) => {
         console.error('File does not exist');
         missingFiles.push(student.rollNo);
       }
-    })
+    }),
   );
 
   if (missingFiles.length > 0) {
@@ -147,7 +147,7 @@ exports.getStudents = asyncErrorHandler(async (req, res, next) => {
   const students = await Student.find(query);
   res.status(200).json({
     success: true,
-    students,
+    data: students,
   });
 });
 

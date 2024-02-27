@@ -61,10 +61,10 @@ const ShortenUrlApp = () => {
     const fetchUrls = async () => {
       try {
         const response = await getAllUrls();
-        console.log(response.data);
+        console.log('response.data..::' + response.data);
         setUrls(response.data);
         setIsPremium(response.isPremium);
-        console.log(response);
+        console.log('response::' + response);
       } catch (error) {
         console.error('Error fetching shortened URLs:', error.message);
         setErrorMessage('Failed to fetch shortened URLs. Please try again.');
@@ -169,11 +169,7 @@ const ShortenUrlApp = () => {
                   />
                 </div>
                 <div className='each'>
-                  <button
-                    type='submit'
-                    className='btn btn-primary'
-                    rounded={true}
-                  >
+                  <button type='submit' className='btn btn-primary'>
                     Shorten URL
                   </button>
                 </div>
