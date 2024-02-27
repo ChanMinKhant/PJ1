@@ -4,20 +4,18 @@
     box-sizing: border-box;
 }
 .host-box{
-    width: 100%;
-    padding: 50px;
-   height: 100vh;
-    display: flex;
     
-   
+    width: 100%;
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
 }
 .host{
    
-    margin: auto;
-    height: 100vh;
-    display: flex;
-    align-items: center;
+
+    margin-top: 60px;
+    /* display: flex;
+    align-items: center; */
     /* width: 50%; */
     /* padding: 10px; */
     
@@ -28,23 +26,18 @@
 .host ul li{
     margin: 30px 30px;
 }
-/* .host ul li button{
-   float: right;
-} */
-/* .HostTable tr,td,th{
-    background-color: aqua;
-    
-    
-}
-.HostTable th{
-    color: black;
-} */
-/* .hostUpload{
+.Dhost-coloum{
     display: flex;
-    
-    
-    padding: 10px;
-} */
+    width: 100%;
+}
+.Dhost-coloum-left{
+    width: 50%;
+}
+.Dhost-coloum-right{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
 .hostTable{
   
     width: 500px;
@@ -66,10 +59,28 @@
 }
 .dhostCustom{
     display: flex;
-    width:  300px;
+    flex-direction: column;
+    width:  500px;
+    margin-left: 50px;
+    font-size: 1em;
+    margin-top: 10px;
     
 }
 .CustomInput{
-    margin-left: 15px;
+    width: 450px;
+    border-radius:  5px;
+    height: 40px;
+    outline: none;
+    border: none;
+    background-color: #dbd9d9;
+    margin-top: 10px;
+
    
+}
+@media (max-width: 550px) {
+    .host-box{
+        display: flex;
+        flex-direction: column;
+        
+    }
 }

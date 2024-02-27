@@ -1,7 +1,13 @@
 import { useEffect, useState } from 'react';
 import { createHost, getHosts, suspendHost } from '../../services/hostService';
 import './host.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Host from '../../components/Host';
+import cloud from '../../../assets/cloud-computing.png';
+import uploadcloud from '../../../assets/upload-file.png';
+import deleteone from '../../../assets/delete (1).png';
+
 const FileUploadPage = () => {
   const [formData, setFormData] = useState({
     customDomain: '',
@@ -13,6 +19,9 @@ const FileUploadPage = () => {
   const [hosts, setHosts] = useState([]);
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const [fileName, setFileName] = useState('');
+  const [password, setPassword] = useState('');
+
   console.log(hosts);
   useEffect(() => {
     const tempfunc = async () => {
@@ -33,6 +42,15 @@ const FileUploadPage = () => {
   const handleFileChange = (e) => {
     const files = e.target.files;
     setFormData({ ...formData, files });
+    setFileName(files.name);
+  };
+  const handleUndoClick = () => {
+    // Clear the selected file
+    setFormData(null);
+    setFileName(null);
+  };
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
   };
 
   const handleSubmit = async (e) => {
@@ -51,7 +69,7 @@ const FileUploadPage = () => {
       }
 
       const response = await createHost(formDataApi);
-
+toast.success('File(s) uploaded successfully!')
       setSuccessMessage('File(s) uploaded successfully!');
       setErrorMessage('');
       setHosts([...hosts, response.data]);
@@ -69,11 +87,13 @@ const FileUploadPage = () => {
   };
   return (
     <div className='host-box'>
+      
       <div>
+      <ToastContainer/>
         <form onSubmit={handleSubmit} className='host'>
-          <fieldset>
-            <ul>
-              {/* ... (previous form inputs) ... */}
+         
+            {/* <ul>
+              
 
               <li>
                 <label>
@@ -86,7 +106,7 @@ const FileUploadPage = () => {
                   Custom Link:
                   <input
                     className='CustomInput'
-                    // className='form1'
+                    
                     type='text'
                     onChange={(e) =>
                       setFormData({ ...formData, customDomain: e.target.value })
@@ -106,9 +126,85 @@ const FileUploadPage = () => {
                   <div style={{ color: 'red' }}>{errorMessage}</div>
                 )}
               </li>
-            </ul>
-          </fieldset>
+            </ul> */}
+<div className='Dhost-coloum'>
+<div className='Dhost-coloum-left'>
+              <label htmlFor='fileInput' className='uploadone'>
+                {/* Choose a file */}
+                <input
+                  type='file'
+                  onChange={handleFileChange}
+                  className='custom-file-input'
+                  id='fileInput'
+                  hidden
+                />
+                <img src={cloud} alt='' className='cloudimg' />
+                <p>Browse file to upload</p>
+              </label>
+              <section className='uploaded-row'>
+                <button
+                  type='submit'
+                  className='border-0 bgg btn btn-primary d-md-block d-none pt-0'
+                >
+                  {/* <img src={uploadcloud} alt='' width={20} /> */}
+                  Upload
+                </button>
+                <img
+                  src={uploadcloud}
+                  alt=''
+                  width={20}
+                  className='d-md-none d-flex'
+                />
+                <div>
+                  <span>{fileName}</span>
+
+                  <img
+                    src={deleteone}
+                    alt=''
+                    width={20}
+                    className='m-2'
+                    onClick={handleUndoClick}
+                  />
+                </div>
+              </section>
+            </div>
+
+            <div className='Dhost-coloum-right'>
+
+            <label className='dhostCustom'>
+                  Custom Link:
+                  <input
+                    className='CustomInput'
+                    type='text'
+                    placeholder='Custom Link'
+                    onChange={(e) =>
+                      setFormData({ ...formData, customDomain: e.target.value })
+                    }
+                  />
+                </label>
+                
+                <label className='dhostCustom'>
+                  Password
+                
+                <input
+                  type='text'
+                  placeholder='Password'
+                  value={password}
+                  onChange={handlePasswordChange}
+                  className='CustomInput'
+                  id='password'
+                />
+              </label>
+              
+            </div>
+            </div>
         </form>
+        {successMessage && (
+                  <div style={{ color: 'green' }}>{successMessage}</div>
+                )}
+                {errorMessage && (
+                  <div style={{ color: 'red' }}>{errorMessage}</div>
+                )}
       </div>
       <div className='tableHost'>
         <table className='hostTable'>
