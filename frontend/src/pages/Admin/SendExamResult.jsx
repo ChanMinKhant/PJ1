@@ -210,18 +210,29 @@ const SendExamResult = () => {
             <p>No students to display</p>
           )}
         </div>
-        <div className='tbo'>
-          {students.map((student) => (
-            <Displaystudents
-              // className={`${isPremium ? 'donotshow' : 'show'}`}
-              key={student._id}
-              {...student}
-              onDelete={handleDeleteStudent}
-              onEdit={handleUpdatedStudent}
-              id={student._id}
-            />
-          ))}
-        </div>
+        <table>
+          <thead>
+            <tr>
+              <td>name</td>
+              <td>year</td>
+              <td>major</td>
+              <td>semester</td>
+              <td>section</td>
+            </tr>
+          </thead>
+          <tbody className='tbo'>
+            {students.map((student) => (
+              <Displaystudents
+                // className={`${isPremium ? 'donotshow' : 'show'}`}
+                key={student._id}
+                {...student}
+                onDelete={handleDeleteStudent}
+                onEdit={handleUpdatedStudent}
+                id={student._id}
+              />
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );
