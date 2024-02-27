@@ -16,8 +16,6 @@ const Register = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
   const confirmPasswordRef = useRef();
-  const [error, setError] = useState(null);
-  const [success, setSuccess] = useState(null);
   const { isLogined, loading } = useIsLogined();
   const navigate = useNavigate();
 
@@ -35,7 +33,7 @@ const Register = () => {
     const username = usernameRef.current.value;
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
-    const confirmPassword = passwordRef.current.value;
+    const confirmPassword = confirmPasswordRef.current.value;
 
     try {
       const response = await register({
@@ -46,25 +44,11 @@ const Register = () => {
       });
       //change json to string
       console.log(response.link);
-      const data = JSON.stringify(response);
-      setSuccess(data);
-      toast(response.message);
-      setError(null);
+      toast.success(response.message);
+      navigate('/login');
     } catch (error) {
       if (error.response) {
-        setSuccess(null);
-        console.log(success);
-        setError(
-          error.response.data.message ||
-            'An error occurred during registration.'
-        );
-        console.error('Registration error:', error.response.data);
-      } else if (error.request) {
-        setError('No response received from the server.');
-        console.error('No response received:', error.request);
-      } else {
-        setError('An error occurred during the request setup.');
-        console.error('Request setup error:', error.message);
+        toast.error(error.response?.data?.message);
       }
     }
   };
@@ -139,10 +123,6 @@ const Register = () => {
             </fieldset>
           </form>
         </div>
-
-        {success && <p style={{ color: 'green' }}>{success}</p>}
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-        {success && <p style={{ color: 'green' }}>{success}</p>}
       </div>
       <ToastContainer />
     </>

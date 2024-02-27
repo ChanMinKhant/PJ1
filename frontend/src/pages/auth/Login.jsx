@@ -12,8 +12,6 @@ import useIsLogined from '../../hooks/useIsLogined';
 const Login = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
-  const [error, setError] = useState(null);
-  const [successMessage, setSuccessMessage] = useState(null);
   const { isLogined, loading } = useIsLogined();
   const navigate = useNavigate();
 
@@ -32,11 +30,11 @@ const Login = () => {
     try {
       const response = await login({ email, password });
       toast.success(response.message);
+      navigate('/home');
       // Redirecting to another page after login
       // You can use react-router-dom's useHistory hook here
       // history.push('/');
     } catch (error) {
-      setSuccessMessage(null);
       // Using toast to display error message
       toast.error(
         error.response.data.message ||
@@ -86,12 +84,6 @@ const Login = () => {
           </fieldset>
         </form>
       </div>
-
-      {/* Display success or error messages */}
-      {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-
-      {/* Toast notification container */}
       <ToastContainer />
     </>
   );

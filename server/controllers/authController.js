@@ -15,7 +15,16 @@ const {
 } = require('../utils/index');
 
 exports.register = asyncErrorHandler(async (req, res, next) => {
+  if (req.user) {
+    const err = new CustomError('You are already logged in', 400);
+    return next(err);
+  }
   const { username, email, password, confirmPassword } = req.body;
+  if (password.length < 8) {
+    const err = new CustomError('Password must be at least 8 characters', 400);
+    return next(err);
+  }
+  console.log(password, confirmPassword);
   if (password !== confirmPassword) {
     const err = new CustomError('Password does not match', 400);
     return next(err);
@@ -42,8 +51,9 @@ exports.register = asyncErrorHandler(async (req, res, next) => {
   //sent verification message here.
   const token = uuidv4().replace(/-/g, '');
   const link =
-    process.env.FRONTEND_URL ||
-    'http://localhost:5173' + '/verify-email/' + token;
+    (process.env.FRONTEND_URL || 'http://localhost:5173') +
+    '/verify-email/' +
+    token;
   // const link = `${req.protocol}://${req.get('host')}/auth/verifyemail/${token}`; //i will change frontend url later
   const message = verifyEmailTemplate(link);
   const hashToken = crypto.createHash('sha256').update(token).digest('hex');
@@ -72,8 +82,7 @@ exports.register = asyncErrorHandler(async (req, res, next) => {
   res.status(200).send({
     success: 'PENDING',
     link,
-    message:
-      'Verification email has been sent to your account. Check your email for further instructions.',
+    message: 'Verification email has been sent to your account.',
   });
 });
 
@@ -133,6 +142,10 @@ exports.login = asyncErrorHandler(async (req, res, next) => {
   //   const err = new CustomError('You are already logged in', 400);
   //   return next(err);
   // }
+  if (req.user) {
+    const err = new CustomError('You are already logged in', 400);
+    return next(err);
+  }
   const { email, password } = req.body;
 
   if (!email) {
@@ -148,7 +161,7 @@ exports.login = asyncErrorHandler(async (req, res, next) => {
     //custom error handler later
     return res.status(404).json({
       status: 'fail',
-      message: 'This email is not registered! Please sigup',
+      message: 'This email is not registered! Please signup',
     });
   }
 
