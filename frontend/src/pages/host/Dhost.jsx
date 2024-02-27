@@ -87,7 +87,7 @@ toast.success('File(s) uploaded successfully!')
   };
   return (
     <div className='host-box'>
-      
+       
       <div>
       <ToastContainer/>
         <form onSubmit={handleSubmit} className='host'>

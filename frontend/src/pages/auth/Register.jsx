@@ -3,12 +3,12 @@ import { useRef, useState } from 'react';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { register } from '../../services/authService';
 import Nav from '../../components/Nav';
-
+// import { useHistory } from 'react-router-dom';
 import './css/register.css';
-// import Nav from '../../components/Nav';
 import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useIsLogined from '../../hooks/useIsLogined';
 
 const Register = () => {
   const usernameRef = useRef();
@@ -17,6 +17,15 @@ const Register = () => {
   const confirmPasswordRef = useRef();
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
+  const { isLogined, loading } = useIsLogined();
+  // const history = useHistory();
+  // if (loading) {
+  //   return <div>Loading...</div>;
+  // }
+
+  // if (isLogined) {
+  //   history.replace('/dashboard');
+  // }
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -45,7 +54,7 @@ const Register = () => {
         console.log(success);
         setError(
           error.response.data.message ||
-            'An error occurred during registration.',
+            'An error occurred during registration.'
         );
         console.error('Registration error:', error.response.data);
       } else if (error.request) {
@@ -60,68 +69,68 @@ const Register = () => {
 
   return (
     <>
-      <div className='blur-box'>
+      <div className="blur-box">
         <Nav />
 
         {/* <Nav /> */}
-        <div className='blur'>
-          <form onSubmit={handleSubmit} className='rg-box'>
+        <div className="blur">
+          <form onSubmit={handleSubmit} className="rg-box">
             <fieldset>
               <legend>
                 <h2>Sign in</h2>
-                <p className='underline'></p>
+                <p className="underline"></p>
               </legend>
 
               <ul>
                 <li>
-                  <i className='bi bi-person'></i>
+                  <i className="bi bi-person"></i>
                   {/* <label htmlFor='username'>Username</label> */}
                   <input
-                    type='text'
-                    id='username'
+                    type="text"
+                    id="username"
                     ref={usernameRef}
-                    placeholder='Enter username'
+                    placeholder="Enter username"
                   />
                 </li>
                 <li>
-                  <i className='bi bi-envelope'></i>
+                  <i className="bi bi-envelope"></i>
                   {/* <label htmlFor='email'>Email</label> */}
                   <input
-                    type='email'
-                    id='email'
+                    type="email"
+                    id="email"
                     ref={emailRef}
-                    placeholder='Enter email'
+                    placeholder="Enter email"
                   />
                 </li>
                 <li>
-                  <i className='bi bi-lock'></i>
+                  <i className="bi bi-lock"></i>
                   {/* <label htmlFor='password'>Password</label> */}
                   <input
-                    type='password'
-                    id='password'
+                    type="password"
+                    id="password"
                     ref={passwordRef}
-                    placeholder='Enter password'
+                    placeholder="Enter password"
                   />
                 </li>
                 <li>
-                  <i className='bi bi-check'></i>
+                  <i className="bi bi-check"></i>
 
                   <input
-                    type='password'
-                    id='confirmPassword'
+                    type="password"
+                    id="confirmPassword"
                     ref={confirmPasswordRef}
-                    placeholder='Confirm password'
+                    placeholder="Confirm password"
                   />
                 </li>
               </ul>
-              <div className='blur-btn'>
-                <button type='submit' className='btn'>
+              <div className="blur-btn">
+                <button type="submit" className="btn">
                   Register
                 </button>
               </div>
               <p>
-                Already have an account?
-                <Link to='/login' type='submit'>
+                Already have an account?{' '}
+                <Link to="/login" type="submit">
                   Click here Login
                 </Link>
               </p>

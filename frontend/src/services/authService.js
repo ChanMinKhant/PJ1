@@ -84,6 +84,15 @@ const logoutAllDevices = async () => {
   }
 };
 
+const isLogined = async () => {
+  try {
+    const response = await apiService.get(`${authBaseUrl}/isLogined`);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
 export {
   register,
   verifyEmail,
@@ -93,4 +102,5 @@ export {
   resetPassword,
   changePassword,
   logoutAllDevices,
+  isLogined,
 };
