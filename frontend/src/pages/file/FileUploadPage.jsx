@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {
   uploadFile,
   getAllFiles,
-  deleteFile,
+  deleteFile, 
 } from '../../services/fileService';
 import FileCompo from '../../components/File';
 import './FileUpload.css';

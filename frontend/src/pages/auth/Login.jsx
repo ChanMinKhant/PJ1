@@ -6,7 +6,7 @@ import './css/login.css';
 import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import Nav from '../../components/Nav';
 const Login = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -37,6 +37,7 @@ const Login = () => {
   return (
     <>
       <div className='l-form-box'>
+        <Nav/>
         <form onSubmit={handleSubmit} className='l-form'>
           <fieldset>
             <legend>
@@ -61,14 +62,8 @@ const Login = () => {
                   placeholder='Enter password'
                 />
               </li>
-              <li>
-                <div>
-                  <button type='submit' className='sub-btn'>
-                    Login
-                  </button>
-                </div>
-              </li>
             </ul>
+            <button type='submit' className='sub-btn'>Login</button>
             <p>
               Don't have an account?
               <Link to='/register' type='submit'>
