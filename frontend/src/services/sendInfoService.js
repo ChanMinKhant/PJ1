@@ -53,7 +53,7 @@ export const updateStudent = async (id, data) => {
   try {
     const response = await apiService.put(
       `${authBaseUrl}/students/${id}`,
-      data
+      data,
     );
     return response.data;
   } catch (error) {
