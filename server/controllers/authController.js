@@ -91,7 +91,7 @@ exports.verifyEmail = asyncErrorHandler(async (req, res, next) => {
 
   //actually dont need these two error
   if (!account) {
-    const err = new CustomError('Account is not found', 400);
+    const err = new CustomError('Account is not found', 404);
     return next(err);
   }
   if (account?.verify) {
@@ -114,6 +114,8 @@ exports.verifyEmail = asyncErrorHandler(async (req, res, next) => {
   res.cookie('jwt', accessToken, {
     httpOnly: true,
     maxAge: 1000 * 60 * 60 * 24 * parseInt(process.env.EXPIRES_IN || 7),
+    sameSite: 'none',
+    secure: true,
   });
   saveToken(account._id, accessToken);
   return res.status(200).json({
@@ -319,13 +321,15 @@ exports.logoutAllDevices = asyncErrorHandler(async (req, res, next) => {
 
 exports.isLogined = asyncErrorHandler(async (req, res, next) => {
   if (!req.user) {
-    res.status(200).json({
+    return res.status(200).json({
       status: true,
-      isLogined: true,
+      isLogined: false,
+      isAdmin: false,
     });
   }
   res.status(200).json({
     status: true,
     isLogined: true,
+    isAdmin: req.user.isAdmin,
   });
 });
