@@ -1,11 +1,10 @@
 import React from 'react';
-import  { useRef,useState} from 'react';
-
+import './host.css';
+import { useRef, useState } from 'react';
 
 const Host = (props) => {
   const textToCopy = useRef(null);
   const [showCopiedMessage, setShowCopiedMessage] = useState(false);
-  
 
   const handleCopy = () => {
     const range = document.createRange();
@@ -24,34 +23,33 @@ const Host = (props) => {
     setShowCopiedMessage(true);
     setTimeout(() => {
       setShowCopiedMessage(false);
-    }, 2000);}
+    }, 2000);
+  };
   return (
     // <tr>
-   
-      <tr>
-        <td>
-        
-      <a 
-      target='_blank'
-      rel='noopener noreferrer'
-      ref={textToCopy}
-      style={{ marginRight: '10px', cursor: 'pointer' }}
-      href={`http://${props.domain}.${window.location.host}`}>
-        {`http://${props.domain}.${window.location.host}`}
-      </a>
+
+    <tr>
+      <td>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          ref={textToCopy}
+          style={{ marginRight: '10px', cursor: 'pointer' }}
+          href={`http://${props.domain}.${window.location.host}`}
+        >
+          {`http://${props.domain}.${window.location.host}`}
+        </a>
       </td>
       <td>
-        <div>
         {showCopiedMessage ? (
-            <span className='copied-message'>Copied!</span>):
-        (<button onClick={handleCopy}>Copy</button>)
-  }
-        </div>
+          <span className="copied-message1">Copied!</span>
+        ) : (
+          <button onClick={handleCopy} className="copy-btn-host">
+            Copy
+          </button>
+        )}
       </td>
-      </tr>
-        
-   
-    
+    </tr>
   );
 };
 

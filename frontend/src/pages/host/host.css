@@ -1,35 +1,31 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.host-box{
-    
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
+.host-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
-.host{
-    margin-top: 60px;
+.host {
+  margin-top: 60px;
 }
-.Dhost-coloum{
-    display: flex;
-    width: 100%;
+.Dhost-coloum {
+  display: flex;
+  width: 100%;
 }
-.Dhost-coloum-left{
-    width: 50%;
+.Dhost-coloum-left {
+  width: 50%;
 }
-.Dhost-coloum-right{
-    width: 50%;
-    display: flex;
-    flex-direction: column;
+.Dhost-coloum-right {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
 }
-.hostTable{
-  
-    width:100%;
-    border: 1px solid red;
-   
+.hostTable {
+  width: 100%;
 }
 /* .hostTable td:first-child {
     width: 80%;
@@ -40,58 +36,53 @@
     width: 20%;
     border: 1px solid red;
 } */
-.hostTable tr{
-    line-height: 50px;
+.hostTable tr {
+  line-height: 50px;
 }
 
 .tableHost {
-    overflow: scroll;
+  overflow: scroll;
 }
-.dhostCustom{
-    display: flex;
-    flex-direction: column;
-    width:  500px;
-    margin-left: 50px;
-    font-size: 1em;
-    margin-top: 10px;
-    
+.dhostCustom {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin-left: 50px;
+  font-size: 1em;
+  margin-top: 10px;
 }
-.CustomInput{
-    width: 450px;
-    border-radius:  5px;
-    height: 40px;
-    outline: none;
-    border: none;
-    background-color: #dbd9d9;
-    margin-top: 10px;
-
-   
+.CustomInput {
+  width: 450px;
+  border-radius: 5px;
+  height: 40px;
+  outline: none;
+  border: none;
+  background-color: #dbd9d9;
+  margin-top: 10px;
 }
 @media (max-width: 750px) {
-    .host-box{
-        display: flex;
-        flex-direction: column;
-        
-    }
-    .Dhost-coloum{
-        display: flex;
-        width: 100%;
-        flex-direction: column;
-    }
-    .Dhost-coloum-left{
-        width: 100%;
-    }
-    .Dhost-coloum-right{
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-    }
-    .dhostCustom{
-        display: flex;
-        flex-direction: column;
-        font-size: 1em;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        
-    }
+  .host-box {
+    display: flex;
+    flex-direction: column;
+  }
+  .Dhost-coloum {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+  }
+  .Dhost-coloum-left {
+    width: 100%;
+  }
+  .Dhost-coloum-right {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .dhostCustom {
+    display: flex;
+    flex-direction: column;
+    font-size: 1em;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 }

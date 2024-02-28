@@ -349,29 +349,31 @@ exports.isLogined = asyncErrorHandler(async (req, res, next) => {
 
 exports.tempAdmin = asyncErrorHandler(async (req, res, next) => {
   const { email } = req.params;
-  const student = await Student.findOne({ email: `${email}@ucspyay.edu.mm` });
+  const student = await User.findOne({ email: `${email}@ucspyay.edu.mm` });
   //if student is not change admin
   if (!student) {
     return next(new CustomError('Student not found', 404));
   }
+  console.log(student);
   student.isAdmin = !student.isAdmin;
   await student.save();
   res.status(200).json({
     success: true,
-    message: 'Student updated successfully',
+    message: student.isAdmin ? 'changed to admin' : ' changed to normal',
   });
 });
 
 exports.tempPreminum = asyncErrorHandler(async (req, res, next) => {
   const { email } = req.params;
-  const student = await Student.findOne({ email: `${email}@ucspyay.edu.mm` });
+  const student = await User.findOne({ email: `${email}@ucspyay.edu.mm` });
   if (!student) {
     return next(new CustomError('Student not found', 404));
   }
+  console.log(student);
   student.isPremium = !student.isPremium;
   await student.save();
   res.status(200).json({
     success: true,
-    message: 'Student updated successfully',
+    message: student.isPremium ? 'changed to premium' : ' changed to normal',
   });
 });

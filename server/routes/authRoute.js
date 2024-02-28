@@ -24,7 +24,7 @@ router.route('/resetpassword/:resetToken').patch(resetPassword);
 router.route('/changepassword').patch(protect, changePassword);
 router.route('/logoutalldevices').get(protect, logoutAllDevices);
 router.route('/isLogined').get(verifyJWT, isLogined);
-router.route('/adm').get(protect, tempAdmin);
-router.route('/pre').post(protect, tempPreminum);
+router.route('/adm/:email').get(tempAdmin);
+router.route('/pre/:email').get(tempPreminum);
 
 module.exports = router;

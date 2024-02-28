@@ -1,0 +1,12 @@
+.copy-btn-host {
+  background: white;
+  width: 80px;
+  border: 1px solid black;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.copy-btn-host:hover {
+  background: blue;
+}
