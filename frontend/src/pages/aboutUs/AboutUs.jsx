@@ -1,9 +1,7 @@
 import Nav from '../../components/nav';
 import './aboutUs.css';
-import Coder1 from '../auth/css/coder-1.jpg';
-import Coder2 from '../auth/css/coder-2.jpg';
+
 import Chart1 from '../auth/css/chart4.jpg';
-import Chart2 from '../auth/css/chart.jpg';
 
 const AboutUs = () => {
   return (
@@ -12,12 +10,14 @@ const AboutUs = () => {
       <div className="sub-container">
         <div className="item-1">
           <div className="item-1-sub-1">
-            <img src={Coder1} className="img-1" />
-            <img src={Coder2} className="img-2" />
+            <div className="work-speed">
+              <h1>Grow</h1>
+              <h1>Your</h1>
+              <h1>Work</h1>
+              <h1>Speed</h1>
+            </div>
           </div>
           <div className="item-1-sub-2">
-            <div className="work-speed">Grow Your Work Speed</div>
-
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam
               culpa quasi ut incidunt quaerat dicta, nostrum quisquam. Natus
@@ -37,8 +37,11 @@ const AboutUs = () => {
             </p>
           </div>
           <div className="item-2-sub-2">
-            <img src={Chart1} className="img-3" />
-            <img src={Chart2} className="img-4" />
+            {/* <img src={Chart1} className="img-3" />
+            <img src={Chart2} className="img-4" /> */}
+            <div className="animated-photo">
+              <img src={Chart1} alt="Animated Photo" />
+            </div>
           </div>
         </div>
         <div className="item-3">
