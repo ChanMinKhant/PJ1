@@ -41,13 +41,13 @@ const Host = (props) => {
         </a>
       </td>
       <td>
-        {showCopiedMessage ? (
+        {/* {showCopiedMessage ? (
           <span className="copied-message1">Copied!</span>
-        ) : (
-          <button onClick={handleCopy} className="copy-btn-host">
-            Copy
-          </button>
-        )}
+        ) : ( */}
+        <button onClick={handleCopy} className="copy-btn-host">
+          Copy
+        </button>
+        {/* )} */}
       </td>
     </tr>
   );
