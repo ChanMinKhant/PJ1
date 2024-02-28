@@ -10,7 +10,6 @@ const useIsLogined = () => {
     const checkLoginStatus = async () => {
       try {
         const res = await isLogined();
-        console.log(res);
         setIsLogin(res.isLogined);
         setIsAdmin(res.isAdmin);
       } catch (error) {

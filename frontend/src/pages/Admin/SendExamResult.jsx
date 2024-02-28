@@ -91,12 +91,9 @@ const SendExamResult = () => {
           selectedOptions.Year,
           selectedOptions.Semester,
           selectedOptions.Major,
-          selectedOptions.Section,
+          selectedOptions.Section
         );
         setStudents(response.data);
-        console.log('response::', response);
-        console.log('response.data::', response.data);
-        console.log('selectedOptions.Year::', selectedOptions.Year);
         // console.log('students in useeffect'+students);
       } catch (error) {
         console.error('Error fetching students:', error.message);
