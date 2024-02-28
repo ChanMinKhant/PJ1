@@ -4,21 +4,19 @@ import { useParams } from 'react-router-dom';
 import './css/emailVerification.css';
 
 const EmailVerificationPage = () => {
-  const [verificationStatus, setVerificationStatus] = useState('Verifying...');
-
+  const [message, setMessage] = useState('');
   const { token } = useParams();
-
+  const verify = async () => {
+    try {
+      const response = await verifyEmail(token);
+      console.log(response);
+      setMessage(response.message);
+    } catch (error) {
+      console.log(error.response?.data?.message);
+      setMessage(error.response?.data?.message);
+    }
+  };
   useEffect(() => {
-    console.log('first');
-    const verify = async () => {
-      console.log('reached');
-      try {
-        const response = await verifyEmail(token);
-        setVerificationStatus('Email Verified');
-      } catch (error) {
-        setVerificationStatus('Email Verification Failed');
-      }
-    };
     verify();
   }, []);
 
@@ -26,7 +24,7 @@ const EmailVerificationPage = () => {
     <div className='e-verifi'>
       <div className='e-verifi-box'>
         <h1>Email Verification</h1>
-        <div>{verificationStatus}</div>
+        {message === '' ? <div>Verifying...</div> : <div>{message}</div>}
       </div>
     </div>
   );

@@ -11,20 +11,7 @@
     overflow: hidden;
 }
 .host{
-   
-
     margin-top: 60px;
-    /* display: flex;
-    align-items: center; */
-    /* width: 50%; */
-    /* padding: 10px; */
-    
-}
-.host ul{
-    list-style-type: none;
-}
-.host ul li{
-    margin: 30px 30px;
 }
 .Dhost-coloum{
     display: flex;
@@ -40,16 +27,19 @@
 }
 .hostTable{
   
-    width: 500px;
+    width:100%;
+    border: 1px solid red;
    
 }
-.hostTable td:first-child {
+/* .hostTable td:first-child {
     width: 80%;
+    border: 1px solid black;
 }
 
 .hostTable td:nth-child(2) {
     width: 20%;
-}
+    border: 1px solid red;
+} */
 .hostTable tr{
     line-height: 50px;
 }
@@ -77,10 +67,31 @@
 
    
 }
-@media (max-width: 550px) {
+@media (max-width: 750px) {
     .host-box{
         display: flex;
         flex-direction: column;
+        
+    }
+    .Dhost-coloum{
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+    }
+    .Dhost-coloum-left{
+        width: 100%;
+    }
+    .Dhost-coloum-right{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .dhostCustom{
+        display: flex;
+        flex-direction: column;
+        font-size: 1em;
+        margin-top: 10px;
+        margin-bottom: 10px;
         
     }
 }

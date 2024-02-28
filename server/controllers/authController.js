@@ -15,7 +15,16 @@ const {
 } = require('../utils/index');
 
 exports.register = asyncErrorHandler(async (req, res, next) => {
+  if (req.user) {
+    const err = new CustomError('You are already logged in', 400);
+    return next(err);
+  }
   const { username, email, password, confirmPassword } = req.body;
+  if (password.length < 8) {
+    const err = new CustomError('Password must be at least 8 characters', 400);
+    return next(err);
+  }
+  console.log(password, confirmPassword);
   if (password !== confirmPassword) {
     const err = new CustomError('Password does not match', 400);
     return next(err);
@@ -42,8 +51,9 @@ exports.register = asyncErrorHandler(async (req, res, next) => {
   //sent verification message here.
   const token = uuidv4().replace(/-/g, '');
   const link =
-    process.env.FRONTEND_URL ||
-    'http://localhost:5173' + '/verify-email/' + token;
+    (process.env.FRONTEND_URL || 'http://localhost:5173') +
+    '/verify-email/' +
+    token;
   // const link = `${req.protocol}://${req.get('host')}/auth/verifyemail/${token}`; //i will change frontend url later
   const message = verifyEmailTemplate(link);
   const hashToken = crypto.createHash('sha256').update(token).digest('hex');
@@ -72,8 +82,7 @@ exports.register = asyncErrorHandler(async (req, res, next) => {
   res.status(200).send({
     success: 'PENDING',
     link,
-    message:
-      'Verification email has been sent to your account. Check your email for further instructions.',
+    message: 'Verification email has been sent to your account.',
   });
 });
 
@@ -91,7 +100,7 @@ exports.verifyEmail = asyncErrorHandler(async (req, res, next) => {
 
   //actually dont need these two error
   if (!account) {
-    const err = new CustomError('Account is not found', 400);
+    const err = new CustomError('Account is not found', 404);
     return next(err);
   }
   if (account?.verify) {
@@ -114,6 +123,8 @@ exports.verifyEmail = asyncErrorHandler(async (req, res, next) => {
   res.cookie('jwt', accessToken, {
     httpOnly: true,
     maxAge: 1000 * 60 * 60 * 24 * parseInt(process.env.EXPIRES_IN || 7),
+    sameSite: 'none',
+    secure: true,
   });
   saveToken(account._id, accessToken);
   return res.status(200).json({
@@ -131,6 +142,10 @@ exports.login = asyncErrorHandler(async (req, res, next) => {
   //   const err = new CustomError('You are already logged in', 400);
   //   return next(err);
   // }
+  if (req.user) {
+    const err = new CustomError('You are already logged in', 400);
+    return next(err);
+  }
   const { email, password } = req.body;
 
   if (!email) {
@@ -146,7 +161,7 @@ exports.login = asyncErrorHandler(async (req, res, next) => {
     //custom error handler later
     return res.status(404).json({
       status: 'fail',
-      message: 'This email is not registered! Please sigup',
+      message: 'This email is not registered! Please signup',
     });
   }
 
@@ -315,4 +330,19 @@ exports.logoutAllDevices = asyncErrorHandler(async (req, res, next) => {
   });
 
   res.status(200).json({ message: 'Logged out from all devices.' });
+});
+
+exports.isLogined = asyncErrorHandler(async (req, res, next) => {
+  if (!req.user) {
+    return res.status(200).json({
+      status: true,
+      isLogined: false,
+      isAdmin: false,
+    });
+  }
+  res.status(200).json({
+    status: true,
+    isLogined: true,
+    isAdmin: req.user.isAdmin,
+  });
 });

@@ -13,7 +13,7 @@ const register = async (userData) => {
 
 const verifyEmail = async (token) => {
   try {
-    const response = await apiService.get(
+    const response = await apiService.post(
       `${authBaseUrl}/verifyemail/${token}`
     );
     return response.data;
@@ -84,6 +84,15 @@ const logoutAllDevices = async () => {
   }
 };
 
+const isLogined = async () => {
+  try {
+    const response = await apiService.get(`${authBaseUrl}/isLogined`);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+
 export {
   register,
   verifyEmail,
@@ -93,4 +102,5 @@ export {
   resetPassword,
   changePassword,
   logoutAllDevices,
+  isLogined,
 };
