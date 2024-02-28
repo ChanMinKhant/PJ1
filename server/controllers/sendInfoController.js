@@ -108,7 +108,7 @@ exports.sendExamResult = asyncErrorHandler(async (req, res, next) => {
   if (students.length == 0) {
     return next(new CustomError('No student found', 404));
   }
-  console.log('students', students);
+  console.log(students);
   students.forEach((student) => {
     console.log(student.email);
   });
