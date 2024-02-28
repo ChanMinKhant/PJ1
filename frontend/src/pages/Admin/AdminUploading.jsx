@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { AdminUpload, sendEmail } from '../../services/sendInfoService';
-// import Nav from '../../components/Nav';
-import cloud from '../../../assets/cloud-computing.png';
-import SendExamResult from './SendExamResult';
-import './AdminUploading.css';
-import uploadcloud from '../../../assets/upload-file.png';
-import deleteone from '../../../assets/delete (1).png';
 import { ToastContainer, toast } from 'react-toastify';
+<<<<<<< HEAD
+import { useNavigate } from 'react-router-dom';
+import useIsLogined from '../../hooks/useIsLogined';
+import Loading from '../../components/Loading';
 import 'react-toastify/dist/ReactToastify.css';
+import './AdminUploading.css';
+=======
+import 'react-toastify/dist/ReactToastify.css';
+>>>>>>> 1e3cafff24357e796953a41a557a001435903aea
 
 const AdminUploading = () => {
   const [sendOptions, setSendOptions] = useState({
@@ -21,6 +23,14 @@ const AdminUploading = () => {
   const [error, setError] = useState('');
   const [files, setFiles] = useState([]);
 
+<<<<<<< HEAD
+  if (loading) return <Loading />;
+  if (!isAdmin) {
+    navigate('/home');
+  }
+
+=======
+>>>>>>> 1e3cafff24357e796953a41a557a001435903aea
   const handleChange = (e) => {
     const { name, value } = e.target;
     setSendOptions((prevSendOptions) => ({
@@ -68,9 +78,9 @@ const AdminUploading = () => {
       return; // Stop further execution
     }
     const formData = new FormData();
-    for (let i = 0; i < files.length; i++) {
-      formData.append('files', files[i]);
-    }
+    files.forEach((file) => {
+      formData.append('files', file);
+    });
     try {
       const response = await AdminUpload(formData);
       toast.success('Files uploaded successfully', {
