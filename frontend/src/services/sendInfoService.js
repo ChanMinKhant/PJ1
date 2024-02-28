@@ -13,10 +13,7 @@ export const AdminUpload = async (userData) => {
 
 export const sendEmail = async (data) => {
   try {
-    const response = await apiService.post(`${authBaseUrl}/send`, {
-      year: 'First',
-      semester: 'First',
-    });
+    const response = await apiService.post(`${authBaseUrl}/send`, data);
     return response.data;
   } catch (error) {
     throw error;

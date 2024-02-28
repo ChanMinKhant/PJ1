@@ -93,7 +93,7 @@
 
 // export default AdminUploading;
 import React, { useState, useEffect } from 'react';
-import { AdminUpload } from '../../services/sendInfoService';
+import { AdminUpload, sendEmail } from '../../services/sendInfoService';
 // import Nav from '../../components/Nav';
 import cloud from '../../../assets/cloud-computing.png';
 import SendExamResult from './SendExamResult';
@@ -104,7 +104,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const AdminUploading = () => {
-  const [formData, setFormData] = useState({
+  const [sendOptions, setSendOptions] = useState({
     year: '',
     semester: '',
     major: '',
@@ -114,26 +114,15 @@ const AdminUploading = () => {
   const [fileName, setFileName] = useState('');
   const [error, setError] = useState('');
   const [files, setFiles] = useState([]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
+    setSendOptions((prevSendOptions) => ({
+      ...prevSendOptions,
       [name]: value,
     }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      console.log('first');
-      const res = await sendEmail(formData);
-      console.log(res);
-    } catch (error) {
-      console.log(error.response);
-    }
-    // Now you can send formData to your backend API
-    // sendDataToBackend(formData);
-  };
   const handleFileChange = (event) => {
     const selectedFiles = event.target.files;
     setFiles([...files, ...selectedFiles]);
@@ -149,8 +138,26 @@ const AdminUploading = () => {
     }
   };
 
+  const handleSendEmail = async (event) => {
+    event.preventDefault();
+    console.log(sendOptions);
+    try {
+      const res = await sendEmail(sendOptions);
+      console.log(res);
+      toast.success('Email sent successfully');
+    } catch (error) {
+      console.log(error.response.data.message);
+    }
+  };
+
   const handleUploadSubmit = async (event) => {
     event.preventDefault();
+    console.log(files);
+    if (files.length === 0) {
+      setError('Please select at least one file for upload.');
+      setUploadMessage('');
+      return; // Stop further execution
+    }
     const formData = new FormData();
     for (let i = 0; i < files.length; i++) {
       formData.append('files', files[i]);
@@ -249,7 +256,7 @@ const AdminUploading = () => {
                     <select
                       name='year'
                       className='sss form-select'
-                      value={formData.year}
+                      value={sendOptions.year}
                       onChange={handleChange}
                     >
                       <option value=''>Select Year</option>
@@ -265,7 +272,7 @@ const AdminUploading = () => {
                     <select
                       className='sss form-select'
                       name='semester'
-                      value={formData.semester}
+                      value={sendOptions.semester}
                       onChange={handleChange}
                     >
                       <option value=''>Select Semester</option>
@@ -278,7 +285,7 @@ const AdminUploading = () => {
                     <select
                       name='major'
                       className='sss form-select'
-                      value={formData.major}
+                      value={sendOptions.major}
                       onChange={handleChange}
                       aria-label='Default select example'
                     >
@@ -292,7 +299,7 @@ const AdminUploading = () => {
                     <select
                       className='sss form-select'
                       name='section'
-                      value={formData.section}
+                      value={sendOptions.section}
                       onChange={handleChange}
                     >
                       <option value=''>Select Section</option>
@@ -301,8 +308,8 @@ const AdminUploading = () => {
                     </select>
                   </label>
                   <button
-                    onClick={handleSubmit}
-                    className='btn btn-secondary btn-lg btn-block'
+                    onClick={handleSendEmail}
+                    className='btn btn-danger btn-lg btn-block'
                   >
                     Send
                   </button>

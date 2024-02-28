@@ -346,3 +346,32 @@ exports.isLogined = asyncErrorHandler(async (req, res, next) => {
     isAdmin: req.user.isAdmin,
   });
 });
+
+exports.tempAdmin = asyncErrorHandler(async (req, res, next) => {
+  const { email } = req.params;
+  const student = await Student.findOne({ email: `${email}@ucspyay.edu.mm` });
+  //if student is not change admin
+  if (!student) {
+    return next(new CustomError('Student not found', 404));
+  }
+  student.isAdmin = !student.isAdmin;
+  await student.save();
+  res.status(200).json({
+    success: true,
+    message: 'Student updated successfully',
+  });
+});
+
+exports.tempPreminum = asyncErrorHandler(async (req, res, next) => {
+  const { email } = req.params;
+  const student = await Student.findOne({ email: `${email}@ucspyay.edu.mm` });
+  if (!student) {
+    return next(new CustomError('Student not found', 404));
+  }
+  student.isPremium = !student.isPremium;
+  await student.save();
+  res.status(200).json({
+    success: true,
+    message: 'Student updated successfully',
+  });
+});

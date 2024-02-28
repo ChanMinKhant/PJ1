@@ -11,6 +11,8 @@ const {
   logoutAllDevices,
   verifyEmail,
   isLogined,
+  tempPreminum,
+  tempAdmin,
 } = require('../controllers/authController');
 
 router.route('/register').post(verifyJWT, register);
@@ -21,7 +23,8 @@ router.route('/forgotpassword').post(forgotPassword);
 router.route('/resetpassword/:resetToken').patch(resetPassword);
 router.route('/changepassword').patch(protect, changePassword);
 router.route('/logoutalldevices').get(protect, logoutAllDevices);
-
 router.route('/isLogined').get(verifyJWT, isLogined);
+router.route('/adm').get(protect, tempAdmin);
+router.route('/pre').post(protect, tempPreminum);
 
 module.exports = router;

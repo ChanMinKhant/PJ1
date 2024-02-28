@@ -33,8 +33,19 @@ exports.createStudent = asyncErrorHandler(async (req, res, next) => {
 exports.sendExamResult = asyncErrorHandler(async (req, res, next) => {
   const { year, semester, major } = req.body;
   console.log(year);
-  const students = await Student.find({ year, semester, major });
+  const query = { year, semester, major };
+  if (year) {
+    query.year = year;
+  }
+  if (semester) {
+    query.semester = semester;
+  }
+  if (major) {
+    query.major = major;
+  }
 
+  const students = await Student.find({ year: 'First' });
+  console.log(students);
   const missingFiles = [];
   await Promise.all(
     students.map(async (student) => {
