@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { AdminUpload, sendEmail } from '../../services/sendInfoService';
 import { ToastContainer, toast } from 'react-toastify';
-<<<<<<< HEAD
 import { useNavigate } from 'react-router-dom';
 import useIsLogined from '../../hooks/useIsLogined';
 import Loading from '../../components/Loading';
 import 'react-toastify/dist/ReactToastify.css';
 import './AdminUploading.css';
-=======
-import 'react-toastify/dist/ReactToastify.css';
->>>>>>> 1e3cafff24357e796953a41a557a001435903aea
 
 const AdminUploading = () => {
   const [sendOptions, setSendOptions] = useState({
@@ -22,15 +18,13 @@ const AdminUploading = () => {
   const [fileName, setFileName] = useState('');
   const [error, setError] = useState('');
   const [files, setFiles] = useState([]);
-
-<<<<<<< HEAD
+  const { loading, isAdmin } = useIsLogined();
+  const navigate = useNavigate();
   if (loading) return <Loading />;
   if (!isAdmin) {
     navigate('/home');
   }
 
-=======
->>>>>>> 1e3cafff24357e796953a41a557a001435903aea
   const handleChange = (e) => {
     const { name, value } = e.target;
     setSendOptions((prevSendOptions) => ({
