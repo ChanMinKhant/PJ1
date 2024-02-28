@@ -39,14 +39,14 @@ export const getStudents = async (year, semester, major, section) => {
 };
 
 export const deleteStudent = async (id) => {
-  const deleteStudent = async (id) => {
-    try {
-      const response = await apiService.delete(`${authBaseUrl}/students/${id}`);
-      return response.data;
-    } catch (error) {
-      throw error;
-    }
-  };
+  // const deleteStudent = async (id) => {
+  try {
+    const response = await apiService.delete(`${authBaseUrl}/students/${id}`);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+  // };
 };
 
 export const updateStudent = async (id, data) => {

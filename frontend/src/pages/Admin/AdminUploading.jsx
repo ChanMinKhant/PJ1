@@ -94,7 +94,7 @@
 // export default AdminUploading;
 import React, { useState, useEffect } from 'react';
 import { AdminUpload } from '../../services/sendInfoService';
-import Nav from '../../components/Nav';
+// import Nav from '../../components/Nav';
 import cloud from '../../../assets/cloud-computing.png';
 import SendExamResult from './SendExamResult';
 import './AdminUploading.css';
@@ -104,11 +104,36 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const AdminUploading = () => {
+  const [formData, setFormData] = useState({
+    year: '',
+    semester: '',
+    major: '',
+    section: '',
+  });
   const [uploadMessage, setUploadMessage] = useState('');
   const [fileName, setFileName] = useState('');
   const [error, setError] = useState('');
   const [files, setFiles] = useState([]);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      console.log('first');
+      const res = await sendEmail(formData);
+      console.log(res);
+    } catch (error) {
+      console.log(error.response);
+    }
+    // Now you can send formData to your backend API
+    // sendDataToBackend(formData);
+  };
   const handleFileChange = (event) => {
     const selectedFiles = event.target.files;
     setFiles([...files, ...selectedFiles]);
@@ -168,10 +193,10 @@ const AdminUploading = () => {
     <div>
       <ToastContainer className={'custom-toast'} />
       <div>
-        <Nav />
+        {/* <Nav /> */}
         <div className='daddy'>
           <div className='formflexx'>
-            <div>
+            <div className='formx'>
               <form onSubmit={handleUploadSubmit} className='mmmd'>
                 <label htmlFor='admin-upload' className='uploadonee'>
                   <input
@@ -217,10 +242,76 @@ const AdminUploading = () => {
               {error && <p style={{ color: 'red' }}>{error}</p>}
             </div>
             <div className='examresult'>
-              <SendExamResult />
+              <form className='mt-3 p-2'>
+                <div className='tooo'>
+                  <h4 className='mb-0 text-start sto'>Send to:</h4>
+                  <label className='col-form-label cco'>
+                    <select
+                      name='year'
+                      className='sss form-select'
+                      value={formData.year}
+                      onChange={handleChange}
+                    >
+                      <option value=''>Select Year</option>
+                      <option value='First'>First</option>
+                      <option value='Second'>Second</option>
+                      <option value='Third'>Third</option>
+                      <option value='Fourth'>Fourth</option>
+                      <option value='Fifth'>Fifth</option>
+                    </select>
+                  </label>
+
+                  <label className='col-form-label cco'>
+                    <select
+                      className='sss form-select'
+                      name='semester'
+                      value={formData.semester}
+                      onChange={handleChange}
+                    >
+                      <option value=''>Select Semester</option>
+                      <option value='First'>First</option>
+                      <option value='Second'>Second</option>
+                    </select>
+                  </label>
+
+                  <label className='col-form-label cco'>
+                    <select
+                      name='major'
+                      className='sss form-select'
+                      value={formData.major}
+                      onChange={handleChange}
+                      aria-label='Default select example'
+                    >
+                      <option value=''>Select Major</option>
+                      <option value='CS'>CS</option>
+                      <option value='CT'>CT</option>
+                      <option value='CST'>CST</option>
+                    </select>
+                  </label>
+                  <label className='col-form-label cco'>
+                    <select
+                      className='sss form-select'
+                      name='section'
+                      value={formData.section}
+                      onChange={handleChange}
+                    >
+                      <option value=''>Select Section</option>
+                      <option value='A'>A</option>
+                      <option value='B'>B</option>
+                    </select>
+                  </label>
+                  <button
+                    onClick={handleSubmit}
+                    className='btn btn-secondary btn-lg btn-block'
+                  >
+                    Send
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
+        <SendExamResult />
       </div>
     </div>
   );

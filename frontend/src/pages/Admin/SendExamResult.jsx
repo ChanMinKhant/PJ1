@@ -9,11 +9,11 @@ import {
 // import Nav from '../../components/Nav';
 import './SendExamResult.css';
 const SendExamResult = () => {
-  const [formData, setFormData] = useState({
-    year: '',
-    semester: '',
-    major: '',
-  });
+  // const [formData, setFormData] = useState({
+  //   year: '',
+  //   semester: '',
+  //   major: '',
+  // });
   const [students, setStudents] = useState([]);
   const [errorMessage, setErrorMessage] = useState('');
   const [selectedOptions, setSelectedOptions] = useState({
@@ -38,29 +38,29 @@ const SendExamResult = () => {
     });
   };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: value,
-    }));
-  };
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setFormData((prevFormData) => ({
+  //     ...prevFormData,
+  //     [name]: value,
+  //   }));
+  // };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      console.log('first');
-      const res = await sendEmail(formData);
-      console.log(res);
-    } catch (error) {
-      console.log(error.response);
-    }
-    // Now you can send formData to your backend API
-    // sendDataToBackend(formData);
-  };
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     console.log('first');
+  //     const res = await sendEmail(formData);
+  //     console.log(res);
+  //   } catch (error) {
+  //     console.log(error.response);
+  //   }
+  //   // Now you can send formData to your backend API
+  //   // sendDataToBackend(formData);
+  // };
   const handleDeleteStudent = async (id) => {
     try {
-      await deleteStudent(shortUrl);
+      await deleteStudent(id);
       const updatedStudents = students.filter((student) => student.id !== id);
       setStudents(updatedStudents);
     } catch (error) {
@@ -108,10 +108,10 @@ const SendExamResult = () => {
   }, [selectedOptions]);
 
   return (
-    <div className='cont'>
+    <div className='cont1'>
       {/* <Nav /> */}
-      <button onClick={handleSubmit}>sdfhajsdbfkjashdk</button>
-      <form className='mt-3 p-2'>
+      {/* <button onClick={handleSubmit}>sdfhajsdbfkjashdk</button> */}
+      {/* <form className='mt-3 p-2'>
         <br />
 
         <h4 className='mb-0 text-start sto'>Send to:</h4>
@@ -143,11 +143,11 @@ const SendExamResult = () => {
               <option value='First'>First</option>
               <option value='Second'>Second</option>
             </select>
-            {/* </div> */}
+            
           </label>
-          {/* <br /> */}
+         
           <label className='col-form-label'>
-            {/* Major: */}
+            
             <select
               name='major'
               className='sss'
@@ -163,13 +163,18 @@ const SendExamResult = () => {
         </div>
 
         <br />
-        <button type='submit' className='btn btn-primary'>
-          Send
-        </button>
-      </form>
-      <div>
-        <select name='Year' onChange={handleSelectChange}>
-          <option value=''>Select Year</option>
+        <button onClick={handleSubmit}>Send</button>
+      </form> */}
+      <div className='cont2'>
+        <select
+          name='Year'
+          onChange={handleSelectChange}
+          className='form-select m-2 year'
+          size={3}
+        >
+          <option value='' selected>
+            Select Year
+          </option>
           <option value='First'>First</option>
           <option value='Second'>Second</option>
           <option value='Third'>Third</option>
@@ -177,25 +182,46 @@ const SendExamResult = () => {
           <option value='Fifth'>Fifth</option>
         </select>
 
-        <select name='Semester' onChange={handleSelectChange}>
-          <option value=''>Select Semester</option>
+        <select
+          name='Semester'
+          onChange={handleSelectChange}
+          className='form-select m-2 semester'
+          size={3}
+        >
+          <option value='' selected>
+            Select Semester
+          </option>
           <option value='First'>First</option>
           <option value='Second'>Second</option>
         </select>
 
-        <select name='Major' onChange={handleSelectChange}>
-          <option value=''>Select Major</option>
+        <select
+          name='Major'
+          onChange={handleSelectChange}
+          className='form-select m-2 major'
+          size={3}
+        >
+          <option value='' selected>
+            Select Major
+          </option>
           <option value='CS'>Computer Science</option>
           <option value='CT'>Computer Technology</option>
           <option value='CST'>Computer Science and Technology</option>
         </select>
 
-        <select name='Section' onChange={handleSelectChange}>
-          <option value=''>Select Section</option>
+        <select
+          name='Section'
+          onChange={handleSelectChange}
+          className='form-select m-2 section'
+          size={3}
+        >
+          <option value='' selected>
+            Select Section
+          </option>
           <option value='A'>A</option>
           <option value='B'>B</option>
         </select>
-        <div>
+        {/* <div>
           {console.log('Students:', students)}
           {students && students.length > 0 ? (
             students.map((student) => (
@@ -209,28 +235,39 @@ const SendExamResult = () => {
           ) : (
             <p>No students to display</p>
           )}
-        </div>
-        <table>
-          <thead>
+        </div> */}
+      </div>
+      <div>
+        <table className='table table-striped text-center table-hover'>
+          <thead className='h5'>
             <tr>
-              <td>name</td>
-              <td>year</td>
-              <td>major</td>
-              <td>semester</td>
-              <td>section</td>
+              <td className='bg-secondary text-light'>NO</td>
+              <td className='bg-secondary text-light'>Name</td>
+              <td className='bg-secondary text-light'>Major</td>
+              <td className='bg-secondary text-light'>Year</td>
+              <td className='bg-secondary text-light'>Semester</td>
+              <td className='bg-secondary text-light'>Section</td>
+              <td className='bg-secondary text-light'></td>
             </tr>
           </thead>
-          <tbody className='tbo'>
-            {students.map((student) => (
-              <Displaystudents
-                // className={`${isPremium ? 'donotshow' : 'show'}`}
-                key={student._id}
-                {...student}
-                onDelete={handleDeleteStudent}
-                onEdit={handleUpdatedStudent}
-                id={student._id}
-              />
-            ))}
+          <tbody className='tbo h6'>
+            {students && students.length > 0 ? (
+              students.map((student, index) => (
+                <Displaystudents
+                  // className={`${isPremium ? 'donotshow' : 'show'}`}
+                  key={student._id}
+                  {...student}
+                  onDelete={handleDeleteStudent}
+                  onEdit={handleUpdatedStudent}
+                  id={student._id}
+                  no={index + 1}
+                />
+              ))
+            ) : (
+              <tr>
+                <td>No students to display</td>
+              </tr>
+            )}
           </tbody>
         </table>
       </div>
