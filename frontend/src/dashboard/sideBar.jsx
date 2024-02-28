@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import useIsLogined from '../hooks/useIsLogined';
 function SideBar() {
   const { isLogined, loading, isAdmin } = useIsLogined();
-  console.log(isLogined);
   if (!loading)
     return (
       <div className='sidebar p-2 '>

@@ -30,8 +30,8 @@ exports.createStudent = asyncErrorHandler(async (req, res, next) => {
   });
 });
 
-exports.sendExamResult1 = asyncErrorHandler(async (req, res, next) => {
-  const { year, semester, major } = req.body;
+exports.sendExamResult = asyncErrorHandler(async (req, res, next) => {
+  const { year, semester, major, section } = req.body;
   const query = {};
   if (year) {
     query.year = year;
@@ -42,6 +42,9 @@ exports.sendExamResult1 = asyncErrorHandler(async (req, res, next) => {
   if (major) {
     query.major = major;
   }
+  if (section) {
+    query.section = section;
+  }
   console.log(query);
   const students = await Student.find(query);
   console.log(students);
@@ -49,7 +52,7 @@ exports.sendExamResult1 = asyncErrorHandler(async (req, res, next) => {
   for (const student of students) {
     const filePath = path.join(
       __dirname,
-      `../uploads/results/allFiles/ucspyay/${student.rollNo}.jpg`,
+      `../uploads/results/allFiles/ucspyay/${student.rollNo}.jpg`
     );
 
     try {
@@ -73,7 +76,7 @@ exports.sendExamResult1 = asyncErrorHandler(async (req, res, next) => {
   students.forEach(async (student) => {
     const filePath = `./uploads/results/allFiles/ucspyay/${student.rollNo}.jpg`;
     const options = {
-      email: student.email,
+      email: student.studentEmail || 'nyeinchanaung@gmail.com',
       subject: 'Exam result',
       message: examResultEmailTemplate(student),
 
@@ -96,21 +99,21 @@ exports.sendExamResult1 = asyncErrorHandler(async (req, res, next) => {
   });
 });
 
-exports.sendExamResult = asyncErrorHandler(async (req, res, next) => {
+exports.sendExamResult1 = asyncErrorHandler(async (req, res, next) => {
   const { year, semester, major } = req.body;
   const query = {};
   if (year) query.year = year;
   if (semester) query.semester = semester;
   if (major) query.major = major;
   const students = await Student.find({
-    email: 'student0022201@ucspyay.edu.mm',
+    studentEmail: 'student0022201@ucspyay.edu.mm',
   });
   if (students.length == 0) {
     return next(new CustomError('No student found', 404));
   }
   console.log(students);
   students.forEach((student) => {
-    console.log(student.email);
+    console.log(student.studentEmail);
   });
 });
 

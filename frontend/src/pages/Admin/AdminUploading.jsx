@@ -37,7 +37,7 @@ const AdminUploading = () => {
       setFileName(selectedFiles[0]?.name || '');
     } else if (selectedFiles.length > 1) {
       setFileName(
-        `${selectedFiles[0]?.name} and ${selectedFiles.length - 1} more files`,
+        `${selectedFiles[0]?.name} and ${selectedFiles.length - 1} more files`
       );
     } else {
       setFileName('');
@@ -50,9 +50,12 @@ const AdminUploading = () => {
     try {
       const res = await sendEmail(sendOptions);
       console.log(res);
-      toast.success('Email sent successfully');
+      toast.success('Email sent successfully', {
+        position: 'bottom-center',
+      });
     } catch (error) {
-      console.log(error.response.data.message);
+      console.log(error.response?.data?.message);
+      toast.error('Error sending email', { position: 'bottom-center' });
     }
   };
 
