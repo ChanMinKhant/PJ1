@@ -13,7 +13,7 @@ const register = async (userData) => {
 
 const verifyEmail = async (token) => {
   try {
-    const response = await apiService.get(
+    const response = await apiService.post(
       `${authBaseUrl}/verifyemail/${token}`
     );
     return response.data;

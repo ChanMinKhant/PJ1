@@ -3,6 +3,7 @@ import { isLogined } from './../services/authService';
 
 const useIsLogined = () => {
   const [isLogin, setIsLogin] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -11,6 +12,7 @@ const useIsLogined = () => {
         const res = await isLogined();
         console.log(res);
         setIsLogin(res.isLogined);
+        setIsAdmin(res.isAdmin);
       } catch (error) {
         // Handle any errors that occur during the authentication check
         console.error('Error checking login status:', error);
@@ -22,6 +24,6 @@ const useIsLogined = () => {
     checkLoginStatus();
   }, []);
 
-  return { isLogined: isLogin, loading };
+  return { isLogined: isLogin, loading, isAdmin };
 };
 export default useIsLogined;

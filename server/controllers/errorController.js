@@ -32,13 +32,13 @@ const handleCastErrorDB = (err) => {
 
 const handleDuplicateFieldsDB = (err) => {
   const duplicateValue = Object.values(err.keyValue)[0];
-  const message = `${duplicateValue} is already exist. Please use another value!`;
+  const message = `${duplicateValue} is already exist.`;
   return new CustomError(message, 400);
 };
 
 const handleValidationErrorDB = (err) => {
-  const errors = Object.values(err.errors).map((el) => el.message); //Object.values() return array of values
-  const message = `Invalid input data. ${errors.join('. ')}`;
+  // const errors = Object.values(err.errors).map((el) => el.message); //Object.values() return array of values
+  const message = `Invalid input data`;
   return new CustomError(message, 400);
 };
 

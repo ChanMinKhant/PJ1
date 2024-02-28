@@ -13,14 +13,15 @@ const {
   isLogined,
 } = require('../controllers/authController');
 
-router.route('/register').post(register);
-router.route('/verifyemail/:token').get(verifyEmail);
-router.route('/login').post(login);
-router.route('/logout').get(protect, logout);
+router.route('/register').post(verifyJWT, register);
+router.route('/verifyemail/:token').post(verifyEmail);
+router.route('/login').post(verifyJWT, login);
+router.route('/logout').get(logout);
 router.route('/forgotpassword').post(forgotPassword);
 router.route('/resetpassword/:resetToken').patch(resetPassword);
 router.route('/changepassword').patch(protect, changePassword);
 router.route('/logoutalldevices').get(protect, logoutAllDevices);
+
 router.route('/isLogined').get(verifyJWT, isLogined);
 
 module.exports = router;

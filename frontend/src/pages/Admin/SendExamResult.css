@@ -9,7 +9,7 @@
 /* .sss {
   width: 30px;
 } */
-.cont {
+/* .cont {
   width: 100%;
 }
 .sto {
@@ -19,7 +19,31 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  /* border: 1px solid black; */
+} */
+/* @media screen and (max-width: 768px) {
+} */
+.cont1 {
+  width: 100%;
+  /* background: #000; */
 }
-@media screen and (max-width: 768px) {
+.cont2 {
+  display: flex;
+  justify-content: space-evenly;
+  height: 150px;
+  background-color: rgb(200, 220, 239);
+  border-radius: 10px;
+  margin: 5px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
 }
+/* .semester {
+  background-color: #cf04fc;
+}
+.major {
+  background-color: #05e505;
+}
+.year {
+  background-color: rgb(252, 254, 254);
+}
+.section {
+  background-color: #04d5fe;
+} */
