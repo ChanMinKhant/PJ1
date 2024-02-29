@@ -1,14 +1,18 @@
 import { useEffect, useState } from 'react';
 import { logout } from '../../services/authService';
 import './css/logout.css';
+import { useNavigate } from 'react-router-dom';
 
 const Logout = () => {
   const [message, setMessage] = useState(null);
-
+  const navigate = useNavigate();
   const handleLogout = async () => {
     try {
       await logout();
       setMessage('Logout successful');
+      setTimeout(() => {
+        navigate('/login');
+      }, 1000);
     } catch (error) {
       setMessage('Logout unsuccessful');
       console.error('Logout error:', error);
@@ -22,8 +26,8 @@ const Logout = () => {
   return (
     <div className='l-out'>
       <div className='l-out-box'>
-      <h1>Logging out...</h1>
-      <h2>{message}</h2>
+        <h1>Logging out...</h1>
+        <h2>{message}</h2>
       </div>
     </div>
   );

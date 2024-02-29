@@ -343,7 +343,8 @@ exports.isLogined = asyncErrorHandler(async (req, res, next) => {
   res.status(200).json({
     status: true,
     isLogined: true,
-    isAdmin: req.user.isAdmin,
+    isAdmin: req.user?.isAdmin || false,
+    isPremium: req.user?.isPremium || false,
   });
 });
 

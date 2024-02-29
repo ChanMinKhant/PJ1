@@ -37,7 +37,7 @@ const AdminUploading = () => {
       setFileName(selectedFiles[0]?.name || '');
     } else if (selectedFiles.length > 1) {
       setFileName(
-        `${selectedFiles[0]?.name} and ${selectedFiles.length - 1} more files`
+        `${selectedFiles[0]?.name} and ${selectedFiles.length - 1} more files`,
       );
     } else {
       setFileName('');
@@ -50,9 +50,17 @@ const AdminUploading = () => {
     try {
       const res = await sendEmail(sendOptions);
       console.log(res);
-      toast.success('Email sent successfully');
+      toast.success('Email sent successfully', {
+        position: 'bottom-center',
+      });
     } catch (error) {
-      console.log(error.response.data.message);
+      toast.error(
+        error.response?.data?.message || 'error sending exam result',
+        {
+          position: 'bottom-center',
+        },
+      );
+      console.log(error.response?.data?.message);
     }
   };
 
@@ -107,26 +115,26 @@ const AdminUploading = () => {
       <ToastContainer className={'custom-toast'} />
       <div>
         {/* <Nav /> */}
-        <div className="daddy">
-          <div className="formflexx">
-            <div className="formx">
-              <form onSubmit={handleUploadSubmit} className="mmmd">
-                <label htmlFor="admin-upload" className="uploadonee">
+        <div className='daddy'>
+          <div className='formflexx'>
+            <div className='formx'>
+              <form onSubmit={handleUploadSubmit} className='mmmd'>
+                <label htmlFor='admin-upload' className='uploadonee'>
                   <input
-                    type="file"
+                    type='file'
                     multiple
                     onChange={handleFileChange}
-                    id="admin-upload"
-                    className="custom-file-input"
+                    id='admin-upload'
+                    className='custom-file-input'
                     hidden
                   />
-                  <img src={cloud} alt="" className="cloudimgg" />
+                  <img src={cloud} alt='' className='cloudimgg' />
                   <p>Browse file to upload</p>
                 </label>
-                <section className="uploaded-roww">
+                <section className='uploaded-roww'>
                   <button
-                    type="submit"
-                    className="border-0 bgg btn btn-primary p-2"
+                    type='submit'
+                    className='border-0 bgg btn btn-primary p-2'
                   >
                     Upload
                   </button>
@@ -141,9 +149,9 @@ const AdminUploading = () => {
                     {files.length > 0 && (
                       <img
                         src={deleteone}
-                        alt=""
+                        alt=''
                         width={20}
-                        className="m-2"
+                        className='m-2'
                         onClick={handleUndoClick}
                       />
                     )}
@@ -154,68 +162,68 @@ const AdminUploading = () => {
               {uploadMessage && <p>{uploadMessage}</p>}
               {error && <p style={{ color: 'red' }}>{error}</p>}
             </div>
-            <div className="examresult">
-              <form className="mt-3 p-2">
-                <div className="tooo">
-                  <h4 className="mb-0 text-start sto">Send to:</h4>
-                  <label className="col-form-label cco">
+            <div className='examresult'>
+              <form className='mt-3 p-2'>
+                <div className='tooo'>
+                  <h4 className='mb-0 text-start sto'>Send to:</h4>
+                  <label className='col-form-label cco'>
                     <select
-                      name="year"
-                      className="sss form-select"
+                      name='year'
+                      className='sss form-select'
                       value={sendOptions.year}
                       onChange={handleChange}
                     >
-                      <option value="">Select Year</option>
-                      <option value="First">First</option>
-                      <option value="Second">Second</option>
-                      <option value="Third">Third</option>
-                      <option value="Fourth">Fourth</option>
-                      <option value="Fifth">Fifth</option>
+                      <option value=''>Select Year</option>
+                      <option value='First'>First</option>
+                      <option value='Second'>Second</option>
+                      <option value='Third'>Third</option>
+                      <option value='Fourth'>Fourth</option>
+                      <option value='Fifth'>Fifth</option>
                     </select>
                   </label>
 
-                  <label className="col-form-label cco">
+                  <label className='col-form-label cco'>
                     <select
-                      className="sss form-select"
-                      name="semester"
+                      className='sss form-select'
+                      name='semester'
                       value={sendOptions.semester}
                       onChange={handleChange}
                     >
-                      <option value="">Select Semester</option>
-                      <option value="First">First</option>
-                      <option value="Second">Second</option>
+                      <option value=''>Select Semester</option>
+                      <option value='First'>First</option>
+                      <option value='Second'>Second</option>
                     </select>
                   </label>
 
-                  <label className="col-form-label cco">
+                  <label className='col-form-label cco'>
                     <select
-                      name="major"
-                      className="sss form-select"
+                      name='major'
+                      className='sss form-select'
                       value={sendOptions.major}
                       onChange={handleChange}
-                      aria-label="Default select example"
+                      aria-label='Default select example'
                     >
-                      <option value="">Select Major</option>
-                      <option value="CS">CS</option>
-                      <option value="CT">CT</option>
-                      <option value="CST">CST</option>
+                      <option value=''>Select Major</option>
+                      <option value='CS'>CS</option>
+                      <option value='CT'>CT</option>
+                      <option value='CST'>CST</option>
                     </select>
                   </label>
-                  <label className="col-form-label cco">
+                  <label className='col-form-label cco'>
                     <select
-                      className="sss form-select"
-                      name="section"
+                      className='sss form-select'
+                      name='section'
                       value={sendOptions.section}
                       onChange={handleChange}
                     >
-                      <option value="">Select Section</option>
-                      <option value="A">A</option>
-                      <option value="B">B</option>
+                      <option value=''>Select Section</option>
+                      <option value='A'>A</option>
+                      <option value='B'>B</option>
                     </select>
                   </label>
                   <button
                     onClick={handleSendEmail}
-                    className="btn btn-danger btn-lg btn-block"
+                    className='btn btn-danger btn-lg btn-block'
                   >
                     Send
                   </button>

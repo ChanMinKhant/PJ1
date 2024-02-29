@@ -81,7 +81,10 @@ exports.getHosts = asyncErrorHandler(async (req, res, next) => {
   }
 
   if (req.user) {
-    const hosts = await Host.find({ creator: req.user._id });
+    //sort with created date
+    const hosts = await Host.find({ creator: req.user._id }).sort({
+      createdAt: 1,
+    });
     return res.status(200).json({
       success: true,
       data: hosts,

@@ -89,6 +89,13 @@ function Nav() {
                     Logout
                   </Link>
                   <div className='under' />
+                  <Link
+                    to='/logout-all-device'
+                    className='sl'
+                    onClick={closeDropdown}
+                  >
+                    LogoutAllDevice
+                  </Link>
                 </>
               ) : (
                 <>
