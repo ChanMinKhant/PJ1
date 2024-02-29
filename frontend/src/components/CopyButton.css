@@ -130,6 +130,10 @@
   float: left;
   /* margin-bottom: 20px; */
 }
+/* .btnss {
+  display: flex;
+  height: 100%;
+} */
 
 @media (max-width: 700px) {
   /* .tableRow {
