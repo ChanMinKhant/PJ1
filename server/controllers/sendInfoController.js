@@ -6,6 +6,7 @@ const { examResultEmailTemplate } = require('../utils/index');
 const { multiUpload, singleUpload } = require('../middlewares/uploadFile');
 const path = require('path');
 const fs = require('fs').promises;
+const stuData = require('../config/studentsDb.json');
 
 exports.createStudent = asyncErrorHandler(async (req, res, next) => {
   const { studentName, studentEmail, rollNo, section, year, major } = req.body;
@@ -46,7 +47,22 @@ exports.sendExamResult = asyncErrorHandler(async (req, res, next) => {
     query.section = section;
   }
   console.log(query);
-  const students = await Student.find(query);
+  // console.log(stuData);
+  const students = stuData.filter((student) => {
+    if (year) {
+      return student.year === year;
+    }
+    if (semester) {
+      return student.semester === semester;
+    }
+    if (major) {
+      return student.major === major;
+    }
+    if (section) {
+      return student.section === section;
+    }
+  });
+  // const students = await Student.find(query);
   console.log(students);
   const missingFiles = [];
   for (const student of students) {
