@@ -48,21 +48,21 @@ exports.sendExamResult = asyncErrorHandler(async (req, res, next) => {
   }
   console.log(query);
   // console.log(stuData);
-  const students = stuData.filter((student) => {
-    if (year) {
-      return student.year === year;
-    }
-    if (semester) {
-      return student.semester === semester;
-    }
-    if (major) {
-      return student.major === major;
-    }
-    if (section) {
-      return student.section === section;
-    }
-  });
-  // const students = await Student.find(query);
+  // const students = stuData.filter((student) => {
+  //   if (year) {
+  //     return student.year === year;
+  //   }
+  //   if (semester) {
+  //     return student.semester === semester;
+  //   }
+  //   if (major) {
+  //     return student.major === major;
+  //   }
+  //   if (section) {
+  //     return student.section === section;
+  //   }
+  // });
+  const students = await Student.find(query);
   console.log(students);
   const missingFiles = [];
   for (const student of students) {
