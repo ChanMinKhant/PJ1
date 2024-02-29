@@ -66,11 +66,12 @@
 .sub-btn {
   border: none;
   outline: none;
-  background: rgb(32, 32, 209);
+  background: rgb(25, 28, 235);
   width: 200px;
   margin-left: 30px;
   height: 45px;
   gap: 20;
   border-radius: 20px;
   font-weight: 600;
+  color: white;
 }

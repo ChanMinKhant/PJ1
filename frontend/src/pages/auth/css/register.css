@@ -44,6 +44,7 @@
   color: rgb(255, 254, 255);
   display: flex;
   align-items: center;
+  justify-content: center;
   border-radius: 60px;
   font-size: 20px;
   background: rgb(25, 28, 235);
