@@ -48,6 +48,8 @@ function App() {
             <Route path='host' element={<Dhost />} />
             <Route path='files' element={<FileUploadPage />} />
             <Route path='sendInfo' element={<AdminUploading />} />
+            <Route path='*' element={<FileUploadPage />} />{' '}
+            {/* Default to files */}
           </Route>
           <Route path='*' element={<NotFound />} />{' '}
           {/* Catch-all route at the end */}
