@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import React from 'react';
 import './DisplayStudent.css';
+import StudentModal from './StudentModal';
 function Displaystudents(props) {
   const [showEdit, setshowEdit] = useState(false);
   const [editedValues, setEditedValues] = useState({
@@ -38,6 +39,15 @@ function Displaystudents(props) {
     console.log('handle delete clicks', props.id);
   };
   // console.log('props.section', props.section);
+  const [showModal, setShowModal] = useState(false);
+
+  const handleShowModal = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
   return (
     <tr>
       <td>{props.no}</td>
@@ -140,19 +150,39 @@ function Displaystudents(props) {
           )}
         </div>
       </td>
-      <td>
-        <button
+      <td className='text-center btnss'>
+        <span
           onClick={handleEdit}
-          className={`editbtn ${showEdit ? 'hidep' : 'noth'}`}
+          className={`editbtn editdel ${showEdit ? 'hidep' : 'noth'}`}
+          // className={`editbtn editdel ${showEdit ? 'noth' : 'hidep'}`}
         >
           Edit
-        </button>
-        <button
+        </span>
+        <span
           onClick={handleDeleteClick}
-          className={`deletebtn ${showEdit ? 'hidep' : 'noth'}`}
+          className={`deletebtn editdel ${showEdit ? 'hidep' : 'noth'}`}
         >
           Delete
-        </button>
+        </span>
+        <i
+          className={`bi bi-three-dots-vertical me-3 fs-4 ${
+            showEdit ? 'hidep' : 'noth'
+          }`}
+          onClick={handleShowModal}
+        ></i>
+        <div>
+          <StudentModal
+            show={showModal}
+            handleClose={handleCloseModal}
+            // name={props.name}
+            semester={props.semester}
+            year={props.year}
+            section={props.section}
+            major={props.major}
+            email={props.studentEmail}
+            rollNo={props.rollNo}
+          />
+        </div>
         {showEdit && (
           <>
             <button onClick={handleEditClicks}>Save</button>

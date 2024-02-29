@@ -194,20 +194,21 @@ const CopyButton = (props) => {
       </td> */}
 
       <td className='btnss text-center'>
-        <div
+        <span
           className={`editbtn editdel ${showEdit ? 'hideinp' : 'notHide'}`}
           onClick={handleEdit}
         >
           Edit
-        </div>
-        <div
+        </span>
+        <span
           className={`deletebtn editdel ${showEdit ? 'hideinp' : 'notHide'}`}
           onClick={handleDeleteClick}
         >
           Delete
-        </div>
+        </span>
+
         <i
-          className={`bi bi-three-dots-vertical me-3 fs-3.5 ${
+          className={`bi bi-three-dots-vertical me-3 fs-4 ${
             showEdit ? 'hideinp' : 'notHide'
           }`}
           onClick={handleShowModal}
