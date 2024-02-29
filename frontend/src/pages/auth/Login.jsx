@@ -80,10 +80,10 @@ const Login = () => {
               <Link to='/register' type='submit'>
                 Register
               </Link>
-            </p>        
-<p>
-  <Link to='/forgot-password'>Forgot Password</Link>
-</p>         
+            </p>
+            <p>
+              <Link to='/forgot-password'>Forgot Password</Link>
+            </p>
           </fieldset>
         </form>
       </div>
