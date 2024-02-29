@@ -1,8 +1,6 @@
 import React from 'react';
 import { useRef, useEffect } from 'react';
 import { Modal } from 'react-bootstrap';
-import editIcon from '../../assets/edit.png';
-import './UrlModal.css';
 const UrlModal = ({
   show,
   handleClose,
@@ -13,13 +11,6 @@ const UrlModal = ({
   isActive,
   clickCount,
   createdAt,
-  editedOnmodal,
-  setEditedValues,
-  handle,
-  isPremium,
-  handleEditedCancle,
-  editclick,
-  editedValues,
 }) => {
   const modalRef = useRef();
 
@@ -59,41 +50,8 @@ const UrlModal = ({
             <h6>Original Url</h6>
             <li>{origin}</li>
             <br />
-            {/* {isPremium ? ( */}
-            {/* <> */}
             <h6>Password</h6>
-            <li className={`passwrd ${editedOnmodal ? 'hideinp' : 'notHide'}`}>
-              {password ? password : null}{' '}
-              <img
-                src={editIcon}
-                alt=''
-                className={`editicon ${editedOnmodal ? 'hideinp' : 'notHide'}`}
-                onClick={handle}
-              />
-            </li>
-            {/* </> */}
-            {/* ) : null} */}
-            <li
-              className={`editpassword ${
-                editedOnmodal ? 'notHide' : 'hideinp'
-              }`}
-            >
-              <input
-                type='password'
-                value={editedValues.password}
-                onChange={(e) =>
-                  setEditedValues({ ...editedValues, password: e.target.value })
-                }
-              />
-              <div>
-                <span className='btnsss' onClick={editclick}>
-                  save
-                </span>
-                <span className='btnsss' onClick={handleEditedCancle}>
-                  cancle
-                </span>
-              </div>
-            </li>
+            <li>{password}</li>
             <br />
             <h6>Limit</h6>
             <li>{limit}</li>

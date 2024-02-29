@@ -58,7 +58,8 @@ const ShortenUrlApp = () => {
         console.log('response.data..::' + response.data);
         setUrls(response.data);
         setIsPremium(response.isPremium);
-        console.log('response::' + response);
+        console.log('isPremium::', response.isPremium);
+        console.log('response::', response);
       } catch (error) {
         console.error('Error fetching shortened URLs:', error.message);
       }
@@ -195,7 +196,7 @@ const ShortenUrlApp = () => {
                   <th className='text-center'>
                     {/* <div>shortened url</div> */}shortened Url
                   </th>
-                  <th className='text-center'>
+                  <th className='text-center clicktd'>
                     {/* <div>clickCount</div> */}clickCount
                   </th>
                   {/* <th>isActive</th> */}
@@ -216,6 +217,7 @@ const ShortenUrlApp = () => {
                     onDelete={handleDeleteUrl}
                     onEdit={handleUpdatedUrl}
                     shortUrl={url.shortUrl}
+                    isPremium={isPremium}
                   />
                 ))}
               </tbody>
