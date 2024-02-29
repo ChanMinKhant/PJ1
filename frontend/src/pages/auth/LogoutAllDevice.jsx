@@ -1,0 +1,36 @@
+import { useEffect, useState } from 'react';
+import { logoutAllDevices } from '../../services/authService';
+import './css/logout.css';
+import { useNavigate } from 'react-router-dom';
+
+const LogoutAllDevice = () => {
+  const [message, setMessage] = useState(null);
+  const navigate = useNavigate();
+  const handleLogout = async () => {
+    try {
+      await logoutAllDevices();
+      setMessage('Logout all devices successful');
+      setTimeout(() => {
+        navigate('/login');
+      }, 1000);
+    } catch (error) {
+      setMessage('Logout unsuccessful');
+      console.error('Logout error:', error);
+    }
+  };
+  useEffect(() => {
+    // Call the logout function when the component mounts
+    handleLogout();
+  }, [history]);
+
+  return (
+    <div className='l-out'>
+      <div className='l-out-box'>
+        <h1>Logging out...</h1>
+        <h2>{message}</h2>
+      </div>
+    </div>
+  );
+};
+
+export default LogoutAllDevice;

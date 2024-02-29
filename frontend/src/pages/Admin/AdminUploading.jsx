@@ -37,7 +37,7 @@ const AdminUploading = () => {
       setFileName(selectedFiles[0]?.name || '');
     } else if (selectedFiles.length > 1) {
       setFileName(
-        `${selectedFiles[0]?.name} and ${selectedFiles.length - 1} more files`,
+        `${selectedFiles[0]?.name} and ${selectedFiles.length - 1} more files`
       );
     } else {
       setFileName('');
@@ -58,7 +58,7 @@ const AdminUploading = () => {
         error.response?.data?.message || 'error sending exam result',
         {
           position: 'bottom-center',
-        },
+        }
       );
       alert(error.response?.data?.missingRollNumbers + ' are missing in files');
     }

@@ -23,12 +23,24 @@ const Home = () => {
           </div>
           <div className="m-right">
             <div className="flex-container">
-              <div>1</div>
-              <div>2</div>
-              <div>3</div>
-              <div>4</div>
-              <div>5</div>
-              <div>6</div>
+              <div>
+                <Link to="">1</Link>
+              </div>
+              <div>
+                <Link to="">2</Link>
+              </div>
+              <div>
+                <Link to="">3</Link>
+              </div>
+              <div>
+                <Link to="">4</Link>
+              </div>
+              <div>
+                <Link to="">5</Link>
+              </div>
+              <div>
+                <Link to="">6</Link>
+              </div>
             </div>
           </div>
         </div>
