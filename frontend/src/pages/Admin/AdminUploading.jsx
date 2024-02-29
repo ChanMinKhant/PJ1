@@ -60,7 +60,7 @@ const AdminUploading = () => {
           position: 'bottom-center',
         },
       );
-      console.log(error.response?.data?.message);
+      alert(error.response?.data?.missingRollNumbers + ' are missing in files');
     }
   };
 
