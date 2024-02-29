@@ -75,16 +75,16 @@ function Nav() {
           </Link>
         </li> */}
         </ul>
-
-        {/* {isLogined ? (
-                <><div className='dropdown' onClick={toggleDropdown} ref={dropdownRef}>
-                <i className='bi bi-person lgsu'></i>
-                {dropdownVisible && (
-                  <div
-                    className={`dropdown-content ${
-                      dropdownVisible ? 'dropvis' : 'drophid'
-                    }`}
-                  >
+        <div className='dropdown' onClick={toggleDropdown} ref={dropdownRef}>
+          <i className='bi bi-person lgsu'></i>
+          {dropdownVisible && (
+            <div
+              className={`dropdown-content ${
+                dropdownVisible ? 'dropvis' : 'drophid'
+              }`}
+            >
+              {isLogined ? (
+                <>
                   <Link to='/logout' className='sl' onClick={closeDropdown}>
                     Logout
                   </Link>
@@ -95,8 +95,7 @@ function Nav() {
                     onClick={closeDropdown}
                   >
                     LogoutAllDevice
-                  </Link></div>)}
-            
+                  </Link>
                 </>
               ) : (
                 <>
@@ -108,49 +107,10 @@ function Nav() {
                     Signup
                   </Link>
                 </>
-              
-          )}
-        </div> */}
-        {isLogined ? (
-          <>
-            <div
-              className='dropdown'
-              onClick={toggleDropdown}
-              ref={dropdownRef}
-            >
-              <i className='bi bi-person lgsu'></i>
-              {dropdownVisible && (
-                <div
-                  className={`dropdown-content ${
-                    dropdownVisible ? 'dropvis' : 'drophid'
-                  }`}
-                >
-                  <Link to='/logout' className='sl' onClick={closeDropdown}>
-                    Logout
-                  </Link>
-                  <div className='under' />
-                  <Link
-                    to='/logout-all-device'
-                    className='sl'
-                    onClick={closeDropdown}
-                  >
-                    LogoutAllDevice
-                  </Link>
-                </div>
               )}
             </div>
-          </>
-        ) : (
-          <div className='loandsi'>
-            <Link to='/login' className='sl loginn'>
-              Login
-            </Link>
-            {/* <div className='under' /> */}
-            <Link to='/register' className='sl signupp'>
-              Signup
-            </Link>
-          </div>
-        )}
+          )}
+        </div>
       </nav>
     );
 }
