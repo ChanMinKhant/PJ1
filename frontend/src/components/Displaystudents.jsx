@@ -184,10 +184,10 @@ function Displaystudents(props) {
           />
         </div>
         {showEdit && (
-          <>
+          <div className='saveandcancle'>
             <button onClick={handleEditClicks}>Save</button>
             <button onClick={handleCancel}>Cancel</button>
-          </>
+          </div>
         )}
       </td>
     </tr>

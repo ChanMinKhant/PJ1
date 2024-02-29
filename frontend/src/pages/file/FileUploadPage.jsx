@@ -2,13 +2,15 @@ import React, { useState, useEffect } from 'react';
 import {
   uploadFile,
   getAllFiles,
-  deleteFile, 
+  deleteFile,
 } from '../../services/fileService';
 import FileCompo from '../../components/File';
 import './FileUpload.css';
 import cloud from '../../../assets/cloud-computing.png';
 import uploadcloud from '../../../assets/upload-file.png';
 import deleteone from '../../../assets/delete (1).png';
+import useIsLogined from '../../hooks/useIsLogined';
+import Loading from '../../components/Loading';
 const FileUploadPage = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [customLink, setCustomLink] = useState('');
@@ -19,6 +21,7 @@ const FileUploadPage = () => {
   const [files, setFiles] = useState([]);
   const [error, setError] = useState('');
   const [fileName, setFileName] = useState('');
+  const { isLogined, loading, isPremium } = useIsLogined();
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -110,6 +113,8 @@ const FileUploadPage = () => {
     return () => clearTimeout(timeoutId); // Clear the timeout on component unmount
   }, [error, uploadMessage]);
   // to
+  console.log(isPremium);
+  if (loading) return <Loading />;
   return (
     <div className='fileparent'>
       {/* <h1>File Upload</h1> */}
@@ -174,6 +179,7 @@ const FileUploadPage = () => {
                   onChange={handleCustomLinkChange}
                   className='form-control bgi'
                   id='customlink'
+                  disabled={!isPremium}
                 />
               </div>
               <div className='mb-3'>
@@ -187,6 +193,7 @@ const FileUploadPage = () => {
                   onChange={handlePasswordChange}
                   className='form-control bgi'
                   id='password'
+                  disabled={!isPremium}
                 />
               </div>
               <div className='mb-3'>
@@ -200,6 +207,7 @@ const FileUploadPage = () => {
                   onChange={handleLimitChange}
                   className='form-control bgi'
                   id='limit'
+                  disabled={!isPremium}
                 />
               </div>
               <div className='mb-3'>
