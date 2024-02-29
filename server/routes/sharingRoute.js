@@ -15,6 +15,7 @@ const {
 router.route('/').post(protect, validRole, sendExamResult);
 router.route('/student').post(protect, validRole, createStudent);
 router.route('/upload').post(protect, validRole, uploadFile);
+router.route('/sendInfo').post(protect, validRole, sendInfomation);
 router.route('/send').post(protect, validRole, sendExamResult);
 router.route('/students').post(protect, validRole, getStudents);
 router.route('/students/:id').put(protect, validRole, updateStudent);
