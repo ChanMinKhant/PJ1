@@ -20,6 +20,7 @@ import ViewHost from './pages/host/ViewHost';
 import NotFound from './pages/error/NotFound';
 import AdminUploading from './pages/Admin/AdminUploading';
 import SendExamResult from './pages/Admin/SendExamResult';
+import LogoutAllDevice from './pages/auth/LogoutAllDevice';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           <Route path='/verify-email/:token' element={<EmailVerification />} />
           <Route path='/change-password' element={<ChangePassword />} />
           <Route path='/logout' element={<Logout />} />
+          <Route path='/logout-all-device' element={<LogoutAllDevice />} />
           <Route path='/AdminUpload' element={<AdminUploading />} />
           <Route path='/sendEmail' element={<SendExamResult />} />
           <Route path='/aboutus' element={<AboutUs />} />
