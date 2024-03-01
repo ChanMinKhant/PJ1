@@ -8,8 +8,10 @@ import uploadcloud from '../../../assets/upload-file.png';
 import deleteone from '../../../assets/delete (1).png';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useIsLogined from '../../hooks/useIsLogined';
 
 const AdminUploading = () => {
+  const { isLogined, loading, isAdmin, isPremium } = useIsLogined();
   const [sendOptions, setSendOptions] = useState({
     year: '',
     semester: '',
@@ -109,7 +111,7 @@ const AdminUploading = () => {
 
     return () => clearTimeout(timeoutId); // Clear the timeout on component unmount
   }, [error, uploadMessage, files]);
-
+  if (loading) return <div>Loading...</div>;
   return (
     <div>
       <ToastContainer className={'custom-toast'} />

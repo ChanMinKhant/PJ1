@@ -6,7 +6,7 @@ const StudentModal = ({
   section,
   semester,
   year,
-  name,
+  studentName,
   show,
   handleClose,
   email,
@@ -45,7 +45,7 @@ const StudentModal = ({
         <Modal.Body>
           <ul className='modalul'>
             <h6>Name:</h6>
-            <li>Nyein Chan Aung</li>
+            <li>{studentName}</li>
             <br />
             <h6>Major:</h6>
             <li>{major}</li>

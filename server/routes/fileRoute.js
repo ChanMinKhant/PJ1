@@ -25,6 +25,6 @@ router.route('/').get(getAllFiles);
 router.route('/:shortId').patch(updateFile).delete(deleteFile).get(getFile);
 
 router.route('/orignalName/:shortId').get(getOriginalFilename);
-router.route('/sendDownloadFile/:shortId').get(sendDownloadFile);
+router.route('/sendDownloadFile/:short').get(sendDownloadFile);
 
 module.exports = router;

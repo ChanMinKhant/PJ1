@@ -31,6 +31,94 @@ exports.createStudent = asyncErrorHandler(async (req, res, next) => {
   });
 });
 
+// exports.sendExamResult = asyncErrorHandler(async (req, res, next) => {
+//   const { year, semester, major, section } = req.body;
+//   const query = {};
+//   if (year) {
+//     query.year = year;
+//   }
+//   if (semester) {
+//     query.semester = semester;
+//   }
+//   if (major) {
+//     query.major = major;
+//   }
+//   if (section) {
+//     query.section = section;
+//   }
+//   console.log(query);
+//   // console.log(stuData);
+//   // const students = stuData.filter((student) => {
+//   //   if (year) {
+//   //     return student.year === year;
+//   //   }
+//   //   if (semester) {
+//   //     return student.semester === semester;
+//   //   }
+//   //   if (major) {
+//   //     return student.major === major;
+//   //   }
+//   //   if (section) {
+//   //     return student.section === section;
+//   //   }
+//   // });
+//   const students = await Student.find(query);
+//   // console.log(students);
+//   const missingFiles = [];
+//   for (const student of students) {
+//     const filePath = path.join(
+//       __dirname,
+//       `../uploads/results/allFiles/ucspyay/${student.rollNo}.jpg`
+//     );
+
+//     try {
+//       await fs.access(filePath, fs.constants.F_OK);
+//       console.log('File exists');
+//     } catch (error) {
+//       console.error('File does not exist');
+//       missingFiles.push(student.rollNo);
+//     }
+//   }
+
+//   if (missingFiles.length > 0) {
+//     return res.status(400).json({
+//       success: false,
+//       message: `Some students are missing files for ${year} year ${semester} semester`,
+//       missingRollNumbers: missingFiles,
+//     });
+//   }
+
+//   //sent mail with attach file to student
+//   students.forEach(async (student) => {
+//     const filePath = `./uploads/results/allFiles/ucspyay/${student.rollNo}.jpg`;
+//     const options = {
+//       email: student.studentEmail || 'nyeinchanaung@gmail.com',
+//       subject: 'Exam result',
+//       message: examResultEmailTemplate(student),
+
+//       attachments: [
+//         {
+//           filename: `${student.rollNo}.jpg`,
+//           path: filePath,
+//         },
+//       ],
+//     };
+//     try {
+//       await sendEmail(options);
+//     } catch (error) {
+//       console.log(error);
+//       return res.status(500).json({
+//         success: false,
+//         message: error.message || 'Email not sent',
+//       });
+//     }
+//   });
+//   res.status(200).json({
+//     success: true,
+//     message: `Email sent to students successfully for ${year} year ${semester} semester`,
+//   });
+// });
+
 exports.sendExamResult = asyncErrorHandler(async (req, res, next) => {
   const { year, semester, major, section } = req.body;
   const query = {};
@@ -46,25 +134,10 @@ exports.sendExamResult = asyncErrorHandler(async (req, res, next) => {
   if (section) {
     query.section = section;
   }
-  console.log(query);
-  // console.log(stuData);
-  // const students = stuData.filter((student) => {
-  //   if (year) {
-  //     return student.year === year;
-  //   }
-  //   if (semester) {
-  //     return student.semester === semester;
-  //   }
-  //   if (major) {
-  //     return student.major === major;
-  //   }
-  //   if (section) {
-  //     return student.section === section;
-  //   }
-  // });
+
   const students = await Student.find(query);
-  console.log(students);
   const missingFiles = [];
+
   for (const student of students) {
     const filePath = path.join(
       __dirname,
@@ -73,9 +146,7 @@ exports.sendExamResult = asyncErrorHandler(async (req, res, next) => {
 
     try {
       await fs.access(filePath, fs.constants.F_OK);
-      console.log('File exists');
     } catch (error) {
-      console.error('File does not exist');
       missingFiles.push(student.rollNo);
     }
   }
@@ -88,14 +159,13 @@ exports.sendExamResult = asyncErrorHandler(async (req, res, next) => {
     });
   }
 
-  //sent mail with attach file to student
-  students.forEach(async (student) => {
+  // Array to store promises for sending emails
+  const emailPromises = students.map(async (student) => {
     const filePath = `./uploads/results/allFiles/ucspyay/${student.rollNo}.jpg`;
     const options = {
       email: student.studentEmail || 'nyeinchanaung@gmail.com',
       subject: 'Exam result',
       message: examResultEmailTemplate(student),
-
       attachments: [
         {
           filename: `${student.rollNo}.jpg`,
@@ -107,12 +177,27 @@ exports.sendExamResult = asyncErrorHandler(async (req, res, next) => {
       await sendEmail(options);
     } catch (error) {
       console.log(error);
+      throw new Error('Email not sent');
     }
   });
-  res.status(200).json({
-    success: true,
-    message: `Email sent to students successfully for ${year} year ${semester} semester`,
-  });
+
+  try {
+    // Wait for all emails to be sent
+    await Promise.all(emailPromises);
+
+    // Send success response after all emails are sent
+    res.status(200).json({
+      success: true,
+      message: `Email sent to students successfully for ${year} year ${semester} semester`,
+    });
+  } catch (error) {
+    // Handle any errors that occurred during email sending
+    console.error(error);
+    res.status(500).json({
+      success: false,
+      message: error.message || 'Failed to send emails',
+    });
+  }
 });
 
 exports.sendExamResult1 = asyncErrorHandler(async (req, res, next) => {

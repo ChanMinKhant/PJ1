@@ -21,6 +21,7 @@ import NotFound from './pages/error/NotFound';
 import AdminUploading from './pages/Admin/AdminUploading';
 import SendExamResult from './pages/Admin/SendExamResult';
 import LogoutAllDevice from './pages/auth/LogoutAllDevice';
+import EmailSentSuccessFully from './pages/auth/EmailSentSuccessFully';
 
 function App() {
   return (
@@ -43,6 +44,10 @@ function App() {
           <Route path='/url' element={<Url />} />
           <Route path='/url/:shortUrl' element={<RedirectPage />} />
           <Route path='/file/:shortId' element={<FileDownloadPage />} />
+          <Route
+            path='/email-sent-successfully'
+            element={<EmailSentSuccessFully />}
+          />
           <Route path='/dashboard/*' element={<Dash />}>
             <Route path='url' element={<ShortenUrlApp />} />
             <Route path='host' element={<Dhost />} />
