@@ -145,30 +145,28 @@ const FileUploadPage = () => {
             <div className='Dhost-coloum-right'>
               <label className='dhostCustom'>
                 Custom Link:
-                {isPremium && (
-                  <input
-                    className='CustomInput'
-                    type='text'
-                    placeholder='Custom Link'
-                    onChange={(e) =>
-                      setFormData({ ...formData, customDomain: e.target.value })
-                    }
-                  />
-                )}
+                <input
+                  className='CustomInput'
+                  type='text'
+                  placeholder='Custom Link'
+                  onChange={(e) =>
+                    setFormData({ ...formData, customDomain: e.target.value })
+                  }
+                  disabled={!isPremium}
+                />
               </label>
 
               <label className='dhostCustom'>
                 Password
-                {isPremium && (
-                  <input
-                    type='text'
-                    placeholder='Password'
-                    value={password}
-                    onChange={handlePasswordChange}
-                    className='CustomInput'
-                    id='password'
-                  />
-                )}
+                <input
+                  type='text'
+                  placeholder='Password'
+                  value={password}
+                  onChange={handlePasswordChange}
+                  className='CustomInput'
+                  id='password'
+                  disabled={!isPremium}
+                />
               </label>
             </div>
           </div>
