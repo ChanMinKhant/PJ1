@@ -24,7 +24,7 @@ const FileUploadPage = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [fileName, setFileName] = useState('');
   const [password, setPassword] = useState('');
-  const { isLogined, loading } = useIsLogined();
+  const { isLogined, loading, isPremium } = useIsLogined();
   console.log(isLogined, loading);
   useEffect(() => {
     const tempfunc = async () => {
@@ -145,26 +145,30 @@ const FileUploadPage = () => {
             <div className='Dhost-coloum-right'>
               <label className='dhostCustom'>
                 Custom Link:
-                <input
-                  className='CustomInput'
-                  type='text'
-                  placeholder='Custom Link'
-                  onChange={(e) =>
-                    setFormData({ ...formData, customDomain: e.target.value })
-                  }
-                />
+                {isPremium && (
+                  <input
+                    className='CustomInput'
+                    type='text'
+                    placeholder='Custom Link'
+                    onChange={(e) =>
+                      setFormData({ ...formData, customDomain: e.target.value })
+                    }
+                  />
+                )}
               </label>
 
               <label className='dhostCustom'>
                 Password
-                <input
-                  type='text'
-                  placeholder='Password'
-                  value={password}
-                  onChange={handlePasswordChange}
-                  className='CustomInput'
-                  id='password'
-                />
+                {isPremium && (
+                  <input
+                    type='text'
+                    placeholder='Password'
+                    value={password}
+                    onChange={handlePasswordChange}
+                    className='CustomInput'
+                    id='password'
+                  />
+                )}
               </label>
             </div>
           </div>
