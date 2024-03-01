@@ -122,3 +122,25 @@
 }
 .footer {
 }
+@media (max-width: 600px) {
+  .item-1 {
+    width: 400px;
+    height: 800px;
+  }
+  .item-2 {
+    width: 400px;
+    height: 800px;
+  }
+  .item-3 {
+    width: 400px;
+    height: 800px;
+  }
+  .itme-4 {
+    width: 400px;
+    height: auto;
+  }
+  .par {
+    width: 400px;
+    height: auto;
+  }
+}
