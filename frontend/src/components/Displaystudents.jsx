@@ -9,7 +9,7 @@ function Displaystudents(props) {
     semester: props.semester,
     year: props.year,
     major: props.major,
-    // name: props.name,
+    studentName: props.studentName,
   });
   const handleEdit = () => {
     // props.onEdit(props.id, editedValues);
@@ -22,7 +22,7 @@ function Displaystudents(props) {
       semester: props.semester,
       year: props.year,
       major: props.major,
-      name: props.name,
+      studentName: props.studentName,
     });
     setshowEdit(false);
   };
@@ -52,7 +52,9 @@ function Displaystudents(props) {
     <tr>
       <td>{props.no}</td>
       <td>
-        <p className={`students ${showEdit ? 'hidep' : 'noth'}`}>NCLYM</p>
+        <p className={`students ${showEdit ? 'hidep' : 'noth'}`}>
+          {editedValues.studentName || 'N/A'}
+        </p>
       </td>
 
       <td>
@@ -60,7 +62,7 @@ function Displaystudents(props) {
           {showEdit ? (
             <select
               className='formcoo'
-              value={editedValues.major}
+              value={NCLYM.major}
               onChange={(e) => {
                 setEditedValues({ ...editedValues, major: e.target.value });
                 console.log(e.target.value);
@@ -174,7 +176,7 @@ function Displaystudents(props) {
           <StudentModal
             show={showModal}
             handleClose={handleCloseModal}
-            // name={props.name}
+            studentName={props.studentName}
             semester={props.semester}
             year={props.year}
             section={props.section}

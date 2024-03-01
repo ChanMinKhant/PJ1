@@ -13,7 +13,9 @@ const uploadFile = async (formData) => {
 
 const getFile = async (shortId) => {
   try {
-    const response = await apiService.get(`${fileBaseUrl}/${shortId}`);
+    const response = await apiService.get(
+      `${fileBaseUrl}/sendDownloadFile/${shortId}`
+    );
     return response.data;
   } catch (error) {
     return error;
@@ -23,7 +25,7 @@ const getFile = async (shortId) => {
 const getOriginalFilename = async (shortId) => {
   try {
     const response = await apiService.get(
-      `${fileBaseUrl}/orignalName/${shortId}`,
+      `${fileBaseUrl}/orignalName/${shortId}`
     );
     return response.data;
   } catch (error) {
@@ -61,7 +63,7 @@ const deleteFile = async (shortId) => {
 const sendDownloadFile = async (shortId) => {
   try {
     const response = await apiService.delete(
-      `${fileBaseUrl}/sendDownloadFile/${shortId}`,
+      `${fileBaseUrl}/sendDownloadFile/${shortId}`
     );
     return response.data;
   } catch (error) {

@@ -91,7 +91,7 @@ const SendExamResult = () => {
           selectedOptions.Year,
           selectedOptions.Semester,
           selectedOptions.Major,
-          selectedOptions.Section,
+          selectedOptions.Section
         );
         setStudents(response.data);
         console.log('students in useeffect', response.data);

@@ -45,7 +45,7 @@ const Register = () => {
       //change json to string
       console.log(response.link);
       toast.success(response.message);
-      navigate('/login');
+      navigate('/email-sent-successfully');
     } catch (error) {
       if (error.response) {
         toast.error(error.response?.data?.message);

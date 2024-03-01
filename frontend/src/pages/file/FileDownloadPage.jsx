@@ -31,7 +31,7 @@ const FileDownloadPage = () => {
     try {
       window.confirm('Are you sure you want to download this file?');
       const response = await getFile(shortId, password); // Pass password if required
-      download(response.data, filename);
+      download(response, filename);
     } catch (error) {
       setErrorMessage(error?.response?.data?.message);
     }
@@ -40,6 +40,7 @@ const FileDownloadPage = () => {
   return (
     <div className='file-download-container'>
       <h1>File Download Page</h1>
+      <div className='file-name'>{filename}</div>
       {errorMessage && <div className='error-message'>{errorMessage}</div>}
       <button className='download-button' onClick={handleDownload}>
         Download
