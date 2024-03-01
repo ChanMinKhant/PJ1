@@ -2,6 +2,7 @@ import Nav from '../../components/nav';
 import './aboutUs.css';
 
 import Chart1 from '../auth/css/chart4.jpg';
+import { Link } from 'react-router-dom';
 
 const AboutUs = () => {
   return (
@@ -9,51 +10,46 @@ const AboutUs = () => {
       <Nav />
       <div className="sub-container">
         <div className="item-1">
-          <div className="item-1-sub-1">
-            <div className="work-speed">
-              <h1>Grow</h1>
-              <h1>Your</h1>
-              <h1>Work</h1>
-              <h1>Speed</h1>
+          <div className="hero-image">
+            <div className="hero-text">
+              <h1>Grow Your Work Speed</h1>
+              {/* <p>And I'm a Photographer</p> */}
+              <button>
+                <Link to="/register" className="rfb">
+                  Register
+                </Link>
+              </button>
             </div>
           </div>
-          <div className="item-1-sub-2">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam
-              culpa quasi ut incidunt quaerat dicta, nostrum quisquam. Natus
-              officiis officia modi impedit nam, accusamus explicabo, at, ab
-              animi corporis fuga!
-            </p>
-          </div>
+          <p className="par">
+            In our pursuit of increased productivity, we're committed to
+            optimizing work speed. Through streamlined processes, advanced
+            tools, and a culture of efficiency, we empower our team to deliver
+            high-quality results swiftly. Embracing agility and innovation, we
+            strive to meet the demands of today's dynamic work environment,
+            fostering both individual and organizational growth.
+          </p>
         </div>
         <div className="item-2">
-          <div className="item-2-sub-1">
-            <p>
-              <h1>Our Goal</h1>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
-              incidunt delectus atque voluptas omnis quibusdam ipsa dolorum sunt
-              minima. Aspernatur, nemo soluta facilis sapiente rerum impedit
-              esse inventore commodi quam?
-            </p>
-          </div>
-          <div className="item-2-sub-2">
-            {/* <img src={Chart1} className="img-3" />
-            <img src={Chart2} className="img-4" /> */}
-            <div className="animated-photo">
-              <img src={Chart1} alt="Animated Photo" />
+          <div className="hero-image1">
+            <div className="hero-text1">
+              <h1>Our Goals</h1>
+              {/* <p>And I'm a Photographer</p> */}
             </div>
           </div>
+          <p className="par">
+            Our strategy revolves around four key elements: Market Expansion,
+            Monetization Growth, Community Engagement, and Continuous
+            Innovation. Together, these pillars propel our mission for sustained
+            growth and success.
+          </p>
         </div>
         <div className="item-3">
-          <div className="item-3-sub-1">
-            <h1>Our Member</h1>
-          </div>
-          <div className="item-3-sub-2">
-            <div className="member-1"></div>
-            <div className="member-2"></div>
-            <div className="member-3"></div>
-            <div className="member-4"></div>
-            <div className="member-5"></div>
+          <div className="hero-image2">
+            <div className="hero-text2">
+              <h1>Our Goals</h1>
+              {/* <p>And I'm a Photographer</p> */}
+            </div>
           </div>
         </div>
         <div className="itme-4"></div>
