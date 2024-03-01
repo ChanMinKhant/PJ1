@@ -235,12 +235,12 @@ const CopyButton = (props) => {
       </td> */}
 
       <td className='btnss text-center'>
-        <span
+        {/* <span
           className={`editbtn lap editdel ${showEdit ? 'hideinp' : 'notHide'}`}
           onClick={handleEdit}
         >
           Edit
-        </span>
+        </span> */}
         <span
           className={`deletebtn lap editdel ${
             showEdit ? 'hideinp' : 'notHide'

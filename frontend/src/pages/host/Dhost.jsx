@@ -24,7 +24,7 @@ const FileUploadPage = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [fileName, setFileName] = useState('');
   const [password, setPassword] = useState('');
-  const { isLogined, loading } = useIsLogined();
+  const { isLogined, loading, isPremium } = useIsLogined();
   console.log(isLogined, loading);
   useEffect(() => {
     const tempfunc = async () => {
@@ -152,6 +152,7 @@ const FileUploadPage = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, customDomain: e.target.value })
                   }
+                  disabled={!isPremium}
                 />
               </label>
 
@@ -164,6 +165,7 @@ const FileUploadPage = () => {
                   onChange={handlePasswordChange}
                   className='CustomInput'
                   id='password'
+                  disabled={!isPremium}
                 />
               </label>
             </div>
