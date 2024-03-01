@@ -84,12 +84,22 @@
   flex-direction: row;
 } */
 .btnsss {
-  background-color: aquamarine;
+  /* background-color: aquamarine; */
   margin: 5px;
   border: 1px solid;
   padding: 5px;
+  display: inline-block;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  border: 1px solid blueviolet;
 }
-
+.btnsss:hover {
+  background-color: rgb(168, 199, 199);
+}
+.btnsssdiv {
+  display: flex;
+}
 .btntd {
   display: flex;
   flex-direction: column;
@@ -134,78 +144,28 @@
   display: flex;
   height: 100%;
 } */
-
+.mob {
+  display: none;
+}
+.mob img {
+  width: 25px;
+}
 @media (max-width: 700px) {
-  /* .tableRow {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    border: 1px solid;
-  }
-  tr {
-    display: flex;
-
-    flex: 1;
-    flex-direction: column;
-    width: 100%;
-
-    margin: 30px;
-  }
-  .bbbbb {
-    width: 100%;
-
-    text-align: left;
-  }
-  td {
-    border: 100px solid black;
-    text-align: left;
-    padding: 8px;
-    width: 100%;
-  }
-
-  .addcpybtn {
-    border-bottom: 1px solid black;
-    width: 100%;
-    justify-content: center;
-    color: azure;
-    background-color: rgb(4, 4, 4);
+  /* .notHide {
+    display: none;
   } */
   .surl {
     width: 110px;
     /* text-align: left; */
   }
-  /* .msilalel {
-    display: block;
-    width: 100px;
-
-    font-weight: bold;
-  } */
-  /* .formobs {
-    display: flex;
-
-    gap: 10px;
+  .mob {
+    display: inline-block;
+    margin: 5px;
   }
-  .formobs p {
-    text-align: left;
+  .lap {
+    display: none;
   }
-  .fone {
-    background-color: #c7cfd1;
-    color: black;
+  .clickcount {
+    display: none;
   }
-  .sone {
-    background-color: #5f7b82;
-  } */
 }
-
-/* td {
-  height: 100%;
- 
-  overflow: scroll; 
-} */
-/* tr {
-  position: absolute;
-  left: 0px;
-  right: 0px;
-  width: 100%;
-} */

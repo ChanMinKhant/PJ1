@@ -273,6 +273,9 @@ tr:nth-child(odd) {
   .rownow {
     grid-template-columns: repeat(1, 1fr);
   }
+  .clicktd {
+    display: none;
+  }
 }
 /* tr:nth-child(even) {
   background-color: #c7cfd1;

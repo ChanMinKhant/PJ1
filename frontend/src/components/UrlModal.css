@@ -1,0 +1,13 @@
+.editicon {
+  width: 25px;
+}
+.addedit {
+  display: flex;
+  /* flex-direction: row; */
+}
+.hideminp {
+  display: none;
+}
+.notmHide {
+  display: block;
+}
