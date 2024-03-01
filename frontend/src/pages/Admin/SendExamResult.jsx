@@ -170,7 +170,7 @@ const SendExamResult = () => {
           size={3}
         >
           <option value='' selected>
-            Select Year
+            Year
           </option>
           <option value='First'>First</option>
           <option value='Second'>Second</option>
@@ -186,7 +186,7 @@ const SendExamResult = () => {
           size={3}
         >
           <option value='' selected>
-            Select Semester
+            Semester
           </option>
           <option value='First'>First</option>
           <option value='Second'>Second</option>
@@ -199,7 +199,7 @@ const SendExamResult = () => {
           size={3}
         >
           <option value='' selected>
-            Select Major
+            Major
           </option>
           <option value='CS'>Computer Science</option>
           <option value='CT'>Computer Technology</option>
@@ -213,7 +213,7 @@ const SendExamResult = () => {
           size={3}
         >
           <option value='' selected>
-            Select Section
+            Section
           </option>
           <option value='A'>A</option>
           <option value='B'>B</option>

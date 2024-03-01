@@ -1,16 +1,19 @@
 import React from 'react';
 import { useRef, useEffect } from 'react';
 import { Modal } from 'react-bootstrap';
-const UrlModal = ({
+const UrlModall = ({
+  createdAt,
+  creator,
+  domain,
+  hostingType,
+  isActive,
+  receievedCoin,
+  updatedAt,
+  views,
+  v,
+  id,
   show,
   handleClose,
-  origin,
-  shorten,
-  password,
-  limit,
-  isActive,
-  clickCount,
-  createdAt,
 }) => {
   const modalRef = useRef();
 
@@ -34,7 +37,7 @@ const UrlModal = ({
     <Modal show={show} onHide={handleClose} backdrop='static' keyboard={false}>
       <div ref={modalRef}>
         <Modal.Header closeButton={false}>
-          <Modal.Title>{shorten}</Modal.Title>
+          <Modal.Title>{domain}</Modal.Title>
           <div variant='secondary' onClick={handleClose}>
             Close{' '}
             <span className='mt-1' role='img' aria-label='close'>
@@ -45,22 +48,22 @@ const UrlModal = ({
         <Modal.Body>
           <ul className='modalul'>
             <h6>Shorten url</h6>
-            <li>{shorten}</li>
+            <li>{creator}</li>
             <br />
             <h6>Original Url</h6>
-            <li>{origin}</li>
+            <li>{domain}</li>
             <br />
             <h6>Password</h6>
-            <li>{password}</li>
+            <li>{hostingType}</li>
             <br />
             <h6>Limit</h6>
-            <li>{limit}</li>
+            <li>{isActive}</li>
             <br />
             <h6>Date</h6>
             <li>{createdAt}</li>
             <br />
             <h6>Click Count</h6>
-            <li>{clickCount}</li>
+            <li>{views}</li>
           </ul>
         </Modal.Body>
       </div>
@@ -68,4 +71,4 @@ const UrlModal = ({
   );
 };
 
-export default UrlModal;
+export default UrlModall;

@@ -31,6 +31,7 @@ const FileUploadPage = () => {
       try {
         const res = await getHosts();
         setHosts(res.data);
+        console.log(res.data);
       } catch (error) {
         console.log(error.response?.data?.message);
       }
@@ -84,7 +85,7 @@ const FileUploadPage = () => {
     } catch (error) {
       setErrorMessage(
         error?.response?.data?.message ||
-          'Error uploading file(s). Please try again.'
+          'Error uploading file(s). Please try again.',
       );
       toast.error('Error uploading file. Please try again.', {
         position: 'bottom-center',
@@ -94,87 +95,87 @@ const FileUploadPage = () => {
     }
   };
   return (
-    <div className="host-box">
+    <div className='host-box'>
       <div>
         <ToastContainer />
-        <form onSubmit={handleSubmit} className="host">
-          <div className="Dhost-coloum">
-            <div className="Dhost-coloum-left">
-              <label htmlFor="fileInput" className="uploadone">
+        <form onSubmit={handleSubmit} className='host'>
+          <div className='Dhost-coloum'>
+            <div className='Dhost-coloum-left'>
+              <label htmlFor='fileInput' className='uploadone'>
                 {/* Choose a file */}
                 <input
-                  type="file"
+                  type='file'
                   onChange={handleFileChange}
-                  className="custom-file-input"
-                  id="fileInput"
+                  className='custom-file-input'
+                  id='fileInput'
                   hidden
                   multiple
                 />
-                <img src={cloud} alt="" className="cloudimg" />
+                <img src={cloud} alt='' className='cloudimg' />
                 <p>Browse file to upload</p>
               </label>
-              <section className="uploaded-row">
+              <section className='uploaded-row'>
                 <button
-                  type="submit"
-                  className="border-0 bgg btn btn-primary d-md-block d-none pt-0"
+                  type='submit'
+                  className='border-0 bgg btn btn-primary d-md-block d-none pt-0'
                 >
                   {/* <img src={uploadcloud} alt='' width={20} /> */}
                   Upload
                 </button>
                 <img
                   src={uploadcloud}
-                  alt=""
+                  alt=''
                   width={20}
-                  className="d-md-none d-flex"
+                  className='d-md-none d-flex'
                 />
                 <div>
                   <span>{fileName}</span>
 
                   <img
                     src={deleteone}
-                    alt=""
+                    alt=''
                     width={20}
-                    className="m-2"
+                    className='m-2'
                     onClick={handleUndoClick}
                   />
                 </div>
               </section>
             </div>
 
-            <div className="Dhost-coloum-right">
-              <label className="dhostCustom">
+            <div className='Dhost-coloum-right'>
+              <label className='dhostCustom'>
                 Custom Link:
                 <input
-                  className="CustomInput"
-                  type="text"
-                  placeholder="Custom Link"
+                  className='CustomInput'
+                  type='text'
+                  placeholder='Custom Link'
                   onChange={(e) =>
                     setFormData({ ...formData, customDomain: e.target.value })
                   }
                 />
               </label>
 
-              <label className="dhostCustom">
+              <label className='dhostCustom'>
                 Password
                 <input
-                  type="text"
-                  placeholder="Password"
+                  type='text'
+                  placeholder='Password'
                   value={password}
                   onChange={handlePasswordChange}
-                  className="CustomInput"
-                  id="password"
+                  className='CustomInput'
+                  id='password'
                 />
               </label>
             </div>
           </div>
         </form>
       </div>
-      <div className="tableHost">
-        <table className="hostTable">
+      <div className='tableHost'>
+        <table className='hostTable'>
           <thead>
             <tr>
               <th>Filename</th>
-              <th>Type</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>

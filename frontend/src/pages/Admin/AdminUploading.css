@@ -86,6 +86,10 @@
     height: 230px;
     width: 75%;
   }
+  .examresult {
+    width: 75%;
+    margin: auto;
+  }
   .cloudimgg {
     width: 55px;
   }
@@ -103,6 +107,9 @@
     height: 230px;
     width: 85%;
   }
+  .examresult {
+    width: 85%;
+  }
   /* .cloudimgg {
     width: 55px;
   } */
@@ -117,6 +124,9 @@
   }
   .uploadonee {
     height: 230px;
+    width: 95%;
+  }
+  .examresult {
     width: 95%;
   }
   .cloudimgg {
