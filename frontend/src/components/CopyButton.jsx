@@ -1,19 +1,26 @@
 import React, { useRef, useState } from 'react';
 import './CopyButton.css';
 import UrlModal from './UrlModal';
-import sliderCX from './Switch.jsx';
+import deleteIcon from '../../assets/delete.png';
+import editIcon from '../../assets/edit.png';
+import Switch from './Switch.jsx';
 // import CopyComponent from './copy.jsx';
 const CopyButton = (props) => {
   //from
   const [showEdit, setshowEdit] = useState(false);
+  const [editedOnmodal, setEditedOnmodal] = useState(false);
   const [editedLimit, setEditedLimit] = useState('');
   const [editedValues, setEditedValues] = useState({
     clickCount: props.clickCount,
     isActive: props.isActive,
     limit: props.limit,
     shortUrl: props.shortUrl,
+    password: props.password,
   });
-
+  const handleEditedOnmodal = () => {
+    setEditedOnmodal(!editedOnmodal);
+    console.log('handle edited on modal', editedOnmodal);
+  };
   // Update the handleEdit function
   const handleEdit = () => {
     // console.log('Before toggle: ', showEdit);
@@ -24,6 +31,7 @@ const CopyButton = (props) => {
         isActive: props.isActive,
         limit: props.limit,
         shortUrl: props.shortUrl,
+        password: props.password,
       });
     }
     setshowEdit(!showEdit);
@@ -32,7 +40,11 @@ const CopyButton = (props) => {
   const handleEditClicks = () => {
     props.onEdit(props.shortUrl, editedValues);
     setshowEdit(false);
+    setEditedOnmodal(false);
     console.log('handle edit clicks');
+  };
+  const handleEditedCancle = () => {
+    setEditedOnmodal(!editedOnmodal);
   };
   const handleCancel = () => {
     // Reset edited values to the original values
@@ -41,6 +53,7 @@ const CopyButton = (props) => {
       isActive: props.isActive,
       limit: props.limit,
       shortUrl: props.shortUrl,
+      password: props.password,
     });
     setshowEdit(false);
   };
@@ -97,7 +110,7 @@ const CopyButton = (props) => {
     setShowModal(false);
   };
   const dateObject = new Date(props.createdAt);
-
+  console.log(props.isPremium);
   // Format the date using toLocaleString()
   const formattedDateurl = dateObject.toLocaleString();
   return (
@@ -123,17 +136,26 @@ const CopyButton = (props) => {
             {`${window.location.origin}/url/${props.shortUrl}`}
           </p>
         </div>
+
         <div></div>
-        <input
-          type='text'
-          value={editedValues.shortUrl}
-          className={`formcon ${showEdit ? 'notHide' : 'hideinp'}`}
-          onChange={(e) =>
-            setEditedValues({ ...editedValues, shortUrl: e.target.value })
-          }
-        />
+        {props.isPremium ? (
+          <>
+            <input
+              type='text'
+              value={editedValues.shortUrl}
+              className={`formcon ${showEdit ? 'notHide' : 'hideinp'}`}
+              onChange={(e) =>
+                setEditedValues({ ...editedValues, shortUrl: e.target.value })
+              }
+            />
+          </>
+        ) : (
+          <p
+            className={`surl ${showEdit ? 'notHide' : 'hideinp'}`}
+          >{`${window.location.origin}/url/${props.shortUrl}`}</p>
+        )}
       </td>
-      <td className='bbbbb formobs fone text-center'>
+      <td className='clickcount formobs fone text-center'>
         <label className='msilalel'>Click count:</label>
         <p className='datas'>{props.clickCount}</p>
         {/* <input
@@ -159,6 +181,25 @@ const CopyButton = (props) => {
           }
         />
       </td> */}
+      {/* from */}
+
+      {/* <td className='bbbbb formobs sone'>
+        <label className='msilalel'>IsActive:</label>
+        <p className={`datas ${showEdit ? 'hideinp' : 'notHide'}`}>
+          {props.isActive ? 'true' : 'false'}
+        </p>
+        <Switch
+          isToggled={editedValues.isActive}
+          onToggle={() =>
+            setEditedValues({
+              ...editedValues,
+              isActive: !editedValues.isActive,
+            })
+          }
+        />
+      </td> */}
+
+      {/* to */}
       <td className='bbbbb formobs fone text-center'>
         <label className='msilalel'>Limit:</label>
         <p className={`datas ${showEdit ? 'hideinp' : 'notHide'}`}>
@@ -195,18 +236,31 @@ const CopyButton = (props) => {
 
       <td className='btnss text-center'>
         <span
-          className={`editbtn editdel ${showEdit ? 'hideinp' : 'notHide'}`}
+          className={`editbtn lap editdel ${showEdit ? 'hideinp' : 'notHide'}`}
           onClick={handleEdit}
         >
           Edit
         </span>
         <span
-          className={`deletebtn editdel ${showEdit ? 'hideinp' : 'notHide'}`}
+          className={`deletebtn lap editdel ${
+            showEdit ? 'hideinp' : 'notHide'
+          }`}
           onClick={handleDeleteClick}
         >
           Delete
         </span>
-
+        <span
+          className={`  mob  ${showEdit ? 'hideinp' : 'notHide'}`}
+          onClick={handleEdit}
+        >
+          <img src={editIcon} alt='' />
+        </span>
+        <span
+          className={` mob  ${showEdit ? 'hideinp' : 'notHide'}`}
+          onClick={handleDeleteClick}
+        >
+          <img src={deleteIcon} alt='' />
+        </span>
         <i
           className={`bi bi-three-dots-vertical me-3 fs-4 ${
             showEdit ? 'hideinp' : 'notHide'
@@ -224,21 +278,30 @@ const CopyButton = (props) => {
             clickCount={props.clickCount}
             isActive={props.isActive}
             createdAt={formattedDateurl}
+            editedValues={editedValues}
+            setEditedValues={setEditedValues}
+            editclick={handleEditClicks}
+            editedOnmodal={editedOnmodal}
+            handle={handleEditedOnmodal}
+            isPremium={props.isPremium}
+            handleEditedCancle={handleEditedCancle}
           />
         </div>
         {/* <td className={`editbtn editdel ${showEdit ? 'hideinp' : 'notHide'}`}> */}
-        <div
-          className={`btnsss ${showEdit ? 'notHide' : 'hideinp'}`}
-          onClick={handleEditClicks}
-        >
-          Save
-        </div>
-        {/* {`btnsss ${showEdit ? 'notHide' : 'hideinp'}`} */}
-        <div
-          className={`btnsss ${showEdit ? 'notHide' : 'hideinp'}`}
-          onClick={handleCancel}
-        >
-          Cancle
+        <div className='btnsssdiv'>
+          <div
+            className={`btnsss ${showEdit ? 'notHide' : 'hideinp'}`}
+            onClick={handleEditClicks}
+          >
+            Save
+          </div>
+          {/* {`btnsss ${showEdit ? 'notHide' : 'hideinp'}`} */}
+          <div
+            className={`btnsss ${showEdit ? 'notHide' : 'hideinp'}`}
+            onClick={handleCancel}
+          >
+            Cancle
+          </div>
         </div>
         {/* </td> */}
         {/* <ModalBox showModal={showModal} closeModal={closeModal} /> */}
