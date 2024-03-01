@@ -110,7 +110,14 @@
   width: 600px;
 }
 
-.item-4 {
+.itme-4 {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  width: 700px;
+  height: 50px;
+  margin-bottom: 20px;
+  background: rgb(5, 70, 139);
 }
 .footer {
 }

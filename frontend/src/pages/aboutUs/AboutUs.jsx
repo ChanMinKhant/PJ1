@@ -47,12 +47,26 @@ const AboutUs = () => {
         <div className="item-3">
           <div className="hero-image2">
             <div className="hero-text2">
-              <h1>Our Goals</h1>
-              {/* <p>And I'm a Photographer</p> */}
+              <h1>We're working</h1>
             </div>
           </div>
+          <p className="par">
+            We are working on a comprehensive platform designed to streamline
+            online activities. Our focus encompasses providing a seamless
+            solution for users to store and share files effortlessly, ensuring
+            efficient collaboration and data management. The platform also
+            serves as a reliable host for HTML, CSS, and JavaScript code,
+            catering to the needs of developers. Simplifying the process of URL
+            shortening is another key feature, enabling users to create concise
+            web links with ease. Moreover, our project facilitates community
+            communication by allowing users to send emails effortlessly,
+            fostering a connected and collaborative digital space.
+          </p>
         </div>
-        <div className="itme-4"></div>
+        <div className="itme-4">
+          Contant Us :{' '}
+          <a href="mailto:chanminkhant@ucspyay.edu.mm">Admin@gmail</a>
+        </div>
         <div className="footer"></div>
       </div>
     </div>
