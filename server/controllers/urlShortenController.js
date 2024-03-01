@@ -204,6 +204,7 @@ exports.updateUrl = asyncErrorHandler(async (req, res, next) => {
   // req.user = user; //for testing
   const { shortUrl } = req.params;
   const { url, customLink, password, isActive } = req.body;
+  console.log(req.body);
   const foundUrl = await Url.findOne({ shortUrl });
   if (!foundUrl) {
     const err = new CustomError('URL not found', 404);

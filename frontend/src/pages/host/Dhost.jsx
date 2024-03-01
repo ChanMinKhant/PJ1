@@ -179,8 +179,8 @@ const FileUploadPage = () => {
             </tr>
           </thead>
           <tbody>
-            {hosts?.map((host) => {
-              return <Host {...host} key={host._id} />;
+            {hosts?.map((host, index) => {
+              return <Host {...host} key={host._id} no={index + 1} />;
             })}
           </tbody>
         </table>

@@ -38,10 +38,11 @@ const Host = (props) => {
   // Format the date using toLocaleString()
   const formattedDate = dateObject.toLocaleString();
   return (
-    // <tr>
+    // <tr> .
 
     <tr>
       <td>
+        <span className='noinhost'>{props.no} . </span>
         <a
           target='_blank'
           rel='noopener noreferrer'

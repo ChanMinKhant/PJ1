@@ -7,6 +7,10 @@
   align-items: center;
   justify-content: center;
 }
+.noinhost {
+  width: 50px;
+  /* background: #000; */
+}
 .copy-btn-host:hover {
   background: blue;
 }
