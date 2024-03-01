@@ -112,6 +112,7 @@
 
 .itme-4 {
   display: flex;
+  color: white;
   /* justify-content: center; */
   align-items: center;
   width: 700px;

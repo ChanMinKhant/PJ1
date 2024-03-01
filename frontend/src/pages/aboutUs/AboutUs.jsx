@@ -64,7 +64,7 @@ const AboutUs = () => {
           </p>
         </div>
         <div className="itme-4">
-          Contant Us :{' '}
+          Contant Us :
           <a href="mailto:chanminkhant@ucspyay.edu.mm">Admin@gmail</a>
         </div>
         <div className="footer"></div>
