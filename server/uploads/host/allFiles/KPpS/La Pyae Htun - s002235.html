@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free to Air TV Channels</title>
+    <style>
+        .r1 { width: 200px; height: 50px; background-color: #d4e5ff; }
+        .r2 { width: 200px; height: 50px; background-color: #99ffcc; }
+    </style>
+</head>
+<body>
+
+<script>
+    // Function to create a table and apply styles based on row index
+    function createTable() {
+        // Array of TV channels
+        const channels = [
+            "Myawaddy",
+            "MRTV",
+            "MRTV Entertainment",
+            "MRTV4",
+            "Channel7",
+            "MNTV"
+        ];
+
+        // Create a heading element
+        const heading = document.createElement("h3");
+        heading.textContent = "Free to Air TV Channels";
+
+        // Append heading to the body
+        document.body.appendChild(heading);
+
+        // Create a table element
+        const table = document.createElement("table");
+
+        // Loop through the channels array to create rows
+        for (let i = 0; i < channels.length; i++) {
+            // Create a row element
+            const row = document.createElement("tr");
+
+            // Create a cell element for the channel name
+            const cell = document.createElement("td");
+            cell.textContent = channels[i];
+
+            // Append the cell to the row
+            row.appendChild(cell);
+
+            // Apply CSS class based on the row index (odd/even)
+            row.classList.add(i % 2 === 0 ? "r1" : "r2");
+
+            // Append the row to the table
+            table.appendChild(row);
+        }
+
+        // Append the table to the body
+        document.body.appendChild(table);
+    }
+
+    // Call the function to create the table
+    createTable();
+</script>
+
+</body>
+</html>
