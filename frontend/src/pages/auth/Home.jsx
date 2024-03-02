@@ -17,74 +17,74 @@ import i from '../../../assets/write.png';
 
 const Home = () => {
   return (
-    <div className="color">
+    <div className='color'>
       <Nav />
-      <div className="home">
-        <div className="mainHome text-center">
-          <div className="m-left">
-            <div className="m-left-top">
-              <div className="m-left-top-left1">
-                <img src={progmer} alt="" className="progmer" />
+      <div className='home'>
+        <div className='mainHome text-center'>
+          <div className='m-left'>
+            <div className='m-left-top'>
+              <div className='m-left-top-left1'>
+                <img src={progmer} alt='' className='progmer' />
               </div>
-              <div className="m-left-top-right">
-                <p className="ooop">
+              <div className='m-left-top-right'>
+                <p className='ooop'>
                   - Versatile website for code hosting, file sharing, URL
                   shortening, and community communication.{' '}
                 </p>
-                <p className="ooop">
+                <p className='ooop'>
                   - Streamline collaboration, file exchange, and URL shortening
                   effortlessly.
                 </p>
-                <p className="ooop">
+                <p className='ooop'>
                   - Open dialogue and exam result sharing in a supportive
                   digital space.{' '}
                 </p>
-                <p className="ooop">
+                <p className='ooop'>
                   - Your all-in-one solution for an enhanced online experience.
                 </p>
               </div>
             </div>
-            <div className="animate-text">
+            <div className='animate-text'>
               <h1>
                 <span></span>
               </h1>
             </div>
           </div>
-          <div className="m-right">
-            <div className="flex-conta text-center">
+          <div className='m-right'>
+            <div className='flex-conta text-center'>
               <div>
-                <img src={e} alt="" className="home-img" />
-                <Link to="http://fight.localhost:5173/" className="letter">
+                <img src={e} alt='' className='home-img' />
+                <Link to='http://fight.localhost:5173/' className='letter'>
                   Fight
                 </Link>
               </div>
               <div>
-                <img src={d} alt="" className="home-img" />
-                <Link to="http://doodle.localhost:5173/" className="letter">
+                <img src={d} alt='' className='home-img' />
+                <Link to='http://doodle.localhost:5173/' className='letter'>
                   Doodle
                 </Link>
               </div>
               <div>
-                <img src={f} alt="" className="home-img" />
-                <Link to="http://panda.localhost:5173/" className="letter">
+                <img src={f} alt='' className='home-img' />
+                <Link to='http://panda.localhost:5173/' className='letter'>
                   Panda
                 </Link>
               </div>
               <div>
-                <img src={h} alt="" className="home-img" />
-                <Link to="http://ggpj.localhost:5173/" className="letter">
+                <img src={h} alt='' className='home-img' />
+                <Link to='http://ggpj.localhost:5173/' className='letter'>
                   Word
                 </Link>
               </div>
               <div>
-                <img src={g} alt="" className="home-img" />
-                <Link to="http://ninja.localhost:5173/" className="letter">
+                <img src={g} alt='' className='home-img' />
+                <Link to='http://ninja.localhost:5173/' className='letter'>
                   Ninja
                 </Link>
               </div>
               <div>
-                <img src={i} alt="" className="home-img" />
-                <Link to="http://speed.localhost:5173/" className="letter">
+                <img src={i} alt='' className='home-img' />
+                <Link to='http://speed.localhost:5173/' className='letter'>
                   Speed
                 </Link>
               </div>
@@ -151,18 +151,22 @@ const Home = () => {
           up now to unlock these powerful features and take your web projects to
           the next level!
         </p>
-        <div className="footermain">
-          <div className="footermaintop">
-            <h3>Our Features</h3>
-            <ul className="footerul">
-              <li>Shorten Url</li>
-              <li>File Upload</li>
-              <li>Hosting</li>
-              <li>Sending Email</li>
-              <li>Online games</li>
-            </ul>
+        <div className='footermain'>
+          <div className='footermaintop'>
+            <i>
+              <h3>Our Features</h3>
+              <ul className='footerul'>
+                <li>Shorten Url</li>
+                <li>File Upload</li>
+                <li>Hosting</li>
+                <li>Sending Email</li>
+                <li>Online games</li>
+              </ul>
+            </i>
           </div>
-          <div className="copyright">copyright</div>
+          <div className='copyright'>
+            <i>@Copyright All Right Reserved</i>{' '}
+          </div>
         </div>
       </div>
     </div>
