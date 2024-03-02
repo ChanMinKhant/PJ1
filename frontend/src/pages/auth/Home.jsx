@@ -136,8 +136,7 @@ const Home = () => {
             </p>{' '}
           </li>
           <li>
-            {' '}
-            <h4>Automated Exam Result Distribution</h4>{' '}
+            <h4>Automated Exam Result Distribution</h4>
             <p>
               Say goodbye to manual result distribution! With our advanced
               system, you can upload exam results for different batches or

@@ -179,7 +179,6 @@
   width: auto;
 
   grid-template-columns: repeat(3, 1fr);
-<<<<<<< HEAD
   gap: 50px;
 
   text-align: center; */
@@ -187,13 +186,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-=======
-  gap: 100px;
-  /* border: 1px solid black; */
-  /* flex-wrap: wrap; */
-  /* justify-content: center; */
-  text-align: center;
->>>>>>> d2de50a569856011780c4aa08fb8574b45816ef1
 }
 .home-img {
   width: 150px;
