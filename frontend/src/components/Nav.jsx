@@ -38,7 +38,7 @@ function Nav() {
   if (!loading)
     return (
       <nav>
-        <Link to='/' className='title'>
+        <Link to='/home' className='title'>
           Website
         </Link>
         <div className='menu'>

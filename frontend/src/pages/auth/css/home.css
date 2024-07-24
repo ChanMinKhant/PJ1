@@ -3,8 +3,13 @@
   margin: 0;
   padding: 0;
 }
+.ooop {
+  color: white;
+}
 .color {
-  background-color: white;
+  /* background-color: #887f7f; */
+  /* background-image: -moz-linear-gradient(); */
+  color: aliceblue;
   width: 100%;
   overflow-x: hidden;
 }
@@ -71,7 +76,7 @@
   position: absolute;
   width: calc(100% + 8px);
   height: 100%;
-  background-color: white;
+  background-color: #887f7f;
   border-left: 6px solid blue;
   right: -8px;
   animation: cursor 0.8s infinite, typing 20s steps(14) infinite;

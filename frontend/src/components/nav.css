@@ -14,7 +14,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #0c0970;
+  background-color: #444444;
   height: 60px;
   z-index: 4;
   position: sticky;

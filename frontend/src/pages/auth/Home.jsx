@@ -53,38 +53,38 @@ const Home = () => {
           <div className='m-right'>
             <div className='flex-conta text-center'>
               <div>
-                <img src={e} alt='' className='home-img' />
                 <Link to='http://fight.localhost:5173/' className='letter'>
+                  <img src={e} alt='' className='home-img' />
                   Fight
                 </Link>
               </div>
               <div>
-                <img src={d} alt='' className='home-img' />
                 <Link to='http://doodle.localhost:5173/' className='letter'>
+                  <img src={d} alt='' className='home-img' />
                   Doodle
                 </Link>
               </div>
               <div>
-                <img src={f} alt='' className='home-img' />
                 <Link to='http://panda.localhost:5173/' className='letter'>
+                  <img src={f} alt='' className='home-img' />
                   Panda
                 </Link>
               </div>
               <div>
-                <img src={h} alt='' className='home-img' />
                 <Link to='http://ggpj.localhost:5173/' className='letter'>
+                  <img src={h} alt='' className='home-img' />
                   Word
                 </Link>
               </div>
               <div>
-                <img src={g} alt='' className='home-img' />
                 <Link to='http://ninja.localhost:5173/' className='letter'>
+                  <img src={g} alt='' className='home-img' />
                   Ninja
                 </Link>
               </div>
               <div>
-                <img src={i} alt='' className='home-img' />
                 <Link to='http://speed.localhost:5173/' className='letter'>
+                  <img src={i} alt='' className='home-img' />
                   Speed
                 </Link>
               </div>

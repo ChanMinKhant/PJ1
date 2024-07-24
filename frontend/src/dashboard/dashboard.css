@@ -116,10 +116,11 @@
 } */
 .sidl {
   position: fixed;
-  top: 47px;
+
+  top: 55px;
   height: 24px;
   width: 4px;
-  font-size: 20px;
+  font-size: 25px;
   /* transition: transform 0.3s ease; */
   z-index: 3;
   /* background-color: #000000; */
