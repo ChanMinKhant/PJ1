@@ -39,7 +39,7 @@ function Nav() {
     return (
       <nav>
         <Link to='/home' className='title'>
-          Website
+          Septicon
         </Link>
         <div className='menu'>
           <i
