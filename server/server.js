@@ -2,11 +2,11 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 // 1) UNCAUGHT EXCEPTIONS
-// process.on('uncaughtException', (err) => {
-//   console.log('UNCAUGHT EXCEPTION! 💥 Shutting down...');
-//   console.log(err.name, err.message);
-//   process.exit(1);
-// });
+process.on('uncaughtException', (err) => {
+  console.log('UNCAUGHT EXCEPTION! 💥 Shutting down...');
+  console.log(err.name, err.message);
+  process.exit(1);
+});
 const app = express();
 const CustomError = require('./utils/CustomError.js');
 //const { exec,fork } = require('child_process');
@@ -61,7 +61,7 @@ app.use(require('./routes/index.js'));
 app.all('*', (req, res, next) => {
   const err = new CustomError(
     `Can't find ${req.originalUrl} on this server!`,
-    404
+    404,
   );
   next(err);
 });

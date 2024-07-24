@@ -1,155 +1,168 @@
 [
   {
-    "studentName": "Chan Min Khant",
-    "studentEmail": "chanminkhant@ucspyay.edu.mm",
+    "studentName": "Aung Hla",
+    "studentEmail": "student0022200@ucspyay.edu.mm",
     "rollNo": "002200",
     "section": "A",
-    "year": "Second",
+    "year": "First",
     "semester": "Second",
-    "major": "CS"
+    "major": "CST"
   },
   {
-    "studentName": "La Pyae Htun",
-    "studentEmail": "lapyaehtun@ucspyay.edu.mm",
+    "studentName": "Khin Hla Win",
+    "studentEmail": "student0022201@ucspyay.edu.mm",
     "rollNo": "002201",
     "section": "A",
-    "year": "Second",
+    "year": "First",
     "semester": "Second",
-    "major": "CS"
+    "major": "CST"
   },
   {
-    "studentName": "Nyein Chan Aung",
-    "studentEmail": "nyeinchanaung@ucspyay.edu.mm",
+    "studentName": "Min Min Oo",
+    "studentEmail": "student0022202@ucspyay.edu.mm",
     "rollNo": "002202",
     "section": "A",
-    "year": "Second",
+    "year": "First",
     "semester": "Second",
-    "major": "CS"
+    "major": "CST"
   },
   {
-    "studentName": "Nyein Chan Aung",
-    "studentEmail": "anyeinchan843@gmail.com",
+    "studentName": "Hla Win Htet",
+    "studentEmail": "student0022203@ucspyay.edu.mm",
     "rollNo": "002203",
     "section": "B",
-    "year": "Second",
+    "year": "First",
     "semester": "Second",
-    "major": "CS"
+    "major": "CST"
   },
   {
-    "studentName": "La Pyae Htun",
-    "studentEmail": "lapyaehtun333@gmail.com",
+    "studentName": "Win Htet Kyaw",
+    "studentEmail": "student0022204@ucspyay.edu.mm",
     "rollNo": "002204",
     "section": "B",
-    "year": "Second",
+    "year": "First",
     "semester": "Second",
-    "major": "CS"
+    "major": "CST"
   },
   {
-    "studentName": "Chan Min Khant",
-    "studentEmail": "abcdream2264@gmail.com",
+    "studentName": "Kyaw Zaw Htet",
+    "studentEmail": "student0022205@ucspyay.edu.mm",
     "rollNo": "002205",
     "section": "B",
-    "year": "Second",
+    "year": "First",
     "semester": "Second",
-    "major": "CS"
+    "major": "CST"
   },
   {
+    "studentName": "Thura Min",
     "studentEmail": "student0022206@ucspyay.edu.mm",
     "rollNo": "002206",
     "section": "A",
     "year": "Second",
-    "semester": "First",
+    "semester": "Second",
     "major": "CS"
   },
   {
+    "studentName": "Moe Moe Kyaw",
     "studentEmail": "student0022207@ucspyay.edu.mm",
     "rollNo": "002207",
     "section": "A",
     "year": "Second",
-    "semester": "First",
+    "semester": "Second",
     "major": "CS"
   },
   {
+    "studentName": "Myo Aung Hla",
     "studentEmail": "student0022208@ucspyay.edu.mm",
     "rollNo": "002208",
     "section": "A",
-    "year": "First",
-    "semester": "First",
-    "major": "CST"
+    "year": "Second",
+    "semester": "Second",
+    "major": "CS"
   },
   {
+    "studentName": "Maung Hla Kyaw",
     "studentEmail": "student0022209@ucspyay.edu.mm",
     "rollNo": "002209",
     "section": "A",
-    "year": "First",
-    "semester": "First",
+    "year": "Second",
+    "semester": "Second",
     "major": "CT"
   },
   {
+    "studentName": "Shwe Nyo Min",
     "studentEmail": "student0022210@ucspyay.edu.mm",
     "rollNo": "002210",
     "section": "A",
-    "year": "First",
-    "semester": "First",
-    "major": "CST"
+    "year": "Second",
+    "semester": "Second",
+    "major": "CT"
   },
   {
+    "studentName": "Zeya Thura Kyaw",
     "studentEmail": "student0022211@ucspyay.edu.mm",
     "rollNo": "002211",
     "section": "A",
-    "year": "First",
-    "semester": "First",
-    "major": "CST"
+    "year": "Second",
+    "semester": "Second",
+    "major": "CT"
   },
   {
+    "studentName": "Yin Yin Hla",
     "studentEmail": "student0022212@ucspyay.edu.mm",
     "rollNo": "002212",
     "section": "B",
-    "year": "First",
-    "semester": "First",
-    "major": "CST"
+    "year": "Second",
+    "semester": "Second",
+    "major": "CS"
   },
   {
+    "studentName": "Soe Hlaing Min",
     "studentEmail": "student0022213@ucspyay.edu.mm",
     "rollNo": "002213",
     "section": "B",
-    "year": "First",
-    "semester": "First",
-    "major": "CST"
+    "year": "Second",
+    "semester": "Second",
+    "major": "CS"
   },
   {
+    "studentName": "Nyein Zaw Hla",
     "studentEmail": "student0022214@ucspyay.edu.mm",
     "rollNo": "002214",
     "section": "B",
-    "year": "First",
-    "semester": "First",
-    "major": "CST"
+    "year": "Second",
+    "semester": "Second",
+    "major": "CS"
   },
   {
+    "studentName": "Su Myo Hlaing",
     "studentEmail": "student0022215@ucspyay.edu.mm",
     "rollNo": "002215",
     "section": "B",
     "year": "Second",
-    "semester": "First",
+    "semester": "Second",
     "major": "CT"
   },
   {
+    "studentName": "Mya Tun Kyaw",
     "studentEmail": "student0022216@ucspyay.edu.mm",
     "rollNo": "002216",
     "section": "B",
     "year": "Second",
-    "semester": "First",
+    "semester": "Second",
     "major": "CT"
   },
   {
+    "studentName": "Ko Hla Kyaw",
     "studentEmail": "student0022217@ucspyay.edu.mm",
     "rollNo": "002217",
     "section": "B",
     "year": "Second",
-    "semester": "First",
+    "semester": "Second",
     "major": "CT"
   },
   {
+    "studentName": "Nanda Hlaing Kyaw",
     "studentEmail": "student0022218@ucspyay.edu.mm",
     "rollNo": "002218",
     "section": "A",
@@ -158,6 +171,7 @@
     "major": "CS"
   },
   {
+    "studentName": "Khin Maung Tun",
     "studentEmail": "student0022219@ucspyay.edu.mm",
     "rollNo": "002219",
     "section": "A",
@@ -166,6 +180,7 @@
     "major": "CS"
   },
   {
+    "studentName": "Hla Htay Min",
     "studentEmail": "student0022220@ucspyay.edu.mm",
     "rollNo": "002220",
     "section": "A",
@@ -174,6 +189,7 @@
     "major": "CS"
   },
   {
+    "studentName": "Tun Hla Kyaw",
     "studentEmail": "student0022221@ucspyay.edu.mm",
     "rollNo": "002221",
     "section": "A",
@@ -182,6 +198,7 @@
     "major": "CT"
   },
   {
+    "studentName": "Htay Htay Win",
     "studentEmail": "student0022222@ucspyay.edu.mm",
     "rollNo": "002222",
     "section": "A",
@@ -190,6 +207,7 @@
     "major": "CT"
   },
   {
+    "studentName": "Phyo Min Kyaw",
     "studentEmail": "student0022223@ucspyay.edu.mm",
     "rollNo": "002223",
     "section": "A",
@@ -198,291 +216,327 @@
     "major": "CT"
   },
   {
+    "studentName": "Nyo Nyo Hla",
     "studentEmail": "student0022224@ucspyay.edu.mm",
     "rollNo": "002224",
     "section": "B",
     "year": "Third",
-    "semester": "First",
+    "semester": "Second",
     "major": "CS"
   },
   {
+    "studentName": "Wai Hla Kyaw",
     "studentEmail": "student0022225@ucspyay.edu.mm",
     "rollNo": "002225",
     "section": "B",
     "year": "Third",
-    "semester": "First",
+    "semester": "Second",
     "major": "CS"
   },
   {
+    "studentName": "Paing Tun Hla",
     "studentEmail": "student0022226@ucspyay.edu.mm",
     "rollNo": "002226",
     "section": "B",
     "year": "Third",
-    "semester": "First",
+    "semester": "Second",
     "major": "CS"
   },
   {
+    "studentName": "Lay Min Kyaw",
     "studentEmail": "student0022227@ucspyay.edu.mm",
     "rollNo": "002227",
     "section": "B",
     "year": "Third",
-    "semester": "First",
+    "semester": "Second",
     "major": "CT"
   },
   {
+    "studentName": "Chit Min Hla",
     "studentEmail": "student0022228@ucspyay.edu.mm",
     "rollNo": "002228",
     "section": "B",
     "year": "Third",
-    "semester": "First",
+    "semester": "Second",
     "major": "CT"
   },
   {
+    "studentName": "Thant Thura Kyaw",
     "studentEmail": "student0022229@ucspyay.edu.mm",
     "rollNo": "002229",
     "section": "B",
     "year": "Third",
-    "semester": "First",
+    "semester": "Second",
     "major": "CT"
   },
   {
+    "studentName": "Myint Oo Hla",
     "studentEmail": "student0022230@ucspyay.edu.mm",
     "rollNo": "002230",
     "section": "A",
     "year": "Fourth",
-    "semester": "First",
+    "semester": "Second",
     "major": "CS"
   },
   {
+    "studentName": "Toe Hla Kyaw",
     "studentEmail": "student0022231@ucspyay.edu.mm",
     "rollNo": "002231",
     "section": "A",
     "year": "Fourth",
-    "semester": "First",
+    "semester": "Second",
     "major": "CS"
   },
   {
+    "studentName": "Sein Tun Hla",
     "studentEmail": "student0022232@ucspyay.edu.mm",
     "rollNo": "002232",
     "section": "A",
     "year": "Fourth",
-    "semester": "First",
+    "semester": "Second",
     "major": "CS"
   },
   {
+    "studentName": "Thwe Min Kyaw",
     "studentEmail": "student0022233@ucspyay.edu.mm",
     "rollNo": "002233",
     "section": "A",
     "year": "Fourth",
-    "semester": "First",
+    "semester": "Second",
     "major": "CT"
   },
   {
+    "studentName": "Thet Lwin Hla",
     "studentEmail": "student0022234@ucspyay.edu.mm",
     "rollNo": "002234",
     "section": "A",
     "year": "Fourth",
-    "semester": "First",
+    "semester": "Second",
     "major": "CT"
   },
   {
+    "studentName": "Win Maung Hla",
     "studentEmail": "student0022235@ucspyay.edu.mm",
     "rollNo": "002235",
     "section": "A",
     "year": "Fourth",
-    "semester": "First",
+    "semester": "Second",
     "major": "CT"
   },
   {
+    "studentName": "Mya Aung Kyaw",
     "studentEmail": "student0022236@ucspyay.edu.mm",
     "rollNo": "002236",
     "section": "B",
     "year": "Fourth",
-    "semester": "First",
+    "semester": "Second",
     "major": "CS"
   },
   {
+    "studentName": "Han Hla Kyaw",
     "studentEmail": "student0022237@ucspyay.edu.mm",
     "rollNo": "002237",
     "section": "B",
     "year": "Fourth",
-    "semester": "First",
+    "semester": "Second",
     "major": "CS"
   },
   {
+    "studentName": "Yan Hlaing Min",
     "studentEmail": "student0022238@ucspyay.edu.mm",
     "rollNo": "002238",
     "section": "B",
     "year": "Fourth",
-    "semester": "First",
+    "semester": "Second",
     "major": "CS"
   },
   {
+    "studentName": "Khant Min Kyaw",
     "studentEmail": "student0022239@ucspyay.edu.mm",
     "rollNo": "002239",
     "section": "B",
     "year": "Fourth",
-    "semester": "First",
+    "semester": "Second",
     "major": "CT"
   },
   {
+    "studentName": "Zin Aung Hla",
     "studentEmail": "student0022240@ucspyay.edu.mm",
     "rollNo": "002240",
     "section": "B",
     "year": "Fourth",
-    "semester": "First",
+    "semester": "Second",
     "major": "CT"
   },
   {
+    "studentName": "Moe Hla Kyaw",
     "studentEmail": "student0022241@ucspyay.edu.mm",
     "rollNo": "002241",
     "section": "B",
     "year": "Fourth",
-    "semester": "First",
+    "semester": "Second",
     "major": "CT"
   },
   {
+    "studentName": "Thiha Kyaw Min",
     "studentEmail": "student0022242@ucspyay.edu.mm",
     "rollNo": "002242",
     "section": "A",
     "year": "Fifth",
-    "semester": "First",
+    "semester": "Second",
     "major": "CS"
   },
   {
+    "studentName": "Oo Min Hla",
     "studentEmail": "student0022243@ucspyay.edu.mm",
     "rollNo": "002243",
     "section": "A",
     "year": "Fifth",
-    "semester": "First",
+    "semester": "Second",
     "major": "CS"
   },
   {
+    "studentName": "Naing Hla Kyaw",
     "studentEmail": "student0022244@ucspyay.edu.mm",
     "rollNo": "002244",
     "section": "A",
     "year": "Fifth",
-    "semester": "First",
+    "semester": "Second",
     "major": "CS"
   },
   {
+    "studentName": "Lwin Hla Min",
     "studentEmail": "student0022245@ucspyay.edu.mm",
     "rollNo": "002245",
     "section": "A",
     "year": "Fifth",
-    "semester": "First",
+    "semester": "Second",
     "major": "CT"
   },
   {
+    "studentName": "Kyaw Hla Tun",
     "studentEmail": "student0022246@ucspyay.edu.mm",
     "rollNo": "002246",
     "section": "A",
     "year": "Fifth",
-    "semester": "First",
+    "semester": "Second",
     "major": "CT"
   },
   {
+    "studentName": "San Hla Min",
     "studentEmail": "student0022247@ucspyay.edu.mm",
     "rollNo": "002247",
     "section": "A",
     "year": "Fifth",
-    "semester": "First",
+    "semester": "Second",
     "major": "CT"
   },
   {
+    "studentName": "Tun Aung Hla",
     "studentEmail": "student0022248@ucspyay.edu.mm",
     "rollNo": "002248",
     "section": "B",
     "year": "Fifth",
-    "semester": "First",
+    "semester": "Second",
     "major": "CS"
   },
   {
+    "studentName": "Than Hla Kyaw",
     "studentEmail": "student0022249@ucspyay.edu.mm",
     "rollNo": "002249",
     "section": "B",
     "year": "Fifth",
-    "semester": "First",
+    "semester": "Second",
     "major": "CS"
   },
   {
+    "studentName": "Thura Aung Min",
     "studentEmail": "student0022250@ucspyay.edu.mm",
     "rollNo": "002250",
     "section": "B",
     "year": "Fifth",
-    "semester": "First",
+    "semester": "Second",
     "major": "CS"
   },
   {
+    "studentName": "Hla Aung Kyaw",
     "studentEmail": "student0022251@ucspyay.edu.mm",
     "rollNo": "002251",
     "section": "B",
     "year": "Fifth",
-    "semester": "First",
+    "semester": "Second",
     "major": "CT"
   },
   {
+    "studentName": "Ko Lwin Hla",
     "studentEmail": "student0022252@ucspyay.edu.mm",
     "rollNo": "002252",
     "section": "B",
     "year": "Fifth",
-    "semester": "First",
+    "semester": "Second",
     "major": "CT"
   },
   {
+    "studentName": "Phyu Phyu Min",
     "studentEmail": "student0022253@ucspyay.edu.mm",
     "rollNo": "002253",
     "section": "B",
     "year": "Fifth",
-    "semester": "First",
+    "semester": "Second",
     "major": "CT"
   },
   {
+    "studentName": "San Win Kyaw",
     "studentEmail": "student0022254@ucspyay.edu.mm",
     "rollNo": "002254",
     "section": "A",
     "year": "Fifth",
-    "semester": "First",
+    "semester": "Second",
     "major": "CS"
   },
   {
+    "studentName": "Nanda Hla Min",
     "studentEmail": "student0022255@ucspyay.edu.mm",
     "rollNo": "002255",
     "section": "A",
     "year": "Fifth",
-    "semester": "First",
+    "semester": "Second",
     "major": "CS"
   },
   {
+    "studentName": "Khin Moe Kyaw",
     "studentEmail": "student0022256@ucspyay.edu.mm",
     "rollNo": "002256",
     "section": "A",
     "year": "Fifth",
-    "semester": "First",
+    "semester": "Second",
     "major": "CS"
   },
   {
+    "studentName": "Aung Hla Min",
     "studentEmail": "student0022257@ucspyay.edu.mm",
     "rollNo": "002257",
     "section": "A",
     "year": "Fifth",
-    "semester": "First",
+    "semester": "Second",
     "major": "CT"
   },
   {
+    "studentName": "Myo Naing Hla",
     "studentEmail": "student0022258@ucspyay.edu.mm",
     "rollNo": "002258",
     "section": "A",
     "year": "Fifth",
-    "semester": "First",
+    "semester": "Second",
     "major": "CT"
   },
   {
+    "studentName": "Hla Kyaw Min",
     "studentEmail": "student0022259@ucspyay.edu.mm",
     "rollNo": "002259",
     "section": "A",
     "year": "Fifth",
-    "semester": "First",
+    "semester": "Second",
     "major": "CT"
   }
 ]
