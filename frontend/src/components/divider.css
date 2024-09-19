@@ -1,0 +1,8 @@
+.divider {
+  width: 80%;
+  height: 4px;
+  background: linear-gradient(to right, #ffcc00, #ffffff, #ffcc00);
+  border-radius: 2px;
+  margin: 40px auto; /* Centering with auto left and right margins */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}

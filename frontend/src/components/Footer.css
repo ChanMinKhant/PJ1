@@ -1,0 +1,84 @@
+/* src/Footer.css */
+.footer {
+  background: linear-gradient(to right, #1a1a1a, #333333);
+  color: #ffffff;
+  padding: 40px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-section {
+  flex: 1;
+  padding: 0 20px;
+}
+
+.footer-section h2 {
+  font-size: 1.8em;
+  margin-bottom: 20px;
+}
+
+.footer-section p {
+  font-size: 1em;
+  line-height: 1.6;
+}
+
+.footer-section .socials a {
+  margin: 0 10px;
+  color: #ffffff;
+  font-size: 1.2em;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-section .socials a:hover {
+  color: #ffcc00;
+}
+
+.footer-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1em;
+  transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+  color: #ffcc00;
+}
+
+.footer-section ul li span {
+  font-weight: bold;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9em;
+  background: #111111;
+  border-top: 1px solid #333333;
+  margin-top: 20px;
+}
+
+.logo-text {
+  font-size: 2.5em;
+  color: #ffcc00;
+  text-transform: uppercase;
+}

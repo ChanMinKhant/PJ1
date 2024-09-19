@@ -3,22 +3,20 @@ import progmer from '../../../assets/codebg.jpg';
 import Nav from '../../components/Nav';
 import { Link } from 'react-router-dom';
 // import gameicon from './../../../assets/gameicon.png';
-import a from '../../../assets/backgound.png';
-import b from '../../../assets/bamboo.jpg';
-import c from '../../../assets/bottombluepipe.png';
-import d from '../../../assets/doodler-right.png';
-import e from '../../../assets/greek.png';
-import f from '../../../assets/panda.png';
-import g from '../../../assets/ninja.png';
-import h from '../../../assets/crossword.png';
-import i from '../../../assets/write.png';
+import Gear from '../../components/Gear';
+// import d from '../../../assets/doodler-right.png';
+// import e from '../../../assets/greek.png';
+// import f from '../../../assets/panda.png';
+// import g from '../../../assets/ninja.png';
+// import h from '../../../assets/crossword.png';
+// import i from '../../../assets/write.png';
 import j from '../../../assets/cloud-data.png';
 import k from '../../../assets/url.png';
 import l from '../../../assets/cloud.png';
 import m from '../../../assets/hacker.png';
 import n from '../../../assets/internet.png';
 import o from '../../../assets/email.png';
-
+import GameSection from '../../components/Game';
 import p from '../../../assets/question-mark.png';
 import q from '../../../assets/skill.png';
 import r from '../../../assets/ask.png';
@@ -26,6 +24,9 @@ import s from '../../../assets/question-mark (1).png';
 import t from '../../../assets/star.png';
 
 import thinkgirl from '../../../assets/adorable-young-woman-casual-outfit-standing-thinking-high-quality-photo-Photoroom.png';
+import Welcome from '../../components/Welcome';
+import Divider from '../../components/Divider';
+import Footer from '../../components/Footer';
 // import Loading from '../../components/Loading';
 
 const Home = () => {
@@ -73,28 +74,28 @@ const Home = () => {
           <div className='flexhome'>
             {/* <img src={progmer} alt='' className='progmer' /> */}
             <div className='fhomeitems'>
-              <div className='fhomeitem'>
+              <Link to={'/dashboard/files'} className='fhomeitem'>
                 <img src={j} alt='' className='fhomeicon' />
                 <div className='fhomecap'>Store your data on our server.</div>
-              </div>
-              <div className='fhomeitem'>
+              </Link>
+              <Link to={'/dashboard/url'} className='fhomeitem'>
                 <img src={k} alt='' className='fhomeicon' />
                 <div className='fhomecap'>
                   Shorten your long and boring urls.
                 </div>
-              </div>
-              <div className='fhomeitem'>
+              </Link>
+              <Link to={'/dashboard/host'} className='fhomeitem'>
                 <img src={n} alt='' className='fhomeicon' />
                 <div className='fhamecap'>
                   Looking to host your website publicly?
                 </div>
-              </div>
-              <div className='fhomeitem'>
+              </Link>
+              <Link to={'/dashboard/sendInfo'} className='fhomeitem'>
                 <img src={o} alt='' className='fhomeicon' />
                 <div className='fhomecap'>
                   Get customized email sending system for your community.
                 </div>
-              </div>
+              </Link>
             </div>
           </div>
           <div className='thinking'>
@@ -144,108 +145,15 @@ const Home = () => {
               </ul>
             </div>
           </div>
-          <div className='m-right'>
-            <div className='flex-conta text-center'>
-              <div>
-                <Link to='http://fight.localhost:5173/' className='letter'>
-                  <img src={e} alt='' className='home-img' />
-                  Fight
-                </Link>
-              </div>
-              <div>
-                <Link to='http://doodle.localhost:5173/' className='letter'>
-                  <img src={d} alt='' className='home-img' />
-                  Doodle
-                </Link>
-              </div>
-              <div>
-                <Link to='http://panda.localhost:5173/' className='letter'>
-                  <img src={f} alt='' className='home-img' />
-                  Panda
-                </Link>
-              </div>
-              <div>
-                <Link to='http://ggpj.localhost:5173/' className='letter'>
-                  <img src={h} alt='' className='home-img' />
-                  Word
-                </Link>
-              </div>
-              <div>
-                <Link to='http://ninja.localhost:5173/' className='letter'>
-                  <img src={g} alt='' className='home-img' />
-                  Ninja
-                </Link>
-              </div>
-              <div>
-                <Link to='http://speed.localhost:5173/' className='letter'>
-                  <img src={i} alt='' className='home-img' />
-                  Speed
-                </Link>
-              </div>
-            </div>
-          </div>
         </div>
-        <h1>Welcome to Our Website!</h1>
-        <p>
-          Your one-stop destination for all your web hosting and file management
-          needs! Here are some key features we offer:
-        </p>
-        <ul>
+        <Divider />
+        <GameSection />
+
+        <div className='welcomewrap'>
           {' '}
-          <li>
-            {' '}
-            <h4>Hosting of HTML, CSS, and JavaScript Files</h4>
-            <p>
-              Upload and host your web projects effortlessly with our reliable
-              hosting services. Whether you're a beginner or an experienced
-              developer, we provide the platform you need to showcase your work.
-            </p>{' '}
-          </li>
-          <li>
-            {' '}
-            <h4>File Uploading and Sharing</h4>
-            <p>
-              Seamlessly upload and share files with colleagues, friends, or
-              clients. Our intuitive interface makes it easy to organize and
-              distribute your files efficiently.
-            </p>{' '}
-          </li>
-          <li>
-            {' '}
-            <h4>URL Shortening</h4>{' '}
-            <p>
-              Simplify and share URLs with our URL shortening feature. Transform
-              long, cumbersome links into concise, easy-to-share URLs that are
-              perfect for social media, emails, and more.
-            </p>{' '}
-          </li>
-          <li>
-            {' '}
-            <h4>Email Sending</h4>{' '}
-            <p>
-              Communicate effectively with our integrated email sending
-              functionality. Whether you're sending updates, newsletters, or
-              exam results, our system ensures reliable delivery to your
-              recipients' inboxes.
-            </p>{' '}
-          </li>
-          <li>
-            <h4>Automated Exam Result Distribution</h4>
-            <p>
-              Say goodbye to manual result distribution! With our advanced
-              system, you can upload exam results for different batches or
-              classes with just a few clicks. Each student receives their
-              results directly, streamlining the process for administrators and
-              students alike.
-            </p>{' '}
-          </li>
-        </ul>{' '}
-        <p>
-          Experience the convenience and efficiency of our platform today. Sign
-          up now to unlock these powerful features and take your web projects to
-          the next level!
-        </p>
-        <div className='footermain'>
+          <Welcome />
+        </div>
+        {/* <div className='footermain'>
           <div className='footermaintop'>
             <i>
               <h3>Our Features</h3>
@@ -261,8 +169,9 @@ const Home = () => {
           <div className='copyright'>
             <i>@Copyright All Right Reserved</i>{' '}
           </div>
-        </div>
+        </div> */}
       </div>
+      <Footer />
     </div>
   );
 };

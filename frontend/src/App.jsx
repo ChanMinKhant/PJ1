@@ -22,13 +22,18 @@ import AdminUploading from './pages/Admin/AdminUploading';
 import SendExamResult from './pages/Admin/SendExamResult';
 import LogoutAllDevice from './pages/auth/LogoutAllDevice';
 import EmailSentSuccessFully from './pages/auth/EmailSentSuccessFully';
+import Services from './components/Services';
+import Footer from './components/Footer';
+import Nav from './components/Nav';
 
 function App() {
   return (
     <div className='App'>
+      {/* <Nav /> */}
       <Router>
         <Routes>
           <Route path='/' element={<ViewHost />} />
+          <Route path='/services' element={<Services />} />
           <Route path='/home' element={<Home />} />
           <Route path='/register' element={<Register />} />
           <Route path='/login' element={<Login />} />
@@ -60,6 +65,7 @@ function App() {
           {/* Catch-all route at the end */}
         </Routes>
       </Router>
+      {/* <Footer /> */}
     </div>
   );
 }

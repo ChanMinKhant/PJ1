@@ -1,0 +1,69 @@
+/* src/Welcome.css */
+/* body { */
+
+/* background: linear-gradient(to bottom right, #000, #434343, #555555, #000); */
+
+/* border: 50px solid gold; */
+/* } */
+
+.content {
+  font-family: Arial, sans-serif;
+  color: #ffffff;
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+h1.welcomehead {
+  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #ffcc00;
+}
+
+p {
+  font-size: 1.2em;
+  line-height: 1.6;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: 20px;
+}
+
+ul li h4 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #ffcc00;
+}
+
+ul li p {
+  margin: 0;
+  font-size: 1.1em;
+}
+
+@media (max-width: 600px) {
+  .content {
+    padding: 10px;
+  }
+
+  h1.welcomehead {
+    font-size: 2em;
+  }
+
+  ul li h4 {
+    font-size: 1.2em;
+  }
+
+  p,
+  ul li p {
+    font-size: 1em;
+  }
+}

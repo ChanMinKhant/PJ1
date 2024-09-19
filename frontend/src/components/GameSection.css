@@ -1,0 +1,71 @@
+/* src/GameSection.css */
+.m-right {
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  /* margin-bottom: 20px; */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.m-right h3 {
+  color: #ffcc00;
+  text-align: center;
+  font-size: 1.8em;
+}
+
+.flex-conta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.flex-conta div {
+  margin: 10px;
+  text-align: center;
+}
+
+.home-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.letter {
+  color: #ffcc00;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+.moregames {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.moregames span {
+  color: #ffffff;
+  font-size: 1.2em;
+}
+
+.moregames a {
+  color: #ffcc00;
+  text-decoration: none;
+  font-size: 1.2em;
+  margin-left: 10px;
+}
+
+@media (max-width: 600px) {
+  .m-right h3 {
+    font-size: 1.5em;
+  }
+
+  .home-img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .letter {
+    font-size: 1em;
+  }
+}

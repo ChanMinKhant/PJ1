@@ -69,11 +69,11 @@ function Nav() {
               about us
             </Link>
           </li>
-          {/* <li>
-          <Link to='/store' onClick={toggleMenu}>
-            store
-          </Link>
-        </li> */}
+          <li>
+            <Link to='/services' onClick={toggleMenu}>
+              services
+            </Link>
+          </li>
         </ul>
         <div className='dropdown' onClick={toggleDropdown} ref={dropdownRef}>
           <i className='bi bi-person lgsu'></i>

@@ -38,51 +38,52 @@ const Login = () => {
       // Using toast to display error message
       toast.error(
         error.response.data.message ||
-          'An error occurred during login. Please try again.'
+          'An error occurred during login. Please try again.',
       );
     }
   };
 
   return (
     <>
-      <div className="l-form-box">
+      <div className='l-form-box'>
         <Nav />
-        <form onSubmit={handleSubmit} className="l-form">
+        <form onSubmit={handleSubmit} className='l-form'>
           <fieldset>
             <legend>
               <h1>Login</h1>
             </legend>
             <ul>
               <li>
-                <i className="bi bi-envelope"></i>
+                <i className='bi bi-envelope'></i>
                 <input
-                  type="text"
-                  id="email"
+                  type='text'
+                  id='email'
                   ref={emailRef}
-                  placeholder="Enter email"
+                  placeholder='Enter email'
                 />
               </li>
               <li>
-                <i className="bi bi-lock"></i>
+                <i className='bi bi-lock'></i>
                 <input
-                  type="password"
-                  id="password"
+                  type='password'
+                  id='password'
                   ref={passwordRef}
-                  placeholder="Enter password"
+                  placeholder='Enter password'
                 />
               </li>
+              <button type='submit' className='sub-btn'>
+                Login
+              </button>
             </ul>
-            <button type="submit" className="sub-btn">
-              Login
-            </button>
+
             <p>
               Don't have an account?
-              <Link to="/register" type="submit">
+              <Link to='/register' type='submit'>
                 Register
               </Link>
             </p>
             <p>
-              <Link to="/forgot-password">Forgot Password</Link>
+              <Link to='/forgot-password'>Forgot Password</Link>
             </p>
           </fieldset>
         </form>
